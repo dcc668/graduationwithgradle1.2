@@ -1,0 +1,79 @@
+
+超级管理员 admin/123
+
+CascadeType.DETACH，将所有级联设成 Detach（分离），即只更新当前对象，依赖对象不更新。
+CascadeType.MERGE，将所有级联设成 Merger,即同时更新当前对象和依赖对象。
+
+测试（插入数据的顺序）
+Test Teacher
+Test Major
+Test Reviewer
+
+Test Title
+Test TitleReview Infor
+Test Student
+
+
+
+
+create sequence SEQ_COURSE
+start with 1
+increment by 1
+minvalue 1
+nomaxvalue ;
+
+create sequence SEQ_MAJOR
+start with 1
+increment by 1
+minvalue 1
+nomaxvalue ;
+
+create sequence SEQ_PAPER
+start with 1
+increment by 1
+minvalue 1
+nomaxvalue ;
+
+create sequence SEQ_PROJECT
+start with 1
+increment by 1
+minvalue 1
+nomaxvalue ;
+
+create sequence SEQ_STUDENT
+start with 1
+increment by 1
+minvalue 1
+nomaxvalue ;
+
+create sequence SEQ_STUDENTCOURSE
+start with 1
+increment by 1
+minvalue 1
+nomaxvalue ;
+
+create sequence SEQ_TEACHER
+start with 1
+increment by 1
+minvalue 1
+nomaxvalue ;
+
+create sequence SEQ_TEACHERCOURSE
+start with 1
+increment by 1
+minvalue 1
+nomaxvalue ;
+
+create sequence SEQ_TEACHERPROJECT
+start with 1
+increment by 1
+minvalue 1
+nomaxvalue ;
+
+create sequence SEQ_TEACHERSTUDENT
+start with 1
+increment by 1
+minvalue 1
+nomaxvalue ;
+
+

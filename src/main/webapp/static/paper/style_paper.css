@@ -1,0 +1,179 @@
+/*媒体查询*/
+@media screen and (min-width: 1000px) {
+    .fixWidth {
+        width: 100%;
+    }
+    .row_1 {
+        width: 15%;
+    }
+    .row_2 {
+        width: 12%;
+        padding-left: 6px;
+    }
+    .row_3 {
+        width: 10%;
+        padding-left: 6px;
+    }
+    .row_4 {
+        width: 6%;
+        padding-left: 6px;
+    }
+    .row_5 {
+        width: 8%;
+        padding-left: 6px;
+    }
+    .row_6 {
+        width: 9%;
+        padding-left: 6px;
+    }
+    .row_7 {
+        width: 6%;
+        padding-left: 6px;
+    }
+    .row_8 {
+        width: 8%;
+        padding-left: 6px;
+    }
+    .row_9 {
+        width: 8%;
+        padding-left: 6px;
+    }
+    .row_10 {
+        width: 7%;
+        padding-left: 6px;
+    }
+    .row_11 {
+        width: 6%;
+    }
+}
+
+.row span{
+    display:block;
+    word-break:keep-all;/* 不换行 */
+    white-space:nowrap;/* 不换行 */
+    overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;
+}
+.row_1 span{
+    width: 150px;
+}
+.row_2 span{
+    width: 120px;
+}
+.row_3 span{
+    width: 100px;
+}
+.row_4 span{
+    width: 60px;
+}
+.row_5 span{
+    width: 80px;
+}
+.row_8 span{
+    width: 80px;
+}
+.row_6 span{
+    width: 90px;
+}
+.row_7 span{
+    width: 60px;
+}
+.row_9 span{
+    width: 80px;
+}
+.row_10 span{
+    width: 70px;
+}
+.row_11 input{
+    width: 60px;
+}
+/*工作量录入页面div行样式*/
+.row {
+    height: 35px;
+    border-bottom: solid 1px black;
+    font-size: 0.9em;
+}
+
+.radio_btn {
+    vertical-align: text-bottom;
+    width: 14px;
+    height: 14px;
+}
+input, select {
+    outline: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 15px;
+}
+.btn_group {
+    display: inline-block;
+    border-radius: 15px;
+    width: 90px;
+    height: 30px;
+    margin-top: 5px;
+    margin-left: 20px;
+    background-color: #0079f5;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 1px 0px 8px gray;
+}
+.btn_group:last-child {
+    width: 130px;
+    height: 30px;
+    margin-left: 20px;
+}
+.same {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    line-height: 20px !important;
+    box-shadow: 1px 0px 8px gray;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block !important;
+}
+/*行下div设置成单元格样式*/
+.row div {
+    line-height: 35px;
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+}
+
+.row_11 input{
+    display:inline-block;
+    width: 20px;
+    height:20px;
+    vertical-align: top;
+}
+.row_11 span{
+    display:inline-block;
+    width: 30px;
+    height:20px;
+    vertical-align: top;
+}
+.btn_group {
+    display: inline-block;
+    border-radius: 15px;
+    width: 70px;
+    height: 30px;
+    margin-top: 5px;
+    margin-left: 20px;
+    background-color: #0079f5;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 1px 0px 8px gray;
+}
+
+.add {
+    background-color: #0079f5;
+}
+
+.delete {
+    background-color: red;
+}

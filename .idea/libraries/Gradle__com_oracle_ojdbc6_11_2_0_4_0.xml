@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: com.oracle:ojdbc6:11.2.0.4.0">
+    <CLASSES>
+      <root url="jar://D:/LocalJarRepository_web1.2/com/oracle/ojdbc6/11.2.0.4.0/ojdbc6-11.2.0.4.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
