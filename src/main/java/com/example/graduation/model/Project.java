@@ -24,6 +24,8 @@ public class Project {
 	private Date prStartTime;
 	//拟定期限(天)
 	private int prDate;
+	//预算金额
+	private Double prPreMoney;
 	//经费金额
 	private Double prMoney;
 	//状态
@@ -94,5 +96,13 @@ public class Project {
 
 	public void setTeaPro(Set<TeacherProject> teaPro) {
 		this.teaPro = teaPro;
+	}
+
+	public Double getPrPreMoney() {
+		return prPreMoney;
+	}
+
+	public void setPrPreMoney(Double prPreMoney) {
+		this.prPreMoney = prPreMoney;
 	}
 }

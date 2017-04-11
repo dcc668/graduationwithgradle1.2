@@ -98,39 +98,46 @@ insert into t_teacher values(122710,'上海','140@163.com','张三','123','院长'，'4
 
 update t_paper set pahostunit='计通学院' where 1=1
 
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 select * from t_project;
+--预算金额
+alter table t_project drop column pr_premoney ;
+alter table t_project add(prpremoney float);
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------论文表-------------------------
 select * from   t_paper for update; 
 alter table t_paper modify(pastarttime datetime);
+select * from t_paper where substr(to_char(pastarttime,'yyyy-mm-dd'),0,4)='2016';
 
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1001,'计通学院','基于Gabor特征分解的高斯混合非线性过滤波器',3,'NO122791','科技通报','2016/4/11','SCI',122701);
+       values(1001,'计通学院','基于Gabor特征分解的高斯混合非线性过滤波器',3,'NO122791','科技通报',to_date('2016/4/11','yyyy-mm-dd'),'SCI',122701);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1002,'计通学院','计算机虚拟现实技术在包装设计中的应用',3,'NO122791','中国软科学','2011/4/11','EI',122701);
+       values(1002,'计通学院','计算机虚拟现实技术在包装设计中的应用',3,'NO122791','中国软科学',to_date('2011/4/11','yyyy-mm-dd'),'EI',122701);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1003,'计通学院','计算机软件开发语言与分层技术的运用之研究',3,'NO122791','软件导刊','2016/4/11','ISTP',122701);    
+       values(1003,'计通学院','计算机软件开发语言与分层技术的运用之研究',3,'NO122791','软件导刊',to_date('2016/4/11','yyyy-mm-dd'),'ISTP',122701);    
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1004,'计通学院','基于计算思维的模拟电子技术实验课程教学研究',3,'NO122791','软件导刊','2016/4/11','SSCI',122702);
+       values(1004,'计通学院','基于计算思维的模拟电子技术实验课程教学研究',3,'NO122791','软件导刊',to_date('2010/4/11','yyyy-mm-dd'),'SSCI',122702);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1005,'计通学院','C语言自增（自减）运算符运算规律的探讨',3,'NO122791','中国乡镇企业会计','2015/4/11','CSCD',122702);
+       values(1005,'计通学院','C语言自增（自减）运算符运算规律的探讨',3,'NO122791','中国乡镇企业会计',to_date('2015/4/11','yyyy-mm-dd'),'CSCD',122702);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1006,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究','2015/4/11','SCI',122702);       
+       values(1006,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究',to_date('2015/4/11','yyyy-mm-dd'),'SCI',122702);       
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1007,'计通学院','基于Haltion序列的面板数据Biproit模型估计及其应用',3,'NO122791','数学的实践与认识','2015/4/11','EI',122703);
+       values(1007,'计通学院','基于Haltion序列的面板数据Biproit模型估计及其应用',3,'NO122791','数学的实践与认识',to_date('2015/4/11','yyyy-mm-dd'),'EI',122703);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1008,'计通学院','混频数据回归模型的分析技术及其应用',3,'NO122791','中国乡镇企业会计','2015/4/11','ISTP',122703);
+       values(1008,'计通学院','混频数据回归模型的分析技术及其应用',3,'NO122791','中国乡镇企业会计',to_date('2015/4/11','yyyy-mm-dd'),'ISTP',122703);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1009,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究','2014/4/11','SSCI',122703);      
+       values(1009,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究',to_date('2014/4/11','yyyy-mm-dd'),'SSCI',122703);      
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1010,'计通学院','计算机软件开发语言与分层技术的运用之研究',3,'NO122791','现代计算机','2011/4/11','SSCI',122703);      
+       values(1010,'计通学院','计算机软件开发语言与分层技术的运用之研究',3,'NO122791','现代计算机',to_date('2011/4/11','yyyy-mm-dd'),'SSCI',122703);      
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1011,'计通学院','基于云计算的教学资源共享系统建设研究',3,'NO122791','现代计算机','2014/4/11','CSCD',122704);
+       values(1011,'计通学院','基于云计算的教学资源共享系统建设研究',3,'NO122791','现代计算机',to_date('2014/4/11','yyyy-mm-dd'),'CSCD',122704);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1012,'计通学院','Cauchy核中多复变微分方程自回归线性解初值问题',3,'NO122791','科技通报','2014/4/11','SCI',122704);
+       values(1012,'计通学院','Cauchy核中多复变微分方程自回归线性解初值问题',3,'NO122791','科技通报',to_date('2014/4/11','yyyy-mm-dd'),'SCI',122704);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1013,'计通学院','学籍管理对高校档案管理的重要性浅谈',3,'NO122791','课程教育研究','2013/4/11','EI',122704);      
+       values(1013,'计通学院','学籍管理对高校档案管理的重要性浅谈',3,'NO122791','课程教育研究',to_date('2013/4/11','yyyy-mm-dd'),'EI',122704);      
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1014,'计通学院','计算机虚拟现实技术在包装设计中的应用',3,'NO122791','能源环境保护','2013/4/11','ISTP',122705);
+       values(1014,'计通学院','计算机虚拟现实技术在包装设计中的应用',3,'NO122791','能源环境保护',to_date('2013/4/11','yyyy-mm-dd'),'ISTP',122705);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
        values(1015,'计通学院','Study on the Performance and Routing Algorithm of Wireless Sensor Networks',3,'NO122791','Journal of Computational Information Systems','2012/4/11','SSCI',122705);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
@@ -138,38 +145,38 @@ insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicati
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
        values(1017,'计通学院','基于SLBS移动商务平台模式的分析',3,'NO122791','上海商学院学报','2012/4/11','SCI',122705);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1018,'计通学院','词切分对蒙语阅读影响的眼动研究',3,'NO122791','科技通报','2011/4/11','EI',122706);
+       values(1018,'计通学院','词切分对蒙语阅读影响的眼动研究',3,'NO122791','科技通报',to_date('2011/4/11','yyyy-mm-dd'),'EI',122706);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1019,'计通学院','Simulation of Pedestrian Evacuation Based on the Propagation of Pedestrian Flow',3,'NO122791','CICTP 2015','2011/4/11','ISTP',122706);      
+       values(1019,'计通学院','Simulation of Pedestrian Evacuation Based on the Propagation of Pedestrian Flow',3,'NO122791','CICTP 2015',to_date('2011/4/11','yyyy-mm-dd'),'ISTP',122706);      
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1020,'计通学院','Distrbuted finite-time consensus tracing control for second-order nonolinear multi-agent systems',3,'NO122791','CICTP 2015','2011/4/11','SSCI',122707);      
+       values(1020,'计通学院','Distrbuted finite-time consensus tracing control for second-order nonolinear multi-agent systems',3,'NO122791','CICTP 2015',to_date('2011/4/11','yyyy-mm-dd'),'SSCI',122707);      
 
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1021,'计通学院','基于Gabor特征分解的高斯混合非线性过滤波器',3,'NO122791','科技通报','2016/4/11','CSCD',122707);
+       values(1021,'计通学院','基于Gabor特征分解的高斯混合非线性过滤波器',3,'NO122791','科技通报',to_date('2016/4/11','yyyy-mm-dd'),'CSCD',122707);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1022,'计通学院','计算机软件开发语言与分层技术的运用之研究',3,'NO122791','中国软科学','2011/4/11','EI',122708);
+       values(1022,'计通学院','计算机软件开发语言与分层技术的运用之研究',3,'NO122791','中国软科学',to_date('2011/4/11','yyyy-mm-dd'),'EI',122708);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1023,'计通学院','基于计算思维的模拟电子技术实验课程教学研究',3,'NO122791','软件导刊','2016/4/11','SCI',122708);    
+       values(1023,'计通学院','基于计算思维的模拟电子技术实验课程教学研究',3,'NO122791','软件导刊',to_date('2016/4/11','yyyy-mm-dd'),'SCI',122708);    
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1024,'计通学院','基于云计算的教学资源共享系统建设研究',3,'NO122791','软件导刊','2016/4/11','ISTP',122708);
+       values(1024,'计通学院','基于云计算的教学资源共享系统建设研究',3,'NO122791','软件导刊',to_date('2016/4/11','yyyy-mm-dd'),'ISTP',122708);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1025,'计通学院','EUETS二氧化碳价格决定因素文献综述',3,'NO122791','中国乡镇企业会计','2015/4/11','SSCI',122709);
+       values(1025,'计通学院','EUETS二氧化碳价格决定因素文献综述',3,'NO122791','中国乡镇企业会计',to_date('2015/4/11','yyyy-mm-dd'),'SSCI',122709);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1026,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究','2015/4/11','SCI',122709);       
+       values(1026,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究',to_date('2015/4/11','yyyy-mm-dd'),'SCI',122709);       
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1027,'计通学院','基于Haltion序列的面板数据Biproit模型估计及其应用',3,'NO122791','数学的实践与认识','2015/4/11','SCI',122710);
+       values(1027,'计通学院','基于Haltion序列的面板数据Biproit模型估计及其应用',3,'NO122791','数学的实践与认识',to_date('2015/4/11','yyyy-mm-dd'),'SCI',122710);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1028,'计通学院','混频数据回归模型的分析技术及其应用',3,'NO122791','中国乡镇企业会计','2015/4/11','ISTP',122710);
+       values(1028,'计通学院','混频数据回归模型的分析技术及其应用',3,'NO122791','中国乡镇企业会计',to_date('2015/4/11','yyyy-mm-dd'),'ISTP',122710);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1029,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究','2014/4/11','SCI',122710);      
+       values(1029,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究',to_date('2014/4/11','yyyy-mm-dd'),'SCI',122710);      
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1030,'计通学院','基于云计算的教学资源共享系统建设研究',3,'NO122791','现代计算机','2014/4/11','SCI',122701);
+       values(1030,'计通学院','基于云计算的教学资源共享系统建设研究',3,'NO122791','现代计算机',to_date('2014/4/11','yyyy-mm-dd'),'SCI',122701);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1031,'计通学院','Cauchy核中多复变微分方程自回归线性解初值问题',3,'NO122791','科技通报','2014/4/11','SCI',122701);
+       values(1031,'计通学院','Cauchy核中多复变微分方程自回归线性解初值问题',3,'NO122791','科技通报',to_date('2014/4/11','yyyy-mm-dd'),'SCI',122701);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1032,'计通学院','学籍管理对高校档案管理的重要性浅谈',3,'NO122791','软件导刊','2013/4/11','ISTP',122703);      
+       values(1032,'计通学院','学籍管理对高校档案管理的重要性浅谈',3,'NO122791','软件导刊',to_date('2013/4/11','yyyy-mm-dd'),'ISTP',122703);      
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1033,'计通学院','RS技术在矿区地表沉陷监测中的研究进展',3,'NO122791','软件导刊','2013/4/11','SCI',122703);
+       values(1033,'计通学院','RS技术在矿区地表沉陷监测中的研究进展',3,'NO122791','软件导刊',to_date('2013/4/11','yyyy-mm-dd'),'SCI',122703);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
        values(1034,'计通学院','Study on the Performance and Routing Algorithm of Wireless Sensor Networks',3,'NO122791','Journal of Computational Information Systems','2012/4/11','SCI',122705);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
@@ -177,38 +184,38 @@ insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicati
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
        values(1036,'计通学院','计算机虚拟现实技术在包装设计中的应用',3,'NO122791','上海商学院学报','2012/4/11','SCI',122705);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1037,'计通学院','词切分对蒙语阅读影响的眼动研究',3,'NO122791','科技通报','2011/4/11','SCI',122705);
+       values(1037,'计通学院','词切分对蒙语阅读影响的眼动研究',3,'NO122791','科技通报',to_date('2011/4/11','yyyy-mm-dd'),'SCI',122705);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1038,'计通学院','Simulation of Pedestrian Evacuation Based on the Propagation of Pedestrian Flow',3,'NO122791','CICTP 2015','2011/4/11','SCI',122707);      
+       values(1038,'计通学院','Simulation of Pedestrian Evacuation Based on the Propagation of Pedestrian Flow',3,'NO122791','CICTP 2015',to_date('2011/4/11','yyyy-mm-dd'),'SCI',122707);      
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1039,'计通学院','Distrbuted finite-time consensus tracing control for second-order nonolinear multi-agent systems',3,'NO122791','CICTP 2015','2011/4/11','SCI',122707);      
+       values(1039,'计通学院','Distrbuted finite-time consensus tracing control for second-order nonolinear multi-agent systems',3,'NO122791','CICTP 2015',to_date('2011/4/11','yyyy-mm-dd'),'SCI',122707);      
      
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1040,'计通学院','基于Gabor特征分解的高斯混合非线性过滤波器',3,'NO122791','科技通报','2016/4/11','SCI',122709);
+       values(1040,'计通学院','基于Gabor特征分解的高斯混合非线性过滤波器',3,'NO122791','科技通报',to_date('2016/4/11','yyyy-mm-dd'),'SCI',122709);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1041,'计通学院','计算机软件开发语言与分层技术的运用之研究',3,'NO122791','中国软科学','2011/4/11','EI',122709);
+       values(1041,'计通学院','计算机软件开发语言与分层技术的运用之研究',3,'NO122791','中国软科学',to_date('2011/4/11','yyyy-mm-dd'),'EI',122709);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1042,'计通学院','基于计算思维的模拟电子技术实验课程教学研究',3,'NO122791','兰台世界','2016/4/11','SCI',122709);    
+       values(1042,'计通学院','基于计算思维的模拟电子技术实验课程教学研究',3,'NO122791','兰台世界',to_date('2016/4/11','yyyy-mm-dd'),'SCI',122709);    
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1043,'计通学院','网络模式下农家乐营销思路的探索',3,'NO122791','中国统计','2016/4/11','EI',122710);
+       values(1043,'计通学院','网络模式下农家乐营销思路的探索',3,'NO122791','中国统计',to_date('2016/4/11','yyyy-mm-dd'),'EI',122710);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1044,'计通学院','探究C++面向对象程序设计的几点思考',3,'NO122791','中国乡镇企业会计','2015/4/11','SSCI',122710);
+       values(1044,'计通学院','探究C++面向对象程序设计的几点思考',3,'NO122791','中国乡镇企业会计',to_date('2015/4/11','yyyy-mm-dd'),'SSCI',122710);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1045,'计通学院','应用型本科院校网络工程专业课程群建设探索',3,'NO122791','物权法疑难问题研究','2014/4/11','SCI',122703);        
+       values(1045,'计通学院','应用型本科院校网络工程专业课程群建设探索',3,'NO122791','物权法疑难问题研究',to_date('2014/4/11','yyyy-mm-dd'),'SCI',122703);        
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1046,'计通学院','基于Haltion序列的面板数据Biproit模型估计及其应用',3,'NO122791','数学的实践与认识','2015/4/11','SCI',122702);
+       values(1046,'计通学院','基于Haltion序列的面板数据Biproit模型估计及其应用',3,'NO122791','数学的实践与认识',to_date('2015/4/11','yyyy-mm-dd'),'SCI',122702);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1047,'计通学院','混频数据回归模型的分析技术及其应用',3,'NO122791','中国乡镇企业会计','2011/4/11','SCI',122702);
+       values(1047,'计通学院','混频数据回归模型的分析技术及其应用',3,'NO122791','中国乡镇企业会计',to_date('2011/4/11','yyyy-mm-dd'),'SCI',122702);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1048,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究','2014/4/11','SCI',122704);      
+       values(1048,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究',to_date('2014/4/11','yyyy-mm-dd'),'SCI',122704);      
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1049,'计通学院','网络模式下农家乐营销思路的探索',3,'NO122791','现代计算机','2014/4/11','SCI',122704);
+       values(1049,'计通学院','网络模式下农家乐营销思路的探索',3,'NO122791','现代计算机',to_date('2014/4/11','yyyy-mm-dd'),'SCI',122704);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1050,'计通学院','Cauchy核中多复变微分方程自回归线性解初值问题',3,'NO122791','科技通报','2014/4/11','SCI',122706);
+       values(1050,'计通学院','Cauchy核中多复变微分方程自回归线性解初值问题',3,'NO122791','科技通报',to_date('2014/4/11','yyyy-mm-dd'),'SCI',122706);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1051,'计通学院','学籍管理对高校档案管理的重要性浅谈',3,'NO122791','课程教育研究','2011/4/11','SCI',122706);      
+       values(1051,'计通学院','学籍管理对高校档案管理的重要性浅谈',3,'NO122791','课程教育研究',to_date('2011/4/11','yyyy-mm-dd'),'SCI',122706);      
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1052,'计通学院','RS技术在矿区地表沉陷监测中的研究进展',3,'NO122791','能源环境保护','2011/4/11','SCI',122706);
+       values(1052,'计通学院','RS技术在矿区地表沉陷监测中的研究进展',3,'NO122791','能源环境保护',to_date('2011/4/11','yyyy-mm-dd'),'SCI',122706);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
        values(1053,'计通学院','Study on the Performance and Routing Algorithm of Wireless Sensor Networks',3,'NO122791','Journal of Computational Information Systems','2012/4/11','SCI',122706);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
@@ -216,13 +223,140 @@ insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicati
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
        values(1055,'计通学院','网络模式下农家乐营销思路的探索',3,'NO122791','上海商学院学报','2012/4/11','SCI',122708);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1056,'计通学院','词切分对蒙语阅读影响的眼动研究',3,'NO122791','科技通报','2011/4/11','SCI',1227001);
+       values(1056,'计通学院','词切分对蒙语阅读影响的眼动研究',3,'NO122791','科技通报',to_date('2011/4/11','yyyy-mm-dd'),'SCI',122701);
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1057,'计通学院','Simulation of Pedestrian Evacuation Based on the Propagation of Pedestrian Flow',3,'NO122791','CICTP 2015','2011/4/11','SCI',1227001);      
+       values(1057,'计通学院','Simulation of Pedestrian Evacuation Based on the Propagation of Pedestrian Flow',3,'NO122791','CICTP 2015',to_date('2011/4/11','yyyy-mm-dd'),'SCI',122701);      
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
-       values(1058,'计通学院','Distrbuted finite-time consensus tracing control for second-order nonolinear multi-agent systems',3,'NO122791','CICTP 2015','2011/4/11','SCI',1227001);      
+       values(1058,'计通学院','Distrbuted finite-time consensus tracing control for second-order nonolinear multi-agent systems',3,'NO122791','CICTP 2015',to_date('2011/4/11','yyyy-mm-dd'),'SCI',122701);      
      
                       
+  
+       
+       
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1059,'计通学院','基于Gabor特征分解的高斯混合非线性过滤波器',3,'NO122791','科技通报',convert(pastarttime,to_date('2005/4/11','yyyy-mm-dd'),121),'SCI',122702)
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1060,'计通学院','计算机虚拟现实技术在包装设计中的应用',3,'NO122791','中国软科学',to_date('2009/4/11','yyyy-mm-dd'),'EI',122702);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1061,'计通学院','计算机软件开发语言与分层技术的运用之研究',3,'NO122791','软件导刊',to_date('2010/4/11','yyyy-mm-dd'),'ISTP',122702);    
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1062,'计通学院','基于计算思维的模拟电子技术实验课程教学研究',3,'NO122791','软件导刊',to_date('2010/4/11','yyyy-mm-dd'),'SSCI',122702);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1063,'计通学院','C语言自增（自减）运算符运算规律的探讨',3,'NO122791','中国乡镇企业会计',to_date('2006/4/11','yyyy-mm-dd'),'CSCD',122702);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1064,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究',to_date('2006/4/11','yyyy-mm-dd'),'SCI',122702);       
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1065,'计通学院','基于Haltion序列的面板数据Biproit模型估计及其应用',3,'NO122791','数学的实践与认识',to_date('2006/4/11','yyyy-mm-dd'),'EI',122704);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1066,'计通学院','混频数据回归模型的分析技术及其应用',3,'NO122791','中国乡镇企业会计',to_date('2006/4/11','yyyy-mm-dd'),'ISTP',122704);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1067,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究',to_date('2006/4/11','yyyy-mm-dd'),'SSCI',122704);      
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1068,'计通学院','计算机软件开发语言与分层技术的运用之研究',3,'NO122791','现代计算机',to_date('2009/4/11','yyyy-mm-dd'),'SSCI',122704);      
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1069,'计通学院','基于云计算的教学资源共享系统建设研究',3,'NO122791','现代计算机',to_date('2006/4/11','yyyy-mm-dd'),'CSCD',122703);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1070,'计通学院','Cauchy核中多复变微分方程自回归线性解初值问题',3,'NO122791','科技通报',to_date('2006/4/11','yyyy-mm-dd'),'SCI',122703);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1071,'计通学院','学籍管理对高校档案管理的重要性浅谈',3,'NO122791','课程教育研究',to_date('2007/4/11','yyyy-mm-dd'),'EI',122703);      
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1072,'计通学院','计算机虚拟现实技术在包装设计中的应用',3,'NO122791','能源环境保护',to_date('2007/4/11','yyyy-mm-dd'),'ISTP',122706);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1073,'计通学院','Study on the Performance and Routing Algorithm of Wireless Sensor Networks',3,'NO122791','Journal of Computational Information Systems',to_date('2008/4/11','yyyy-mm-dd'),'SSCI',122706);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1074,'计通学院','基于云计算的教学资源共享系统建设研究',3,'NO122791','物权法疑难问题研究',to_date('2008/4/11','yyyy-mm-dd'),'CSCD',122706);      
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1075,'计通学院','基于SLBS移动商务平台模式的分析',3,'NO122791','上海商学院学报',to_date('2008/4/11','yyyy-mm-dd'),'SCI',122706);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1076,'计通学院','词切分对蒙语阅读影响的眼动研究',3,'NO122791','科技通报',to_date('2009/4/11','yyyy-mm-dd'),'EI',122705);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1077,'计通学院','Simulation of Pedestrian Evacuation Based on the Propagation of Pedestrian Flow',3,'NO122791','CICTP 2006',to_date('2009/4/11','yyyy-mm-dd'),'ISTP',122705);      
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1078,'计通学院','Distrbuted finite-time consensus tracing control for second-order nonolinear multi-agent systems',3,'NO122791','CICTP 2006',to_date('2009/4/11','yyyy-mm-dd'),'SSCI',122708);      
+
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1079,'计通学院','基于Gabor特征分解的高斯混合非线性过滤波器',3,'NO122791','科技通报',to_date('2005/4/11','yyyy-mm-dd'),'CSCD',122708);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1080,'计通学院','计算机软件开发语言与分层技术的运用之研究',3,'NO122791','中国软科学',to_date('2009/4/11','yyyy-mm-dd'),'EI',122707);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1081,'计通学院','基于计算思维的模拟电子技术实验课程教学研究',3,'NO122791','软件导刊',to_date('2010/4/11','yyyy-mm-dd'),'SCI',122707);    
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1082,'计通学院','基于云计算的教学资源共享系统建设研究',3,'NO122791','软件导刊',to_date('2005/4/11','yyyy-mm-dd'),'ISTP',122707);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1083,'计通学院','EUETS二氧化碳价格决定因素文献综述',3,'NO122791','中国乡镇企业会计',to_date('2006/4/11','yyyy-mm-dd'),'SSCI',122710);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1084,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究',to_date('2006/4/11','yyyy-mm-dd'),'SCI',122710);       
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1085,'计通学院','基于Haltion序列的面板数据Biproit模型估计及其应用',3,'NO122791','数学的实践与认识',to_date('2006/4/11','yyyy-mm-dd'),'SCI',122709);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1086,'计通学院','混频数据回归模型的分析技术及其应用',3,'NO122791','中国乡镇企业会计',to_date('2006/4/11','yyyy-mm-dd'),'ISTP',122709);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1087,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究',to_date('2006/4/11','yyyy-mm-dd'),'SCI',122709);      
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1088,'计通学院','基于云计算的教学资源共享系统建设研究',3,'NO122791','现代计算机',to_date('2006/4/11','yyyy-mm-dd'),'SCI',122702);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1089,'计通学院','Cauchy核中多复变微分方程自回归线性解初值问题',3,'NO122791','科技通报',to_date('2006/4/11','yyyy-mm-dd'),'SCI',122702);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1090,'计通学院','学籍管理对高校档案管理的重要性浅谈',3,'NO122791','软件导刊',to_date('2007/4/11','yyyy-mm-dd'),'ISTP',122704);      
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1091,'计通学院','RS技术在矿区地表沉陷监测中的研究进展',3,'NO122791','软件导刊',to_date('2007/4/11','yyyy-mm-dd'),'SCI',122704);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1092,'计通学院','Study on the Performance and Routing Algorithm of Wireless Sensor Networks',3,'NO122791','Journal of Computational Information Systems',to_date('2008/4/11','yyyy-mm-dd'),'SCI',122706);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1093,'计通学院','应用型本科院校网络工程专业课程群建设探索',3,'NO122791','物权法疑难问题研究',to_date('2008/4/11','yyyy-mm-dd'),'SCI',122706);      
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1094,'计通学院','计算机虚拟现实技术在包装设计中的应用',3,'NO122791','上海商学院学报',to_date('2008/4/11','yyyy-mm-dd'),'SCI',122706);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1095,'计通学院','词切分对蒙语阅读影响的眼动研究',3,'NO122791','科技通报',to_date('2009/4/11','yyyy-mm-dd'),'SCI',122706);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1096,'计通学院','Simulation of Pedestrian Evacuation Based on the Propagation of Pedestrian Flow',3,'NO122791','CICTP 2006',to_date('2009/4/11','yyyy-mm-dd'),'SCI',122708);      
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1097,'计通学院','Distrbuted finite-time consensus tracing control for second-order nonolinear multi-agent systems',3,'NO122791','CICTP 2006',to_date('2009/4/11','yyyy-mm-dd'),'SCI',122708);      
+     
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1098,'计通学院','基于Gabor特征分解的高斯混合非线性过滤波器',3,'NO122791','科技通报',to_date('2010/4/11','yyyy-mm-dd'),'SCI',122710);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1099,'计通学院','计算机软件开发语言与分层技术的运用之研究',3,'NO122791','中国软科学',to_date('2009/4/11','yyyy-mm-dd'),'EI',122710);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1100,'计通学院','基于计算思维的模拟电子技术实验课程教学研究',3,'NO122791','兰台世界',to_date('2010/4/11','yyyy-mm-dd'),'SCI',122710);    
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1101,'计通学院','网络模式下农家乐营销思路的探索',3,'NO122791','中国统计',to_date('2010/4/11','yyyy-mm-dd'),'EI',122709);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1102,'计通学院','探究C++面向对象程序设计的几点思考',3,'NO122791','中国乡镇企业会计',to_date('2006/4/11','yyyy-mm-dd'),'SSCI',122709);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1103,'计通学院','应用型本科院校网络工程专业课程群建设探索',3,'NO122791','物权法疑难问题研究',to_date('2006/4/11','yyyy-mm-dd'),'SCI',122704);        
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1104,'计通学院','基于Haltion序列的面板数据Biproit模型估计及其应用',3,'NO122791','数学的实践与认识',to_date('2006/4/11','yyyy-mm-dd'),'SCI',122702);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1105,'计通学院','混频数据回归模型的分析技术及其应用',3,'NO122791','中国乡镇企业会计',to_date('2009/4/11','yyyy-mm-dd'),'SCI',122702);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1106,'计通学院','基于MRS-GARCH模型的我国黄金价格波动',3,'NO122791','财经理论研究',to_date('2006/4/11','yyyy-mm-dd'),'SCI',122703);      
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1107,'计通学院','网络模式下农家乐营销思路的探索',3,'NO122791','现代计算机',to_date('2006/4/11','yyyy-mm-dd'),'SCI',122703);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1108,'计通学院','Cauchy核中多复变微分方程自回归线性解初值问题',3,'NO122791','科技通报',to_date('2006/4/11','yyyy-mm-dd'),'SCI',122705);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1109,'计通学院','学籍管理对高校档案管理的重要性浅谈',3,'NO122791','课程教育研究',to_date('2009/4/11','yyyy-mm-dd'),'SCI',122705);      
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1110,'计通学院','RS技术在矿区地表沉陷监测中的研究进展',3,'NO122791','能源环境保护',to_date('2009/4/11','yyyy-mm-dd'),'SCI',122705);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1111,'计通学院','Study on the Performance and Routing Algorithm of Wireless Sensor Networks',3,'NO122791','Journal of Computational Information Systems',to_date('2008/4/11','yyyy-mm-dd'),'SCI',122705);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1112,'计通学院','探究C++面向对象程序设计的几点思考',3,'NO122791','物权法疑难问题研究',to_date('2008/4/11','yyyy-mm-dd'),'SCI',122707);      
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1113,'计通学院','网络模式下农家乐营销思路的探索',3,'NO122791','上海商学院学报',to_date('2008/4/11','yyyy-mm-dd'),'SCI',122707);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1114,'计通学院','词切分对蒙语阅读影响的眼动研究',3,'NO122791','科技通报',to_date('2009/4/11','yyyy-mm-dd'),'SCI',122701);
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1115,'计通学院','Simulation of Pedestrian Evacuation Based on the Propagation of Pedestrian Flow',3,'NO122791','CICTP 2006',to_date('2009/4/11','yyyy-mm-dd'),'SCI',122701);      
+insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
+       values(1116,'计通学院','Distrbuted finite-time consensus tracing control for second-order nonolinear multi-agent systems',3,'NO122791','CICTP 2006',to_date('2009/4/11','yyyy-mm-dd'),'SCI',122701);      
+     
+                      
+
+
+
+
 
               
        
@@ -230,7 +364,14 @@ insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicati
 --alter table t_paper add(filePath varchar2(20),mark varchar2(20));
 --Alter Table t_paper modify(filepath varchar2(120));
 --alter Table t_paper modify(mark varchar2(120));
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 select * from t_teacher_project;
+
+
+
+
 select * from t_teacher_course for update;
 select * from t_teacher_project;
 select * from t_teacher_student;

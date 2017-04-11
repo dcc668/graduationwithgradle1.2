@@ -430,9 +430,8 @@ public class PaperController {
     public String paperStatistcsView(Model model){
         return "/paper/paperStatisticsView";
     }
-    @RequestMapping(name="/paperStatistcsAjax")
+    @RequestMapping("/paperStatistcsAjax")
     public void paperStatistcsAjax(HttpServletResponse res){
-        System.out.println("====================================");
         //统计的年份
         String []years= new String[]{"2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016"};
         //索引期刊索引
@@ -452,12 +451,18 @@ public class PaperController {
         String yearJson = Arrays.toString(years);
         String indexJson = JSONObject.toJSONString(indexs);
         PrintWriter writer = null;
+        JSONObject json=new JSONObject();
+            json.put("years",yearJson);
+            json.put("idxs",indexJson);
+        System.out.println("===================================="+json.toJSONString());
         try {
             writer = res.getWriter();
-            writer.write(indexJson);
+            writer.write(json.toJSONString());
             writer.flush();
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            writer.close();
         }
     }
 }
