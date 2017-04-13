@@ -1,4 +1,11 @@
 
+input{
+    word-break:keep-all;/* 不换行 */
+    white-space:nowrap;/* 不换.行 */
+    overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;
+    text-align: center;
+}
 @media screen and (min-width: 1000px) {
     .table_report {
         width: 100%;
@@ -28,7 +35,7 @@
     width: 1%;
 }
 .col_read_2{
-    width: 26%;
+    width: 20%;
 }
 .col_read_3{
     width: 9%;
@@ -55,18 +62,19 @@
     width: 9%;
 }
 .col_read_11{
-    width: 6%;
+    width: 12%;
 }
 
-.col_3 input{
+.col_3 input,.col_4 input,.col_5 input,.col_6 input{
     height: 100%;
     width: 100%;
+    border:none;
 }
 
 .table_report{
     border-collapse: collapse;
     width: 100%;
-    height: 22px;
+    /*height: 22px;*/
 }
 .table_report tr td,
 .table_report tr,
@@ -89,7 +97,7 @@
 }
 
 .table_read td,.table_report td:not(.col_1){
-    height: 22px;
+    /*height: 22px;*/
     word-break:keep-all;/* 不换行 */
     white-space:nowrap;/* 不换.行 */
     overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
@@ -138,14 +146,14 @@
     position: fixed;
     z-index: 1002;
     height: 230px;
-    width: 300px;
+    width: 310px;
 }
 #modal-title {
     background-color: #ddd;
     border-bottom: 1px solid #ccc;
     color: #000;
     font-weight: bold;
-    padding-left: 20px;
+    padding-left: 10px;
     padding-top: 5px;
     text-shadow: 0 1px 0 #f4f4f4;
     font-size: 12px;
