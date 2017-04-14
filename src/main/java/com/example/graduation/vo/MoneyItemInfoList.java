@@ -8,7 +8,7 @@ import java.util.List;
  * 经费使用明细
  */
 public class MoneyItemInfoList {
-    private List<MoneyItemInfo> items=new ArrayList<>();
+    public List<MoneyItemInfo> items=new ArrayList<>();
 
     public List<MoneyItemInfo> getItems() {
         return items;
@@ -17,4 +17,5 @@ public class MoneyItemInfoList {
     public void setItems(List<MoneyItemInfo> items) {
         this.items = items;
     }
+
 }

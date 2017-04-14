@@ -1,101 +1,126 @@
 
 package com.example.graduation.vo;
 
-import com.example.graduation.model.Teacher;
-
 import java.util.Date;
-import java.util.List;
 
 public class ProjectInfo {
-	//项目ID
-	private Integer pr_id;
+	private Integer prId;
 	//项目名称
-	private String pr_name;
+	private String prName;
 	//项目来源
-	private String pr_source;
-	//负责人
-	private Integer te_id;
-	//项目成员
-	private List<Teacher> memos;
+	private String prSource;
+	//负责人工号
+	private Integer teId;
 	//立项时间
-	private Date pr_startTime;
-	//拟定期限
-	private Date date;
+	private Date prStartTime;
+	//实际完成时间
+	private Date prEndTime;
+	//拟定期限(天)
+	private int prDate;
+	//课题总额(申请到的金额)
+	private Double prUsefulMoney;
+	//预算金额
+	private Double prPreMoney;
 	//经费金额
-	private Double pr_money;
+	private Double prMoney;
+	//成果简介
+	private String prResultInfo;
 	//状态
-	private String pr_state;
+	private String prState;
 
-
-	public Integer getPr_id() {
-		return pr_id;
+	public Integer getPrId() {
+		return prId;
 	}
 
-	public void setPr_id(Integer pr_id) {
-		this.pr_id = pr_id;
+	public void setPrId(Integer prId) {
+		this.prId = prId;
 	}
 
-	public String getPr_name() {
-		return pr_name;
+	public String getPrName() {
+		return prName;
 	}
 
-	public void setPr_name(String pr_name) {
-		this.pr_name = pr_name;
+	public void setPrName(String prName) {
+		this.prName = prName;
 	}
 
-	public String getPr_source() {
-		return pr_source;
+	public String getPrSource() {
+		return prSource;
 	}
 
-	public void setPr_source(String pr_source) {
-		this.pr_source = pr_source;
+	public void setPrSource(String prSource) {
+		this.prSource = prSource;
 	}
 
-	public Integer getTe_id() {
-		return te_id;
+	public Integer getTeId() {
+		return teId;
 	}
 
-	public void setTe_id(Integer te_id) {
-		this.te_id = te_id;
+	public void setTeId(Integer teId) {
+		this.teId = teId;
 	}
 
-	public Date getPr_startTime() {
-		return pr_startTime;
+	public Date getPrStartTime() {
+		return prStartTime;
 	}
 
-	public void setPr_startTime(Date pr_startTime) {
-		this.pr_startTime = pr_startTime;
+	public void setPrStartTime(Date prStartTime) {
+		this.prStartTime = prStartTime;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getPrEndTime() {
+		return prEndTime;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setPrEndTime(Date prEndTime) {
+		this.prEndTime = prEndTime;
 	}
 
-	public Double getPr_money() {
-		return pr_money;
+	public int getPrDate() {
+		return prDate;
 	}
 
-	public void setPr_money(Double pr_money) {
-		this.pr_money = pr_money;
+	public void setPrDate(int prDate) {
+		this.prDate = prDate;
 	}
 
-	public String getPr_state() {
-		return pr_state;
+	public Double getPrUsefulMoney() {
+		return prUsefulMoney;
 	}
 
-	public void setPr_state(String pr_state) {
-		this.pr_state = pr_state;
+	public void setPrUsefulMoney(Double prUsefulMoney) {
+		this.prUsefulMoney = prUsefulMoney;
 	}
 
-	public List<Teacher> getMemos() {
-		return memos;
+	public Double getPrPreMoney() {
+		return prPreMoney;
 	}
 
-	public void setMemos(List<Teacher> memos) {
-		this.memos = memos;
+	public void setPrPreMoney(Double prPreMoney) {
+		this.prPreMoney = prPreMoney;
+	}
+
+	public Double getPrMoney() {
+		return prMoney;
+	}
+
+	public void setPrMoney(Double prMoney) {
+		this.prMoney = prMoney;
+	}
+
+	public String getPrResultInfo() {
+		return prResultInfo;
+	}
+
+	public void setPrResultInfo(String prResultInfo) {
+		this.prResultInfo = prResultInfo;
+	}
+
+	public String getPrState() {
+		return prState;
+	}
+
+	public void setPrState(String prState) {
+		this.prState = prState;
 	}
 }

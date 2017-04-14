@@ -15,13 +15,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<%--<link rel="stylesheet" type="text/css" href="${basePath}/static/style_common.css">--%>
   </head>
   <body>
-  <input type="hidden" id="years" value="${years}"/>
+  <input type="hidden" id="years" value="${years}"/>s
   <input type="hidden" id="indexs" value="${idxs}"/>
   <div style="text-align: center;"><h1>年度论文统计</h1></div>
-  <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>;
+  <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
   </body>
   <script type="text/javascript" src="${basePath}/static/jquery-1.11.3.min.js"></script>

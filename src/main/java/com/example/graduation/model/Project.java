@@ -20,18 +20,30 @@ public class Project {
 	private String prName;
 	//项目来源
 	private String prSource;
+	//负责人工号
+	private Integer teId;
 	//立项时间
 	private Date prStartTime;
+	//实际完成时间
+	private Date prEndTime;
 	//拟定期限(天)
 	private int prDate;
+	//课题总额(申请到的金额)
+	private Double prUsefulMoney;
 	//预算金额
 	private Double prPreMoney;
 	//经费金额
 	private Double prMoney;
+	//成果简介
+	private String prResultInfo;
 	//状态
 	private String prState;
+	//预算明细
 	@OneToMany(mappedBy = "project",fetch= FetchType.LAZY)
-	private Set<TeacherProject> teaPro;
+	private Set<PreMoneyItem> preItem;
+	//使用明细
+	@OneToMany(mappedBy = "project",fetch= FetchType.LAZY)
+	private Set<MoneyItem> item;
 
 
 	public Integer getPrId() {
@@ -58,12 +70,28 @@ public class Project {
 		this.prSource = prSource;
 	}
 
+	public Integer getTeId() {
+		return teId;
+	}
+
+	public void setTeId(Integer teId) {
+		this.teId = teId;
+	}
+
 	public Date getPrStartTime() {
 		return prStartTime;
 	}
 
 	public void setPrStartTime(Date prStartTime) {
 		this.prStartTime = prStartTime;
+	}
+
+	public Date getPrEndTime() {
+		return prEndTime;
+	}
+
+	public void setPrEndTime(Date prEndTime) {
+		this.prEndTime = prEndTime;
 	}
 
 	public int getPrDate() {
@@ -74,12 +102,36 @@ public class Project {
 		this.prDate = prDate;
 	}
 
+	public Double getPrUsefulMoney() {
+		return prUsefulMoney;
+	}
+
+	public void setPrUsefulMoney(Double prUsefulMoney) {
+		this.prUsefulMoney = prUsefulMoney;
+	}
+
+	public Double getPrPreMoney() {
+		return prPreMoney;
+	}
+
+	public void setPrPreMoney(Double prPreMoney) {
+		this.prPreMoney = prPreMoney;
+	}
+
 	public Double getPrMoney() {
 		return prMoney;
 	}
 
 	public void setPrMoney(Double prMoney) {
 		this.prMoney = prMoney;
+	}
+
+	public String getPrResultInfo() {
+		return prResultInfo;
+	}
+
+	public void setPrResultInfo(String prResultInfo) {
+		this.prResultInfo = prResultInfo;
 	}
 
 	public String getPrState() {
@@ -90,19 +142,19 @@ public class Project {
 		this.prState = prState;
 	}
 
-	public Set<TeacherProject> getTeaPro() {
-		return teaPro;
+	public Set<PreMoneyItem> getPreItem() {
+		return preItem;
 	}
 
-	public void setTeaPro(Set<TeacherProject> teaPro) {
-		this.teaPro = teaPro;
+	public void setPreItem(Set<PreMoneyItem> preItem) {
+		this.preItem = preItem;
 	}
 
-	public Double getPrPreMoney() {
-		return prPreMoney;
+	public Set<MoneyItem> getItem() {
+		return item;
 	}
 
-	public void setPrPreMoney(Double prPreMoney) {
-		this.prPreMoney = prPreMoney;
+	public void setItem(Set<MoneyItem> item) {
+		this.item = item;
 	}
 }

@@ -7,22 +7,22 @@ function subWorkData() {
         $form.attr("enctype", "application/x-www-form-urlencoded");
         $form.submit();
     }
-    //$form.ajaxSubmit({
-    //    method : "POST",
-    //    success : function(data){
-    //        alertify.alert("提交成功");
-    //        ////成功
-    //        //var json=eval("(" + data + ")");
-    //        //if(json.res == 1){
-    //        //    alertify.alert("上传成功");
-    //        //}else{
-    //        //    alertify.alert("上传失败"+json.msg);
-    //        //}
-    //    },
-    //    error : function(){
-    //        alertify.alert("网络错误，请稍后重新尝试！");
-    //    }
-    //});
+        //$form.ajaxSubmit({
+        //    method : "POST",
+        //    success : function(data){
+        //        alertify.alert("提交成功");
+        //        ////成功
+        //        //var json=eval("(" + data + ")");
+        //        //if(json.res == 1){
+        //        //    alertify.alert("上传成功");
+        //        //}else{
+        //        //    alertify.alert("上传失败"+json.msg);
+        //        //}
+        //    },
+        //    error : function(){
+        //        alertify.alert("网络错误，请稍后重新尝试！");
+        //    }
+        //});
 }
 
 function deleteRowByNum(num) {
@@ -76,19 +76,19 @@ function checkForm() {
 /* 文件上传*/
 function fileUpload(dom){
     var $form = $("form[name='work_form']");
-    $form.attr("action","/main/fileUploadDownload/fileUpload");
-    $form.attr("enctype","multipart/form-data");
+        $form.attr("action","/main/fileUploadDownload/fileUpload");
+        $form.attr("enctype","multipart/form-data");
     $form.ajaxSubmit({
         method : "POST",
         success : function(data){
             //成功
-            var json=eval("(" + data + ")");
+        var json=eval("(" + data + ")");
             if(json.res == 1){
                 var path=json.filePath;
                 var obj=$(dom).parent().find("input:first");
-                obj.attr("value",path);
-                obj.attr("type","text");
-                $(dom).remove();
+                    obj.attr("value",path);
+                    obj.attr("type","text");
+                    $(dom).remove();
                 alertify.alert("上传成功");
             }else{
                 alertify.alert("上传失败"+json.msg);
@@ -128,19 +128,19 @@ function addRow() {
         $(".row:last").css("display", "block");
         $(".row:last").attr('id','div_'+new Date().getTime());
         index++;
-        $(".row:last input:first").attr("name","tc["+index+"].prId");
+        $(".row:last input:first").attr("name","tc["+index+"].paId");
         $(".row:last input:first").attr("value",-1);
-        $(".row:last .row_1 input").attr("name","tc["+index+"].prName");
-        $(".row:last .row_2 input").attr("name","tc["+index+"].prSource");
-        $(".row:last .row_3 input").attr("name","tc["+index+"].teId");
-        $(".row:last .row_4 input").attr("name","tc["+index+"].prStartTime");
-        $(".row:last .row_5 input").attr("name","tc["+index+"].prEndTime");
-        $(".row:last .row_6 input").attr("name","tc["+index+"].prDate");
-        $(".row:last .row_7 input").attr("name","tc["+index+"].prUsefulMoney");
-        $(".row:last .row_8 input").attr("name","tc["+index+"].prPreMoney");
-        $(".row:last .row_9 input").attr("name","tc["+index+"].prMoney");
-        $(".row:last .row_10 input").attr("name","tc["+index+"].prResultInfo");
-        $(".row:last .row_11 input").attr("name","tc["+index+"].prState");
+        $(".row:last .row_1 input").attr("name","tc["+index+"].paName");
+        $(".row:last .row_2 input").attr("name","tc["+index+"].paPublicationName");
+        $(".row:last .row_3 input").attr("name","tc["+index+"].paPublicationNO");
+        $(".row:last .row_4 input").attr("name","tc["+index+"].paPageNum");
+        $(".row:last .row_5 input").attr("name","tc["+index+"].paHostUnit");
+        $(".row:last .row_6 input").attr("name","tc["+index+"].paStartTime");
+        $(".row:last .row_7 input").attr("name","tc["+index+"].paState");
+        $(".row:last .row_8 input:first").attr("name","tc["+index+"].filePath");
+        $(".row:last .row_8 input:last").attr("id","tc["+index+"].filePath");
+        $(".row:last .row_9 input").attr("name","tc["+index+"].teId");
+        $(".row:last .row_10 input").attr("name","tc["+index+"].mark");
     } else {
         alertify.alert("抱歉，一次性只能添加9条");
     }
@@ -199,17 +199,17 @@ function goNextAllPaper(currentPage){
 }
 //导出
 function exportToExcel() {
-    var url = "/paper/submitExportToExcel";
-    var $form = $("form[name='exportForm']");
-    $form.attr("action", url);
-    $form.submit();
+        var url = "/paper/submitExportToExcel";
+        var $form = $("form[name='exportForm']");
+        $form.attr("action", url);
+        $form.submit();
 }
 //全论文导出
 function exportAllToExcel() {
-    var url = "/paper/submitAllExportToExcel";
-    var $form = $("form[name='exportForm']");
-    $form.attr("action", url);
-    $form.submit();
+        var url = "/paper/submitAllExportToExcel";
+        var $form = $("form[name='exportForm']");
+        $form.attr("action", url);
+        $form.submit();
 }
 
 //全选

@@ -1,7 +1,5 @@
 package com.example.graduation.vo;
 
-import java.util.Date;
-
 /**
  * Created by DongChenchen on 2017/4/10.
  * 经费使用明细
@@ -12,7 +10,7 @@ public class MoneyItemInfo {
     //金额
     private Double sumMoney;
     //支出时间
-    private Date time;
+    private String time;
     //使用人工号
     private Integer teId;
     //用途说明
@@ -34,11 +32,11 @@ public class MoneyItemInfo {
         this.sumMoney = sumMoney;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

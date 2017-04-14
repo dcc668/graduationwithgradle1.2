@@ -20,6 +20,11 @@ public class PreMoneyItem {
     //用途说明
     private String mark;
 
+    //科研项目
+    @ManyToOne(cascade= CascadeType.MERGE,fetch= FetchType.EAGER)
+    @JoinColumn(name="prId")
+    private Project project;
+
     public Integer getPrId() {
         return prId;
     }
@@ -36,6 +41,14 @@ public class PreMoneyItem {
         this.itemName = itemName;
     }
 
+    public Double getSumMoney() {
+        return sumMoney;
+    }
+
+    public void setSumMoney(Double sumMoney) {
+        this.sumMoney = sumMoney;
+    }
+
     public String getMark() {
         return mark;
     }
@@ -44,11 +57,11 @@ public class PreMoneyItem {
         this.mark = mark;
     }
 
-    public Double getSumMoney() {
-        return sumMoney;
+    public Project getProject() {
+        return project;
     }
 
-    public void setSumMoney(Double sumMoney) {
-        this.sumMoney = sumMoney;
+    public void setProject(Project project) {
+        this.project = project;
     }
 }

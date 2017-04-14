@@ -76,10 +76,13 @@ String ctx =  request.getContextPath();
         </shiro:hasPermission >
 
      <shiro:hasPermission name="reviewer:all">
-         <li><a href="#"><img src="<c:url value="/styles/img/icons/menu/layout.png"/>"/>题目相似度检测</a>
-            <ul>
-                <li><a href="<c:url value="titleCheck"/>" target="contentFrame">题目相似度检测入口</a></li>
-            </ul>
+         <li><a href="#"><img src="<c:url value="/styles/img/icons/menu/layout.png"/>"/>科研项目管理</a>
+             <ul>
+                 <li ><a href="<c:url value="/project/projectInfoAddView"/>" target="contentFrame">科研项目录入</a></li>
+                 <li ><a href="<c:url value="/project/projectInfoUpdateView"/>" target="contentFrame">科研项目更改</a></li>
+                 <li ><a href="<c:url value="/projectItem/moneyItemInfoAddView"/>" target="contentFrame">科研经费</a></li>
+                 <li ><a href="<c:url value="/project/paperStatistcsView"/>" target="contentFrame">年度论文统计</a></li>
+             </ul>
         </li>
         <li><a href="#"><img src="<c:url value="/styles/img/icons/menu/layout.png"/>"/>课题评审</a>
             <ul>
@@ -110,7 +113,7 @@ String ctx =  request.getContextPath();
     </ul>
 </div>
 <div style="margin-left: 260px;margin-top: 80px" >
-	<iframe  src="" name="contentFrame" id="contentFrameId" width="1040"  height="600" 	frameborder="no" border="0" scrolling="no" allowtransparency="yes"></iframe>
+	<iframe  src="" name="contentFrame" id="contentFrameId" width="1090"  height="600" 	frameborder="no" border="0" scrolling="no" allowtransparency="yes"></iframe>
 </div>
 </body>
 <!-- jQuery AND jQueryUI -->

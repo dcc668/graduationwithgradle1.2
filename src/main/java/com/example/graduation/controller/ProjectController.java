@@ -1,12 +1,14 @@
 package com.example.graduation.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.graduation.service.PaperService;
-import com.example.graduation.vo.MoneyItemInfoList;
+import com.example.graduation.vo.ProjectInfoList;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/project")
@@ -16,13 +18,14 @@ public class ProjectController {
     private PaperService paperService;
 
     //项目明细
-    @RequestMapping("/moneyItemInfoAddView")
+    @RequestMapping("/projectInfoAddView")
     public String moneyItemInfoAddView(Model model) {
-        return "/project/moneyItemInfoAddView";
+        return "/project/projectInfoAddView";
     }
 
-    @RequestMapping("/moneyItemInfoAdd")
-    public String moneyItemInfoAdd(MoneyItemInfoList items) {
+    @RequestMapping(value = "/projectInfoAddView", method = RequestMethod.POST)
+    public String moneyItemInfoAdd(ProjectInfoList projectInfoList) {
+        System.out.println("------------->"+ JSONObject.toJSONString(projectInfoList.getTc()));
         return "/project/moneyItemInfoAddView";
     }
 

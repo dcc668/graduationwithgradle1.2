@@ -26,6 +26,19 @@ public class MoneyItem {
     //用途说明
     private String mark;
 
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    //科研项目
+    @ManyToOne(cascade= CascadeType.MERGE,fetch= FetchType.EAGER)
+    @JoinColumn(name="prId")
+    private Project project;
+
     public Integer getMoId() {
         return moId;
     }
@@ -73,4 +86,6 @@ public class MoneyItem {
     public void setMark(String mark) {
         this.mark = mark;
     }
+
+
 }
