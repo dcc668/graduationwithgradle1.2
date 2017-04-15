@@ -98,8 +98,12 @@ insert into t_teacher values(122710,'上海','140@163.com','张三','123','院长'，'4
 
 update t_paper set pahostunit='计通学院' where 1=1
 
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 select * from t_project;
+--预算金额
+alter table t_project drop column pr_premoney ;
+alter table t_project add(prpremoney float);
+
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------论文表-------------------------
 select * from   t_paper for update; 
@@ -360,7 +364,14 @@ insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicati
 --alter table t_paper add(filePath varchar2(20),mark varchar2(20));
 --Alter Table t_paper modify(filepath varchar2(120));
 --alter Table t_paper modify(mark varchar2(120));
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 select * from t_teacher_project;
+
+
+
+
 select * from t_teacher_course for update;
 select * from t_teacher_project;
 select * from t_teacher_student;

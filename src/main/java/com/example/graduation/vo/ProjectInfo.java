@@ -1,8 +1,6 @@
 
 package com.example.graduation.vo;
 
-import java.util.Date;
-
 public class ProjectInfo {
 	private Integer prId;
 	//项目名称
@@ -11,12 +9,14 @@ public class ProjectInfo {
 	private String prSource;
 	//负责人工号
 	private Integer teId;
+	//成员（工号）
+	private String members;
 	//立项时间
-	private Date prStartTime;
+	private String prStartTime;
 	//实际完成时间
-	private Date prEndTime;
+	private String prEndTime;
 	//拟定期限(天)
-	private int prDate;
+	private Integer prDate;
 	//课题总额(申请到的金额)
 	private Double prUsefulMoney;
 	//预算金额
@@ -60,27 +60,35 @@ public class ProjectInfo {
 		this.teId = teId;
 	}
 
-	public Date getPrStartTime() {
+	public String getMembers() {
+		return members;
+	}
+
+	public void setMembers(String members) {
+		this.members = members;
+	}
+
+	public String getPrStartTime() {
 		return prStartTime;
 	}
 
-	public void setPrStartTime(Date prStartTime) {
+	public void setPrStartTime(String prStartTime) {
 		this.prStartTime = prStartTime;
 	}
 
-	public Date getPrEndTime() {
+	public String getPrEndTime() {
 		return prEndTime;
 	}
 
-	public void setPrEndTime(Date prEndTime) {
+	public void setPrEndTime(String prEndTime) {
 		this.prEndTime = prEndTime;
 	}
 
-	public int getPrDate() {
+	public Integer getPrDate() {
 		return prDate;
 	}
 
-	public void setPrDate(int prDate) {
+	public void setPrDate(Integer prDate) {
 		this.prDate = prDate;
 	}
 

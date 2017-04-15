@@ -23,8 +23,8 @@ public class ReviewerServiceImp implements ReviewerService {
 	}
 
 	@Override
-	public void add(Reviewer t) {
-		reviewerDAO.add(t);
+	public Serializable add(Reviewer t) {
+		return reviewerDAO.add(t);
 	}
 
 	@Override

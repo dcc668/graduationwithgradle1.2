@@ -22,8 +22,8 @@ public class TitleServiceImp implements  TitleService{
 	}
 
 	@Override
-	public void add( Title t) {
-		 titleDAO.add(t);
+	public Serializable add( Title t) {
+		 return titleDAO.add(t);
 	}
 
 	@Override

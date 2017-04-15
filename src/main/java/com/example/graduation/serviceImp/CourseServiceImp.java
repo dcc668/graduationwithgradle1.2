@@ -23,8 +23,8 @@ public class CourseServiceImp implements CourseService {
 	}
 
 	@Override
-	public void add(Course t) {
-		courseDAO.add(t);
+	public Serializable add(Course t) {
+		return courseDAO.add(t);
 	}
 
 	@Override

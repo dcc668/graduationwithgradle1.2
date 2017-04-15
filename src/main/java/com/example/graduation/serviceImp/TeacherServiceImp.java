@@ -23,8 +23,8 @@ public class TeacherServiceImp implements TeacherService{
 	}
 
 	@Override
-	public void add(Teacher t) {
-		teacherDAO.add(t);
+	public Serializable add(Teacher t) {
+		return teacherDAO.add(t);
 	}
 
 	@Override

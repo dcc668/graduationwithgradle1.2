@@ -4,11 +4,13 @@ package com.example.graduation.serviceImp;
 import com.example.graduation.dao.TeacherProjectDAO;
 import com.example.graduation.model.TeacherProject;
 import com.example.graduation.service.TeacherProjectService;
+import com.example.graduation.vo.Page;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class TeacherProjectServiceImp implements TeacherProjectService {
@@ -22,8 +24,8 @@ public class TeacherProjectServiceImp implements TeacherProjectService {
 	}
 
 	@Override
-	public void add(TeacherProject t) {
-		teacherProjectDAO.add(t);
+	public Serializable add(TeacherProject t) {
+		return teacherProjectDAO.add(t);
 	}
 
 	@Override
@@ -59,4 +61,23 @@ public class TeacherProjectServiceImp implements TeacherProjectService {
 		return coll;
 	}
 
+	@Override
+	public List<TeacherProject> findByTeacherId(Serializable id) {
+		return teacherProjectDAO.findByTeacherId(id);
+	}
+
+	@Override
+	public List<TeacherProject> findByTeacherIdAndPage(Serializable id, Page page) {
+		return teacherProjectDAO.findByTeacherIdAndPage(id,page);
+	}
+
+	@Override
+	public List<TeacherProject> findByProjectId(Serializable id) {
+		return teacherProjectDAO.findByProjectId(id);
+	}
+
+	@Override
+	public TeacherProject findByPrIdAndTeId(Serializable prId, Serializable teId) {
+		return teacherProjectDAO.findByPrIdAndTeId(prId, teId);
+	}
 }

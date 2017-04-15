@@ -9,7 +9,7 @@ public interface IDAO<T> {
 	 *
 	 * @param t
 	 */
-		public void add(T t);
+		public Serializable add(T t);
 		
 		/**
 		 * 

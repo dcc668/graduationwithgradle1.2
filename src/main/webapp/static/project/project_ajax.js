@@ -3,7 +3,7 @@ var type;
 function subWorkData() {
     if(checkForm()) {
         var $form = $("form[name='work_form']");
-        $form.attr("action", "/paper/submitPaperInfo");
+        $form.attr("action", "/project/submitProjectInfo");
         $form.attr("enctype", "application/x-www-form-urlencoded");
         $form.submit();
     }
@@ -37,32 +37,32 @@ function checkForm() {
     $.each(row, function (idx,obj) {
         if(idx!=0){  //
             //var term = $(this).children(".row_1").find("input");
-            /*论文名称*/
+            /*项目名称*/
             var name = $(this).children(".row_1").find("input");
-            /*刊号*/
+            /*负责人(工号)*/
             var pubNo = $(this).children(".row_3").find("input");
-            /*发表时间*/
-            var time = $(this).children(".row_6").find("input");
-            /*发表人*/
-            var people = $(this).children(".row_9").find("input");
+            /*项目成员(逗号隔开)*/
+            var time = $(this).children(".row_4").find("input");
+            /*课题总额(万)*/
+            var people = $(this).children(".row_8").find("input");
             console.info("name:"+name.val()+"-pubNo:"+pubNo.val()+"-time:"+time.val());
             if (name.val() == "" || name.val() ==null) {
-                alertify.alert("请输入论文名称！");
+                alertify.alert("请输入项目名称！");
                 isRight=false;
                 return false;
             }
             if (pubNo.val() == "" || pubNo.val() == null) {
-                alertify.alert("请输入刊号！");
+                alertify.alert("请输入负责人(工号)！");
                 isRight=false;
                 return false;
             }
             if (time.val() == "" || time.val() == null) {
-                alertify.alert("请输入发表时间！");
+                alertify.alert("请输入项目成员(逗号隔开)！");
                 isRight=false;
                 return false;
             }
             if (people.val() == "" || people.val() == null) {
-                alertify.alert("请输入发表人工号！");
+                alertify.alert("请输入课题总额(万)！");
                 isRight=false;
                 return false;
             }else{
@@ -131,16 +131,17 @@ function addRow() {
         $(".row:last input:first").attr("name","tc["+index+"].prId");
         $(".row:last input:first").attr("value",-1);
         $(".row:last .row_1 input").attr("name","tc["+index+"].prName");
-        $(".row:last .row_2 input").attr("name","tc["+index+"].prSource");
+        $(".row:last .row_2 select").attr("name","tc["+index+"].prSource");
         $(".row:last .row_3 input").attr("name","tc["+index+"].teId");
-        $(".row:last .row_4 input").attr("name","tc["+index+"].prStartTime");
-        $(".row:last .row_5 input").attr("name","tc["+index+"].prEndTime");
-        $(".row:last .row_6 input").attr("name","tc["+index+"].prDate");
-        $(".row:last .row_7 input").attr("name","tc["+index+"].prUsefulMoney");
-        $(".row:last .row_8 input").attr("name","tc["+index+"].prPreMoney");
-        $(".row:last .row_9 input").attr("name","tc["+index+"].prMoney");
-        $(".row:last .row_10 input").attr("name","tc["+index+"].prResultInfo");
-        $(".row:last .row_11 input").attr("name","tc["+index+"].prState");
+        $(".row:last .row_4 input").attr("name","tc["+index+"].members");
+        $(".row:last .row_5 input").attr("name","tc["+index+"].prStartTime");
+        $(".row:last .row_6 input").attr("name","tc["+index+"].prEndTime");
+        $(".row:last .row_7 input").attr("name","tc["+index+"].prDate");
+        $(".row:last .row_8 input").attr("name","tc["+index+"].prUsefulMoney");
+        $(".row:last .row_9 input").attr("name","tc["+index+"].prPreMoney");
+        $(".row:last .row_10 input").attr("name","tc["+index+"].prMoney");
+        $(".row:last .row_11 input").attr("name","tc["+index+"].prResultInfo");
+        $(".row:last .row_12 select").attr("name","tc["+index+"].prState");
     } else {
         alertify.alert("抱歉，一次性只能添加9条");
     }
@@ -172,7 +173,7 @@ function removeRow(dom) {
 
 //更新分页跳转
 function goNextPaper(currentPage){
-    var url="/paper/paperInfoUpdateView";
+    var url="/project/projectInfoUpdateView";
     window.location.href=url+"?currentPage="+currentPage;
 }
 

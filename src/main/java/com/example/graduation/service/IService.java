@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 public interface IService<T> {
-		public void add(T t);
+		public Serializable add(T t);
 		public void deleteById(Serializable id);
 		public void deleteByCollection(Collection<T> collection);
 		public T findById(Serializable id);

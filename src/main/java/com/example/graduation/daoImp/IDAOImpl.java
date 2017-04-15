@@ -20,9 +20,9 @@ public class IDAOImpl<T>   implements IDAO<T>{
 	private Class entity = GenericSuperClass.getSuperClassGenricType(this.getClass());
 	@Autowired
 	SessionFactory sessionFactory;
-	public void add(T t) {
+	public Serializable add(T t) {
 		Session session=sessionFactory.getCurrentSession();
-			session.save(t);
+			return session.save(t);
 	}
 
 	@Override

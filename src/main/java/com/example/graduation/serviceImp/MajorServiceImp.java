@@ -22,8 +22,8 @@ public class MajorServiceImp implements  MajorService{
 	}
 
 	@Override
-	public void add( Major t) {
-		 majorDAO.add(t);
+	public Serializable add( Major t) {
+		 return majorDAO.add(t);
 	}
 
 	@Override

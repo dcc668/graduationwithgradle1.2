@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class PreMoneyItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "PreMoneyItemSequence")
-    private Integer prId;
+    private Integer preId;
     //预算明细名称
     private String itemName;
     //金额
@@ -25,12 +25,12 @@ public class PreMoneyItem {
     @JoinColumn(name="prId")
     private Project project;
 
-    public Integer getPrId() {
-        return prId;
+    public Integer getPreId() {
+        return preId;
     }
 
-    public void setPrId(Integer prId) {
-        this.prId = prId;
+    public void setPreId(Integer preId) {
+        this.preId = preId;
     }
 
     public String getItemName() {

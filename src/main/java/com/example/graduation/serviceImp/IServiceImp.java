@@ -15,8 +15,8 @@ public class IServiceImp<T>   implements IService<T>{
 	IDAO<T> iDAO;
 
 
-	public void add(T t) {
-		iDAO.add(t);
+	public Serializable add(T t) {
+		return iDAO.add(t);
 	}
 
 

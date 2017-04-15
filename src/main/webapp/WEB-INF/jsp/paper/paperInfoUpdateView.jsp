@@ -243,7 +243,7 @@
                 </div>
             </c:forEach>
 
-         <div class="page_row">
+            <div class="page_row">
                 <div class="pageDisplay_re">
                     <span class="pagefontsize">第</span>
                 <span><select class="pageSelect_re pagefontsize"  onchange="goNextPaper(this.value);">

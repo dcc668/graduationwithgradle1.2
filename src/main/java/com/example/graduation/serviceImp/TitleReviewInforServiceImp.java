@@ -24,8 +24,8 @@ public class TitleReviewInforServiceImp implements TitleReviewInforService {
 	}
 
 	@Override
-	public void add(TitleReviewInfor t) {
-		titleReviewInforDAO.add(t);
+	public Serializable add(TitleReviewInfor t) {
+		return titleReviewInforDAO.add(t);
 	}
 
 	@Override

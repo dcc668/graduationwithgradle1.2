@@ -12,36 +12,38 @@ import java.util.Set;
 @Table(name="t_Project")
 @SequenceGenerator(name = "ProjectSequence", sequenceName = "SEQ_PROJECT", allocationSize = 1)
 public class Project {
-	//项目ID
+	//1项目ID
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO,generator = "ProjectSequence")
 	private Integer prId;
-	//项目名称
+	//2项目名称
 	private String prName;
-	//项目来源
+	//3项目来源
 	private String prSource;
-	//负责人工号
+	//4负责人工号
 	private Integer teId;
-	//立项时间
+	//5立项时间
+	@Column(columnDefinition="DATE")
 	private Date prStartTime;
-	//实际完成时间
+	//6实际完成时间
+	@Column(columnDefinition="DATE")
 	private Date prEndTime;
-	//拟定期限(天)
+	//7拟定期限(天)
 	private int prDate;
-	//课题总额(申请到的金额)
+	//8课题总额(申请到的金额)
 	private Double prUsefulMoney;
-	//预算金额
+	//9预算金额
 	private Double prPreMoney;
-	//经费金额
+	//10经费金额
 	private Double prMoney;
-	//成果简介
+	//11成果简介
 	private String prResultInfo;
-	//状态
+	//12状态
 	private String prState;
-	//预算明细
+	//13预算明细
 	@OneToMany(mappedBy = "project",fetch= FetchType.LAZY)
 	private Set<PreMoneyItem> preItem;
-	//使用明细
+	//14使用明细
 	@OneToMany(mappedBy = "project",fetch= FetchType.LAZY)
 	private Set<MoneyItem> item;
 

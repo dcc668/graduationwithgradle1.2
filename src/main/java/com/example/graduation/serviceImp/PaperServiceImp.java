@@ -24,8 +24,8 @@ public class PaperServiceImp implements PaperService{
 	}
 
 	@Override
-	public void add(Paper t) {
-		paperDAO.add(t);
+	public Serializable add(Paper t) {
+		return paperDAO.add(t);
 	}
 
 	@Override

@@ -23,8 +23,8 @@ public class StudentServiceImp implements StudentService{
 	}
 
 	@Override
-	public void add(Student t) {
-		studentDAO.add(t);
+	public Serializable add(Student t) {
+		return studentDAO.add(t);
 	}
 
 	@Override

@@ -22,8 +22,8 @@ public class StudentCourseServiceImp implements StudentCourseService {
 	}
 
 	@Override
-	public void add(StudentCourse t) {
-		studentCourseDAO.add(t);
+	public Serializable add(StudentCourse t) {
+		return studentCourseDAO.add(t);
 	}
 
 	@Override
