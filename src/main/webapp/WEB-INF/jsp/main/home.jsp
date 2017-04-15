@@ -80,7 +80,7 @@ String ctx =  request.getContextPath();
              <ul>
                  <li ><a href="<c:url value="/project/projectInfoAddView"/>" target="contentFrame">科研项目录入</a></li>
                  <li ><a href="<c:url value="/project/projectInfoUpdateView"/>" target="contentFrame">科研项目更改</a></li>
-                 <li ><a href="<c:url value="/projectItem/moneyItemInfoAddView"/>" target="contentFrame">科研经费</a></li>
+                 <li ><a href="<c:url value="/project/moneyItemInfoManageView"/>" target="contentFrame">科研经费管理</a></li>
                  <li ><a href="<c:url value="/project/paperStatistcsView"/>" target="contentFrame">年度论文统计</a></li>
              </ul>
         </li>

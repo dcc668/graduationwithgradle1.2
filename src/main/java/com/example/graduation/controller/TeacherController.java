@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -401,4 +402,24 @@ public class TeacherController {
 //			log.info("-------------------------->page 为空");
 //		}
 //	}
+	@RequestMapping(value = "/isExist/{teId}",method = RequestMethod.POST)
+	public void isExists(@PathVariable Integer teId,HttpServletResponse response){
+		Teacher te = teacherService.findById(teId);
+		PrintWriter writer = null;
+		try {
+			writer = response.getWriter();
+			JSONObject json=new JSONObject();
+			if(te!=null) {
+				json.put("exists", true);
+			}else{
+				json.put("exists", false);
+			}
+			writer.write(json.toJSONString());
+			writer.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			writer.close();
+		}
+	}
 }

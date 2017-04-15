@@ -43,7 +43,7 @@
                 <input name="tc[0].prId" type="hidden" value="0"/>
                 <%--项目名称--%>
                 <div class="row_1">
-                    <input name="tc[0].prName" type="text" value=""/>
+                    <input name="tc[0].prName" type="text" />
                 </div>
                 <%--项目来源--%>
                 <div class="row_2">
@@ -60,35 +60,35 @@
                 </div>
                 <%-- 成员--%>
                 <div class="row_4">
-                    <input name="tc[0].members" type="text" value=""/>
+                    <input name="tc[0].members" type="text" />
                 </div>
                 <%--立项时间--%>
                 <div class="row_5">
-                    <input type="text" name="tc[0].prStartTime" value="" />
+                    <input type="text" name="tc[0].prStartTime"  />
                 </div>
                 <%--实际完成时间--%>
                 <div class="row_6">
-                    <input type="text" name="tc[0].prEndTime" value="" />
+                    <input type="text" name="tc[0].prEndTime"  />
                 </div>
                 <%-- 拟定期限(天)--%>
                 <div class="row_7">
-                    <input type="tel" name="tc[0].prDate" value=""/>
+                    <input type="tel" name="tc[0].prDate" />
                 </div>
                 <%--课题总额(申请到的金额)--%>
                 <div class="row_8">
-                    <input type="tel" name="tc[0].prUsefulMoney" value=""/>
+                    <input type="tel" name="tc[0].prUsefulMoney" />
                 </div>
                 <%-- 预算金额--%>
                 <div class="row_9">
-                    <input type="tel" name="tc[0].prPreMoney" value=""/>
+                    <input type="tel" name="tc[0].prPreMoney" />
                 </div>
                 <%--经费金额--%>
                 <div class="row_10">
-                    <input name="tc[0].prMoney"  type="tel" value=""/>
+                    <input name="tc[0].prMoney"  type="tel" />
                 </div>
                 <%--成果简介--%>
                 <div class="row_11">
-                    <input name="tc[0].prResultInfo"  type="text" value=""/>
+                    <input name="tc[0].prResultInfo"  type="text" />
                 </div>
                 <%--状态--%>
                 <div class="row_12">
@@ -113,7 +113,7 @@
                 <input name="tc[1].prId" type="hidden" value="-1"/>
                 <%--项目名称--%>
                 <div class="row_1">
-                    <input name="tc[1].prName" type="text" value=""/>
+                    <input name="tc[1].prName" type="text" />
                 </div>
                 <%--项目来源--%>
                 <div class="row_2">
@@ -129,35 +129,35 @@
                     <input name="tc[1].teId" type="tel" value="${projectInfo.teId}"/>
                 </div>
                 <div class="row_4">
-                    <input name="tc[1].members" type="text" value=""/>
+                    <input name="tc[1].members" type="text" />
                 </div>
                 <%--立项时间--%>
                 <div class="row_5">
-                    <input type="text" name="tc[1].prStartTime" value="" onclick="calendar.show(this);"/>
+                    <input type="text" name="tc[1].prStartTime"  onclick="calendar.show(this);"/>
                 </div>
                 <%--实际完成时间--%>
                 <div class="row_6">
-                    <input type="text" name="tc[1].prEndTime" value="" onclick="calendar.show(this);"/>
+                    <input type="text" name="tc[1].prEndTime"  onclick="calendar.show(this);"/>
                 </div>
                 <%-- 拟定期限(天)--%>
                 <div class="row_7">
-                    <input type="tel" name="tc[1].prDate" value=""/>
+                    <input type="tel" name="tc[1].prDate" />
                 </div>
                 <%--课题总额(申请到的金额)--%>
                 <div class="row_8">
-                    <input type="tel" name="tc[1].prUsefulMoney" value=""/>
+                    <input type="tel" name="tc[1].prUsefulMoney" />
                 </div>
                 <%-- 预算金额--%>
                 <div class="row_9">
-                    <input type="tel" name="tc[1].prPreMoney" value=""/>
+                    <input type="tel" name="tc[1].prPreMoney" />
                 </div>
                 <%--经费金额--%>
                 <div class="row_10">
-                    <input name="tc[1].prMoney"  type="tel" value=""/>
+                    <input name="tc[1].prMoney"  type="tel" />
                 </div>
                 <%--成果简介--%>
                 <div class="row_11">
-                    <input name="tc[1].prResultInfo"  type="text" value=""/>
+                    <input name="tc[1].prResultInfo"  type="text" />
                 </div>
                 <%--状态--%>
                 <div class="row_12">

@@ -78,6 +78,23 @@ public class ProjectController {
      */
     @RequestMapping("/projectInfoUpdateView")
     public String projectInfoUpdateView(Model model, HttpServletRequest request) {
+        String error=updateViewData(model,request);
+        if(!StringUtils.isEmpty(error)) {
+            return error;
+        }
+        return "/project/projectInfoUpdateView";
+    }
+    //项目，项目预算，项目明细展示
+    @RequestMapping("/moneyItemInfoManageView")
+    public String moneyItemInfoManageView(Model model,HttpServletRequest request) {
+        String error=updateViewData(model,request);
+        if(!StringUtils.isEmpty(error)) {
+            return error;
+        }
+        return "/projectitem/moneyItemInfoManageView";
+    }
+
+    private String updateViewData(Model model,HttpServletRequest request) {
         String currentPage = request.getParameter("currentPage");
         //获取当前用户
         Object obj = SecurityUtils.getSubject().getPrincipal();
@@ -121,8 +138,8 @@ public class ProjectController {
             }
             model.addAttribute("projectInfos", pais);
             model.addAttribute("page", projectPage);
-            return "/project/projectInfoUpdateView";
         }
+        return null;
     }
 
     //提交
@@ -215,6 +232,8 @@ public class ProjectController {
             return "/error/Failure";
         }
     }
+
+
 
     //删除
     @RequestMapping(value = "/delProject", method = RequestMethod.POST)

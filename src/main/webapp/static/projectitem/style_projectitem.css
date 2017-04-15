@@ -26,25 +26,6 @@
         width: 9%;
         padding-left: 6px;
     }
-    .row_7 {
-        width: 6%;
-        padding-left: 6px;
-    }
-    .row_8 {
-        width: 8%;
-        padding-left: 6px;
-    }
-    .row_9 {
-        width: 8%;
-        padding-left: 6px;
-    }
-    .row_10 {
-        width: 7%;
-        padding-left: 6px;
-    }
-    .row_11 {
-        width: 6%;
-    }
 }
 
 .row span{
@@ -69,36 +50,15 @@
 .row_5 span{
     width: 80px;
 }
-.row_8 span{
-    width: 80px;
-}
 .row_6 span{
-    width: 90px;
-}
-.row_7 span{
-    width: 60px;
-}
-.row_9 span{
     width: 80px;
 }
-.row_10 span{
-    width: 70px;
-}
-.row_11 input{
-    width: 60px;
-}
-/*工作量录入页面div行样式*/
 .row {
     height: 35px;
     border-bottom: solid 1px black;
     font-size: 0.9em;
 }
 
-.radio_btn {
-    vertical-align: text-bottom;
-    width: 14px;
-    height: 14px;
-}
 input, select {
     outline: none;
     padding-top: 5px;
@@ -141,33 +101,6 @@ input, select {
     vertical-align: middle;
     text-align: center;
     display: table-cell;
-}
-
-.row_11 input{
-    display:inline-block;
-    width: 20px;
-    height:20px;
-    vertical-align: top;
-}
-.row_11 span{
-    display:inline-block;
-    width: 30px;
-    height:20px;
-    vertical-align: top;
-}
-.btn_group {
-    display: inline-block;
-    border-radius: 15px;
-    width: 70px;
-    height: 30px;
-    margin-top: 5px;
-    margin-left: 20px;
-    background-color: #0079f5;
-    line-height: 30px;
-    text-align: center;
-    cursor: pointer;
-    font-size: 16px;
-    box-shadow: 1px 0px 8px gray;
 }
 
 .add {
