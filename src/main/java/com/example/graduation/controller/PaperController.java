@@ -189,7 +189,12 @@ public class PaperController {
         String msg = "";
         for (PaperInfo tci : tcis) {
             if (tci.getPaId() != 0) {//第1条数据无效
-                Paper tc = new Paper();
+                Paper tc = null;
+                if(tci.getPaId() == -1) {//添加
+                    tc= new Paper();
+                }else{
+                    tc=paperService.findById(tci.getPaId());
+                }
                 tc.setPaPublicationNO(tci.getPaPublicationNO());
                 tc.setPaState(tci.getPaState());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -223,7 +228,6 @@ public class PaperController {
                     log.info("-------------Paper---------添加-------------" + tc.toString());
                     paperService.add(tc);
                 } else {//更新
-                    tc.setPaId(tci.getPaId());
                     log.info("-------------Paper---------更新-------------" + tc.toString());
                     paperService.update(tc);
                 }

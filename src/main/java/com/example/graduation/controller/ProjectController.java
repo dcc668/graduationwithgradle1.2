@@ -134,7 +134,12 @@ public class ProjectController {
         String msg = "";
         for (ProjectInfo tci : tcis) {
             if (tci.getPrId() != 0) {//第1条数据无效
-                Project tc = new Project();
+                Project tc = null;
+                if(tci.getPrId() == -1){
+                    tc = new Project();
+                }else{
+                    tc =projectService.findById(tci.getPrId());
+                }
                 tc.setTeId(tci.getTeId());
                 Integer num = tci.getPrDate();
                 tc.setPrDate(num);
@@ -158,14 +163,14 @@ public class ProjectController {
                 tc.setPrState(tci.getPrState());
                 tc.setPrUsefulMoney(tci.getPrUsefulMoney());
 
+                String members = tci.getMembers();
+                String[] teIds = members.split(",");
                 if (tci.getPrId() == -1) {//添加
                     log.info("-------------Project---------添加-------------" + tc.toString());
                     Integer prId=(Integer)projectService.add(tc);
                     Project pro = projectService.findById(prId);
                     //添加 TeacherProject表
-                    String members = tci.getMembers();
-                    String[] split = members.split(",");
-                    for(String id:split){
+                    for(String id:teIds){
                         TeacherProject tp=new TeacherProject();
                             Teacher te = teacherService.findById(Integer.parseInt(id));
                             tp.setTeacher(te);
@@ -173,9 +178,33 @@ public class ProjectController {
                         teacherProjectService.add(tp);
                     }
                 } else {//更新
-                    tc.setPrId(tci.getPrId());
+                    Project pro = projectService.findById(tci.getPrId());
                     log.info("-------------Project---------更新-------------" + tc.toString());
                     projectService.update(tc);
+                    //更新 TeacherProject表
+                    //删除
+                    List<TeacherProject> tps = teacherProjectService.findByProjectId(tci.getPrId());
+                    OK:
+                    for(TeacherProject tp:tps){
+                        Integer teId=tp.getTeacher().getTeId();
+                        for(String id:teIds){
+                            if(Integer.parseInt(id)==teId){
+                                continue OK;
+                            }
+                        }
+                        teacherProjectService.deleteById(tp.getTpId());
+                    }
+                    //添加新增
+                    for(String id:teIds){
+                        TeacherProject tp = teacherProjectService.findByPrIdAndTeId(tci.getPrId(), Integer.parseInt(id));
+                        if(tp==null){
+                            TeacherProject tp2=new TeacherProject();
+                            Teacher te = teacherService.findById(Integer.parseInt(id));
+                                tp2.setTeacher(te);
+                                tp2.setProject(pro);
+                            teacherProjectService.add(tp2);
+                        }
+                    }
                 }
             }
         }

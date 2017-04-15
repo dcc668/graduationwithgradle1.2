@@ -5,18 +5,19 @@ import com.example.graduation.dao.ProjectDAO;
 import com.example.graduation.model.Project;
 import com.example.graduation.service.ProjectService;
 import com.example.graduation.vo.Page;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
 @Service
 public class ProjectServiceImp implements ProjectService{
-	@Autowired
+	@Resource(name="projectDAOImp")
 	ProjectDAO projectDAO;
 
+	@Override
 	public Project findById(Serializable id) {
 		Project t=(Project) projectDAO.findById(id);
 		return t;

@@ -80,4 +80,5 @@ public class TeacherProjectServiceImp implements TeacherProjectService {
 	public TeacherProject findByPrIdAndTeId(Serializable prId, Serializable teId) {
 		return teacherProjectDAO.findByPrIdAndTeId(prId, teId);
 	}
+
 }

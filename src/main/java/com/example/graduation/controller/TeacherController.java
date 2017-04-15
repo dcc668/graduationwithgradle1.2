@@ -247,7 +247,12 @@ public class TeacherController {
 		String msg="";
 		for (TeacherCourseInfo tci:tcis){
 			if(tci.getTcId()!=0){//第1条数据无效
-				TeacherCourse tc=new TeacherCourse();
+				TeacherCourse tc=null;
+				if(tci.getTcId()==-1){//添加
+					tc=new TeacherCourse();
+				}else{
+					tc=teacherCourseService.findById(tci.getTcId());
+				}
 					tc.setStuNum(tci.getStuNum());
 					Course course = courseService.findById(Integer.parseInt(tci.getCoName()));
 						course.setCo2Language(tci.getCo2Language());
@@ -274,7 +279,6 @@ public class TeacherController {
 					}
 					teacherCourseService.add(tc);
 				}else{//更新
-					tc.setTcId(tci.getTcId());
 					log.info("-------------TeacherCourse---------更新-------------"+tc.toString());
 					teacherCourseService.update(tc);
 				}

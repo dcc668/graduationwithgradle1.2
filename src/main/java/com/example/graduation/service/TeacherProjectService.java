@@ -11,5 +11,4 @@ public interface TeacherProjectService extends IService<TeacherProject> {
     public List<TeacherProject> findByTeacherIdAndPage(Serializable id,Page page);
     public List<TeacherProject> findByProjectId(Serializable id);
     public TeacherProject findByPrIdAndTeId(Serializable prId, Serializable teId);
-
 }

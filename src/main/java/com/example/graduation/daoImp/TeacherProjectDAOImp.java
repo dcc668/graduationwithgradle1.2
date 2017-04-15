@@ -47,11 +47,12 @@ public class TeacherProjectDAOImp extends IDAOImpl<TeacherProject> implements Te
     @Override
     public TeacherProject findByPrIdAndTeId(Serializable prId, Serializable teId) {
         Session session=sessionFactory.getCurrentSession();
-        StringBuffer sql=new StringBuffer("from TeacherProject where prId= ?and teId=?");
+        StringBuffer sql=new StringBuffer("select * from t_teacher_project where prId= ?and teId=?");
         SQLQuery sqlQuery = session.createSQLQuery(sql.toString());
             sqlQuery.setParameter(0,prId);
             sqlQuery.setParameter(1,teId);
             sqlQuery.addEntity(TeacherProject.class);
         return (TeacherProject)sqlQuery.uniqueResult();
     }
+
 }
