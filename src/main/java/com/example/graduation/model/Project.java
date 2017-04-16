@@ -41,10 +41,10 @@ public class Project {
 	//12状态
 	private String prState;
 	//13预算明细
-	@OneToMany(mappedBy = "project",fetch= FetchType.LAZY,cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "project",fetch= FetchType.LAZY)
 	private Set<PreMoneyItem> preItem;
 	//14使用明细
-	@OneToMany(mappedBy = "project",fetch= FetchType.LAZY,cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "project",fetch= FetchType.LAZY)
 	private Set<MoneyItem> item;
 
 
