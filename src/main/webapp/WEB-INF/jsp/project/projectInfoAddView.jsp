@@ -64,11 +64,11 @@
                 </div>
                 <%--立项时间--%>
                 <div class="row_5">
-                    <input type="text" name="tc[0].prStartTime"  />
+                    <input type="text" name="tc[0].prStartTime"  onclick="calendar.show(this);"/>
                 </div>
                 <%--实际完成时间--%>
                 <div class="row_6">
-                    <input type="text" name="tc[0].prEndTime"  />
+                    <input type="text" name="tc[0].prEndTime" onclick="calendar.show(this);" />
                 </div>
                 <%-- 拟定期限(天)--%>
                 <div class="row_7">

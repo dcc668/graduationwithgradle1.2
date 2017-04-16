@@ -126,7 +126,7 @@ function removeRow(dom) {
 
 //更新分页跳转
 function goNextPaper(currentPage){
-    var url="/project/projectInfoUpdateView";
+    var url="/project/moneyItemInfoManageView";
     window.location.href=url+"?currentPage="+currentPage;
 }
 

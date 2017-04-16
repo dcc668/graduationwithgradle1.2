@@ -239,7 +239,7 @@ public class ProjectController {
     @RequestMapping(value = "/delProject", method = RequestMethod.POST)
     public void delProject(HttpServletRequest req, HttpServletResponse res) {
         String prId = req.getParameter("prId");
-        log.info("------------paId------------>" + prId);
+        log.info("------------prId------------>" + prId);
         if (!StringUtils.isEmpty(prId)) {
             PrintWriter writer = null;
             JSONObject json = new JSONObject();

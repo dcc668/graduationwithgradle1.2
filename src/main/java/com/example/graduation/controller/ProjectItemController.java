@@ -35,7 +35,7 @@ public class ProjectItemController {
         System.out.println("------------->"+ JSONObject.toJSONString(moneyItemInfoList.getItems()));
         String sum=req.getParameter("sum");
         System.out.println("sum:"+sum);
-        return "/projectItem/moneyItemInfoAddView";
+        return "/projectitem/moneyItemInfoAddView";
     }
 
 

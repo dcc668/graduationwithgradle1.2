@@ -106,8 +106,8 @@ function removeRow(dom) {
                 var row = $(dom).parent().parent().parent();
                 var paId = row.find("input:first").val();
                 if (paId != "-1" && paId != "0") {
-                    var url = "/paper/delPaper";
-                    var args = {"paId": paId};
+                    var url = "/project/delProject";
+                    var args = {"prId": paId};
                     $.post(url, args, function (data) {
                         var json = eval("(" + data + ")");
                         if (json.res == 1) {

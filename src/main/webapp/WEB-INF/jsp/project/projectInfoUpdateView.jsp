@@ -56,19 +56,19 @@
                 </div>
                 <%-- 负责人工号--%>
                 <div class="row_3">
-                    <input name="tc[0].teId" type="tel" value="${projectInfo.teId}" onchange="checkIsExists(this);"/>
+                    <input name="tc[0].teId" type="tel" value="${projectInfo.teId}" onblur="checkIsExists(this);"/>
                 </div>
                 <%-- 成员--%>
                 <div class="row_4">
-                    <input name="tc[0].members" type="text" value="" onchange="checkIsExists(this);"/>
+                    <input name="tc[0].members" type="text" value="" onblur="checkIsExists(this);"/>
                 </div>
                 <%--立项时间--%>
                 <div class="row_5">
-                    <input type="text" name="tc[0].prStartTime" value="" />
+                    <input type="text" name="tc[0].prStartTime" value="" onclick="calendar.show(this);"/>
                 </div>
                 <%--实际完成时间--%>
                 <div class="row_6">
-                    <input type="text" name="tc[0].prEndTime" value="" />
+                    <input type="text" name="tc[0].prEndTime" value="" onclick="calendar.show(this);"/>
                 </div>
                 <%-- 拟定期限(天)--%>
                 <div class="row_7">
@@ -102,10 +102,10 @@
                 <%--操作--%>
                 <div class="row_13">
                     <div class="same add">
-                        <a onchange="addRow();"><i class="iconfont">&#xe64d;</i></a>
+                        <a onclick="addRow();"><i class="iconfont">&#xe64d;</i></a>
                     </div>
                     <div class="same delete">
-                        <a onchange="removeRow(this);"><i class="iconfont">&#xe625;</i></a>
+                        <a onclick="removeRow(this);"><i class="iconfont">&#xe625;</i></a>
                     </div>
                 </div>
             </div>
@@ -126,18 +126,18 @@
                 </div>
                 <%-- 负责人工号--%>
                 <div class="row_3">
-                    <input name="tc[1].teId" type="tel" value="${projectInfo.teId}" onchange="checkIsExists(this);"/>
+                    <input name="tc[1].teId" type="tel" value="${projectInfo.teId}" onblur="checkIsExists(this);"/>
                 </div>
                 <div class="row_4">
-                    <input name="tc[1].members" type="text" value="${projectInfo.members}" onchange="checkIsExists(this);"/>
+                    <input name="tc[1].members" type="text" value="${projectInfo.members}" onblur="checkIsExists(this);"/>
                 </div>
                 <%--立项时间--%>
                 <div class="row_5">
-                    <input type="text" name="tc[1].prStartTime" value="${projectInfo.prStartTime}" onchange="calendar.show(this);"/>
+                    <input type="text" name="tc[1].prStartTime" value="${projectInfo.prStartTime}" onclick="calendar.show(this);"/>
                 </div>
                 <%--实际完成时间--%>
                 <div class="row_6">
-                    <input type="text" name="tc[1].prEndTime" value="${projectInfo.prEndTime}" onchange="calendar.show(this);"/>
+                    <input type="text" name="tc[1].prEndTime" value="${projectInfo.prEndTime}" onclick="calendar.show(this);"/>
                 </div>
                 <%-- 拟定期限(天)--%>
                 <div class="row_7">
@@ -171,10 +171,10 @@
                 <%--操作--%>
                 <div class="row_11">
                     <div class="same add">
-                        <a onchange="addRow();"><i class="iconfont">&#xe64d;</i></a>
+                        <a onclick="addRow();"><i class="iconfont">&#xe64d;</i></a>
                     </div>
                     <div class="same delete">
-                        <a onchange="removeRow(this);"><i class="iconfont">&#xe625;</i></a>
+                        <a onclick="removeRow(this);"><i class="iconfont">&#xe625;</i></a>
                     </div>
                 </div>
             </div>
@@ -198,18 +198,18 @@
                     </div>
                         <%-- 负责人工号--%>
                     <div class="row_3">
-                        <input name="tc[<%=i%>].teId" type="tel" value="${projectInfo2.teId}" onchange="checkIsExists(this);"/>
+                        <input name="tc[<%=i%>].teId" type="tel" value="${projectInfo2.teId}" onblur="checkIsExists(this);"/>
                     </div>
                     <div class="row_4">
-                        <input name="tc[<%=i%>].members" type="text" value="${projectInfo2.members}" onchange="checkIsExists(this);"/>
+                        <input name="tc[<%=i%>].members" type="text" value="${projectInfo2.members}" onblur="checkIsExists(this);"/>
                     </div>
                         <%--立项时间--%>
                     <div class="row_5">
-                        <input type="text" name="tc[<%=i%>].prStartTime" value="${projectInfo2.prStartTime}" onchange="calendar.show(this);"/>
+                        <input type="text" name="tc[<%=i%>].prStartTime" value="${projectInfo2.prStartTime}" onclick="calendar.show(this);"/>
                     </div>
                         <%--实际完成时间--%>
                     <div class="row_6">
-                        <input type="text" name="tc[<%=i%>].prEndTime" value="${projectInfo2.prEndTime}" onchange="calendar.show(this);"/>
+                        <input type="text" name="tc[<%=i%>].prEndTime" value="${projectInfo2.prEndTime}" onclick="calendar.show(this);"/>
                     </div>
                         <%-- 拟定期限(天)--%>
                     <div class="row_7">
@@ -243,10 +243,10 @@
                     <%--操作--%>
                     <div class="row_11">
                         <div class="same add">
-                            <a onchange="addRow();"><i class="iconfont">&#xe64d;</i></a>
+                            <a onclick="addRow();"><i class="iconfont">&#xe64d;</i></a>
                         </div>
                         <div class="same delete">
-                            <a onchange="removeRow(this);"><i class="iconfont">&#xe625;</i></a>
+                            <a onclick="removeRow(this);"><i class="iconfont">&#xe625;</i></a>
                         </div>
                     </div>
                 </div>
@@ -261,10 +261,10 @@
                 </select></span>
                     <span class="pagefontsize"> 页</span>
                 </div>
-                <div class="page_btn_group_re" onchange="goNextPaper('${page.currentPage+1}');">
+                <div class="page_btn_group_re" onclick="goNextPaper('${page.currentPage+1}');">
                     <span> <a>下一页</a></span>
                 </div>
-                <div class="page_btn_group_re" onchange="goNextPaper('${page.currentPage-1}');">
+                <div class="page_btn_group_re" onclick="goNextPaper('${page.currentPage-1}');">
                     <span><a>上一页</a></span>
                 </div>
             </div>
