@@ -23,9 +23,13 @@ public class ProjectItemController {
     //项目明细
     @RequestMapping("/moneyItemInfoAddView")
     public String moneyItemInfoAddView(Model model) {
-        return "/project/moneyItemInfoAddView";
+        return "/projectItem/moneyItemInfoAddView";
     }
-
+    //预算明细
+    @RequestMapping("/preMoneyItemInfoAddView")
+    public String preMoneyItemInfoAddView(Model model) {
+        return "/projectItem/preMoneyItemInfoAddView";
+    }
     @RequestMapping(value = "/moneyItemInfoAdd", method = RequestMethod.POST)
     public String moneyItemInfoAdd(MoneyItemInfoList moneyItemInfoList, HttpServletRequest req) {
         System.out.println("------------->"+ JSONObject.toJSONString(moneyItemInfoList.getItems()));

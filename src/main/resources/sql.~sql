@@ -99,10 +99,26 @@ insert into t_teacher values(122710,'上海','140@163.com','张三','123','院长'，'4
 update t_paper set pahostunit='计通学院' where 1=1
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-select * from t_project;
+select * from t_project for update;
 --预算金额
 alter table t_project drop column pr_premoney ;
+alter table t_project modify(prendtime date);
+alter table t_project modify(prstarttime date);
 alter table t_project add(prpremoney float);
+
+insert into t_project (prid,prdate,prmoney,prname,prsource,prstarttime,prstate,prpremoney,prendtime,prresultinfo,prusefulmoney,teid)
+        values(1001,6,72,'中国企业走出去跨文化大数据平台建设','国家级',to_date('2012/4/11','yyyy/mm/dd'),'已完成',3.1,to_date('2013/4/11','yyyy/mm/dd'),'在**原有基础上，探索出了一套能够有效提升**的理论，技术，模式和方法',2.1,122701); 
+insert into t_project (prid,prdate,prmoney,prname,prsource,prstarttime,prstate,prpremoney,prendtime,prresultinfo,prusefulmoney,teid)
+        values(1002,3,92,'美国历史“非常”事件的小说再现与意识形态批判研究','国家级',to_date('2012/4/11','yyyy/mm/dd'),'已完成',3.1,to_date('2013/4/11','yyyy/mm/dd'),'在**原有基础上，探索出了一套能够有效提升**的理论，技术，模式和方法',2.1,122701); 
+insert into t_project (prid,prdate,prmoney,prname,prsource,prstarttime,prstate,prpremoney,prendtime,prresultinfo,prusefulmoney,teid)
+        values(1003,2,72,'监管权纵向配置与食品安全协同治理机制研究','国家级',to_date('2012/4/11','yyyy/mm/dd'),'已完成',3.1,to_date('2013/4/11','yyyy/mm/dd'),'在**原有基础上，探索出了一套能够有效提升**的理论，技术，模式和方法',2.1,122701); 
+
+insert into t_project (prid,prdate,prmoney,prname,prsource,prstarttime,prstate,prpremoney,prendtime,prresultinfo,prusefulmoney,teid)
+        values(1004,3,62,'丝绸之路人文外交背景下的中阿智库合作研究','国家级',to_date('2013/4/11','yyyy/mm/dd'),'已完成',3.1,to_date('2013/4/11','yyyy/mm/dd'),'在**原有基础上，探索出了一套能够有效提升**的理论，技术，模式和方法',2.1,122701); 
+insert into t_project (prid,prdate,prmoney,prname,prsource,prstarttime,prstate,prpremoney,prendtime,prresultinfo,prusefulmoney,teid)
+        values(1005,4,32,'网络社会国家认同形成机制及其危机预警与应对研究','国家级',to_date('2014/4/11','yyyy/mm/dd'),'已完成',3.1,to_date('2013/4/11','yyyy/mm/dd'),'在**原有基础上，探索出了一套能够有效提升**的理论，技术，模式和方法',2.1,122701); 
+insert into t_project (prid,prdate,prmoney,prname,prsource,prstarttime,prstate,prpremoney,prendtime,prresultinfo,prusefulmoney,teid)
+        values(1006,5,4.2,'G20宏观经济政策国际协调的功能与中国角色研究','国家级',to_date('2012/4/11','yyyy/mm/dd'),'已完成',3.1,to_date('2013/4/11','yyyy/mm/dd'),'在**原有基础上，探索出了一套能够有效提升**的理论，技术，模式和方法',2.1,122701); 
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------论文表-------------------------
