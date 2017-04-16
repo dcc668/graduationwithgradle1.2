@@ -1,9 +1,12 @@
 
 package com.example.graduation.model;
 
+import org.hibernate.annotations.CascadeType;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
+
 
 /**
  * 科研项目
@@ -42,10 +45,17 @@ public class Project {
 	private String prState;
 	//13预算明细
 	@OneToMany(mappedBy = "project",fetch= FetchType.LAZY)
+	@org.hibernate.annotations.Cascade(value = {CascadeType.SAVE_UPDATE,  CascadeType.DELETE_ORPHAN,CascadeType.ALL})
 	private Set<PreMoneyItem> preItem;
 	//14使用明细
 	@OneToMany(mappedBy = "project",fetch= FetchType.LAZY)
+	@org.hibernate.annotations.Cascade(value = {CascadeType.SAVE_UPDATE,  CascadeType.DELETE_ORPHAN,CascadeType.ALL})
 	private Set<MoneyItem> item;
+	//教师科研项目中间表
+	@OneToMany(mappedBy = "project",fetch= FetchType.LAZY)
+	@org.hibernate.annotations.Cascade(value = {CascadeType.SAVE_UPDATE,  CascadeType.DELETE_ORPHAN,CascadeType.ALL})
+	private Set<TeacherProject> teacherProject;
+
 
 
 	public Integer getPrId() {
@@ -158,5 +168,13 @@ public class Project {
 
 	public void setItem(Set<MoneyItem> item) {
 		this.item = item;
+	}
+
+	public Set<TeacherProject> getTeacherProject() {
+		return teacherProject;
+	}
+
+	public void setTeacherProject(Set<TeacherProject> teacherProject) {
+		this.teacherProject = teacherProject;
 	}
 }

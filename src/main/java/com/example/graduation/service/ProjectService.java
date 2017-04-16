@@ -11,4 +11,6 @@ public interface ProjectService extends IService<Project> {
     public List<Project> getProjectsByTeIdAndPage(Integer teId,Page page);
     public List<Project> getProjectsByIds(Serializable...ids);
     public Integer getProjectsCountByStateAndYear(String state,String year);
+    public void deleteProjectById(Serializable id);
+
 }

@@ -5,6 +5,8 @@ import com.example.graduation.dao.ProjectDAO;
 import com.example.graduation.model.Project;
 import com.example.graduation.service.ProjectService;
 import com.example.graduation.vo.Page;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -16,6 +18,8 @@ import java.util.List;
 public class ProjectServiceImp implements ProjectService{
 	@Resource(name="projectDAOImp")
 	ProjectDAO projectDAO;
+	@Autowired
+	HibernateTemplate hibernateTemplate;
 
 	@Override
 	public Project findById(Serializable id) {
@@ -80,6 +84,12 @@ public class ProjectServiceImp implements ProjectService{
 	@Override
 	public Integer getProjectsCountByStateAndYear(String state,String year) {
 		return projectDAO.getProjectsCountByStateAndYear(state,year);
+	}
+
+	@Override
+	public void deleteProjectById(Serializable id) {
+		Project pro = projectDAO.findById(id);
+		hibernateTemplate.delete(pro);
 	}
 
 }
