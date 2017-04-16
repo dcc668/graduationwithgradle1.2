@@ -91,7 +91,7 @@ public class ProjectController {
         if(!StringUtils.isEmpty(error)) {
             return error;
         }
-        return "/projectitem/moneyItemInfoManageView";
+        return "/projectItems/projectItemInfoManageView";
     }
 
     private String updateViewData(Model model,HttpServletRequest request) {

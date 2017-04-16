@@ -2,14 +2,11 @@ package com.example.graduation.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.graduation.model.MoneyItem;
-import com.example.graduation.model.Paper;
 import com.example.graduation.model.Project;
 import com.example.graduation.service.MoneyItemService;
 import com.example.graduation.service.ProjectService;
 import com.example.graduation.vo.MoneyItemInfo;
 import com.example.graduation.vo.MoneyItemInfoList;
-import com.example.graduation.vo.Page;
-import com.example.graduation.vo.PaperInfo;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,9 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/projectItem")
@@ -37,14 +32,14 @@ public class ProjectItemController {
     @RequestMapping("/projectItemInfoAddView")
     public String projectItemInfoAddView(Model model) {
 
-        return "/projectItem/projectItemInfoAddView";
+        return "/projectItems/projectItemInfoAddView";
     }
     @RequestMapping(value = "/projectItemInfoAdd", method = RequestMethod.POST)
     public String projectItemInfoAdd(MoneyItemInfoList moneyItemInfoList, HttpServletRequest req) {
         System.out.println("------------->"+ JSONObject.toJSONString(moneyItemInfoList.getItems()));
         String sum=req.getParameter("sum");
         System.out.println("sum:"+sum);
-        return "/projectItem/projectItemInfoAddView";
+        return "/projectItems/projectItemInfoAddView";
     }
 
     //项目明细 更新
@@ -57,29 +52,16 @@ public class ProjectItemController {
             model.addAttribute("msg", "项目不存在");
             return "error/Failure";
         } else {
-            Page paperPage = new Page();
-            //总记录
-            List<MoneyItem> tcss = moneyItemService.getMoneyItemsByPrId(prId);
-            if (tcss != null) {
-                Integer count = tcss.size();
-                paperPage.setAllRecord(count);
-            }
-            List<MoneyItem> tcs = null;
-            if (currentPage != null) {
-                log.info("-----------Paper分页----------前台currentPage------->" + currentPage);
-                paperPage.setCurrentPage(Integer.parseInt(currentPage));
-            } else {
-                paperPage.setCurrentPage(1);
-            }
-            tcs = moneyItemService.getMoneyItemsByPrIdAndPage(prId, paperPage);
+            List<MoneyItem> tcs = moneyItemService.getMoneyItemsByPrId(prId);
             log.info("-----------List<MoneyItem>----------------->" + JSONObject.toJSONString(tcs));
             if (CollectionUtils.isEmpty(tcs)) {
                 model.addAttribute("msg", "支出明细为空");
                 return "error/Failure";
             }
-            MoneyItem tc = tcs.get(0);
-            //应传PaperInfo ，当paper与PaperInfo不一致时，需从新组装PaperInfo
-            MoneyItemInfo pi = new MoneyItemInfo();
+            //明细
+            List<MoneyItemInfo> pais = new ArrayList<MoneyItemInfo>();
+            for (MoneyItem tc : tcs) {
+                MoneyItemInfo pi = new MoneyItemInfo();
                 pi.setItemName(tc.getItemName());
                 pi.setMark(tc.getMark());
                 pi.setSumMoney(tc.getSumMoney());
@@ -91,55 +73,39 @@ public class ProjectItemController {
                     String parse = sdf.format(date);
                     pi.setTime(parse);
                 }
-            model.addAttribute("item", pi);
-
-
-            //其余明细
-            List<Paper> subTcs = tcs.subList(1, tcs.size());
-            List<PaperInfo> pais = new ArrayList<PaperInfo>();
-            for (Paper pa : subTcs) {
-                PaperInfo pai = new PaperInfo();
-                pai.setPaId(pa.getPaId());
-                pai.setPaPageNum(pa.getPaPageNum());
-                pai.setPaName(pa.getPaName());
-                String path1=pa.getFilePath();
-                if(path1==null||"".equals(path1.trim())) {
-                    pai.setFilePath(null);
-                }else{
-                    pai.setFilePath(path1);
-                }
-                pai.setMark(pa.getMark());
-                pai.setPaHostUnit(pa.getPaHostUnit());
-                pai.setPaPublicationName(pa.getPaPublicationName());
-                pai.setPaPublicationNO(pa.getPaPublicationNO());
-                Date date1 = pa.getPaStartTime();
-                if (date1 != null) {
-                    String str = sdf.format(date1);
-                    pai.setPaStartTime(str);
-                }
-                pai.setPaState(pa.getPaState());
-                if (pa.getTeacher() != null) {
-                    pai.setTeId(pa.getTeacher().getTeId());
-                }
-                pais.add(pai);
+                pais.add(pi);
             }
-            model.addAttribute("paperInfos", pais);
-            model.addAttribute("page", paperPage);
-            return "/paper/paperInfoUpdateView";
+            String []names=new String[]{
+                    "办公用品,水","水电费","租赁费","资料,书报,检索","材料费","印刷费，版面"
+                    ,"咨询费,评审","加工费","管理费","邮寄费，话费，网费","协助费"
+                    ,"招待费","车费，过路费，油费","维修费","差旅费","助研费"
+                    ,"出国费","设备费购置","科研津贴","会议费","其他"
+                    ,"反聘费","计算，测试，分析费","保密，保健费","其他","试验费"
+            };
+            Set<Integer> hasValue=new HashSet<>();
+            for(MoneyItemInfo mii:pais){
+                String name=mii.getItemName();
+                for(int i=0;i<names.length;i++){
+                    if(names[i].equals(name)) {
+                        model.addAttribute("items[" + i + "]", mii);
+                        hasValue.add(i);
+                    }
+                }
+            }
+            //没有值的传""
+            for(int i=0;i<names.length;i++){
+                if(!hasValue.contains(i)){
+                    model.addAttribute("items[" + i + "]", "");
+                }
+            }
+            return "/projectItems/projectItemInfoUpdateView";
         }
-
-
-
-
-
-
-        return "/projectItem/projectItemInfoUpdateView";
     }
 
     //预算明细
     @RequestMapping("/preMoneyItemInfoAddView")
     public String preMoneyItemInfoAddView(Model model) {
-        return "/projectItem/preMoneyItemInfoAddView";
+        return "/projectItems/preMoneyItemInfoAddView";
     }
 
 

@@ -10,7 +10,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>科研经费管理</title>
-    <link rel="stylesheet" href="${basePath}/static/projectItem/style_projectItemManage.css"/>
+    <link rel="stylesheet" href="${basePath}/static"/>
     <link rel="stylesheet" href="${basePath}/static/style_common.css"/>
     <link rel="stylesheet" href="${basePath}/static/alertify/alertify.core.css"/>
     <link rel="stylesheet" href="${basePath}/static/alertify/alertify.default.css"/>
