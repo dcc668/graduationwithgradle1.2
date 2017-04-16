@@ -84,10 +84,10 @@
                 </select></span>
                 <span class="pagefontsize"> 页</span>
             </div>
-            <div class="page_btn_group_re" onchange="goNextPaper('${page.currentPage+1}');">
+            <div class="page_btn_group_re" onclick="goNextPaper('${page.currentPage+1}');">
                 <span> <a>下一页</a></span>
             </div>
-            <div class="page_btn_group_re" onchange="goNextPaper('${page.currentPage-1}');">
+            <div class="page_btn_group_re" onclick="goNextPaper('${page.currentPage-1}');">
                 <span><a>上一页</a></span>
             </div>
         </div>

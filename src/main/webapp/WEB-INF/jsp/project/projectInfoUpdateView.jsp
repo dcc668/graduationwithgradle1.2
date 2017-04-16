@@ -268,7 +268,7 @@
                     <span><a>上一页</a></span>
                 </div>
             </div>
-            <div class="btn_group" onchange="subWorkData();">
+            <div class="btn_group" onclick="subWorkData();">
                 <a>提交</a>
             </div>
         </form>
