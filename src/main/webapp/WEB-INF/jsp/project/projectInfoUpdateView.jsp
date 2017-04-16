@@ -279,7 +279,6 @@
 <script type="text/javascript" src="${basePath}/static/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="${basePath}/static/public_view_control.js"></script>
 <script type="text/javascript" src="${basePath}/static/project/project_ajax.js"></script>
-<script type="text/javascript" src="${basePath}/static/jquery.form.js"></script>
 <script type="text/javascript" src="${basePath}/static/alertify/alertify.js"></script>
 <script type="text/javascript" src="${basePath}/static/date/calendar.js"></script>
 </html>
