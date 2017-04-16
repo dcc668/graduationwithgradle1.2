@@ -17,7 +17,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <div class="tab_space_add">
     <div class="tab_space_add_title"><h1>---</h1></div>
     <div class="table_form">
-        <form action="/projectItem/moneyItemInfoAdd" method="post" name="work_form">
+        <form action="/projectItem/projectItemInfoUpdate" method="post" name="work_form">
             <table class="table_report">
                 <tr>
                     <td class="col_1">分类</td>
