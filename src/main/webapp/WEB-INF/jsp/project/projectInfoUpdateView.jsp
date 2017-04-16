@@ -39,7 +39,7 @@
         </table>
         <%--插入行时，始终插入这一行--%>
         <form name="work_form" method="POST" action="/project/submitPaperInfo">
-            <div class="row fixWidth" style="display:none;">
+            <div class="row fixWidth" style="display:none">
                 <input name="tc[0].prId" type="hidden" value="0"/>
                 <%--项目名称--%>
                 <div class="row_1">
@@ -48,17 +48,16 @@
                 <%--项目来源--%>
                 <div class="row_2">
                     <select name="tc[0].prSource">
-                        <option value="国家级">国家级</option>
-                        <option value="省部级">省部级</option>
-                        <option value="市级">市级</option>
-                        <option value="其他">其他</option>
+                        <option value="国家级" >国家级</option>
+                        <option value="省部级" >省部级</option>
+                        <option value="市级" >市级</option>
+                        <option value="其他" >其他</option>
                     </select>
                 </div>
                 <%-- 负责人工号--%>
                 <div class="row_3">
                     <input name="tc[0].teId" type="tel" value="${projectInfo.teId}" onblur="checkIsExists(this);"/>
                 </div>
-                <%-- 成员--%>
                 <div class="row_4">
                     <input name="tc[0].members" type="text" value="" onblur="checkIsExists(this);"/>
                 </div>
@@ -93,14 +92,14 @@
                 <%--状态--%>
                 <div class="row_12">
                     <select name="tc[0].prState">
-                        <option value="申报处理">申报处理</option>
-                        <option value="审核通过">审核通过</option>
-                        <option value="开发中">开发中</option>
-                        <option value="已完成">已完成</option>
+                        <option value="申报处理" >申报处理</option>
+                        <option value="审核通过" >审核通过</option>
+                        <option value="开发中" >开发中</option>
+                        <option value="已完成" >已完成</option>
                     </select>
                 </div>
                 <%--操作--%>
-                <div class="row_13">
+                <div class="row_11">
                     <div class="same add">
                         <a onclick="addRow();"><i class="iconfont">&#xe64d;</i></a>
                     </div>

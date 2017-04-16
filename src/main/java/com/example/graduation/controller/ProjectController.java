@@ -217,9 +217,11 @@ public class ProjectController {
                         if(tp==null){
                             TeacherProject tp2=new TeacherProject();
                             Teacher te = teacherService.findById(Integer.parseInt(id));
+                            if(te!=null) {
                                 tp2.setTeacher(te);
                                 tp2.setProject(pro);
-                            teacherProjectService.add(tp2);
+                                teacherProjectService.add(tp2);
+                            }
                         }
                     }
                 }
