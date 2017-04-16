@@ -5,6 +5,7 @@ package com.example.graduation.vo;
  * 经费使用明细
  */
 public class MoneyItemInfo {
+    private Integer moId;
     //明细项名称
     private String itemName;
     //金额
@@ -15,6 +16,14 @@ public class MoneyItemInfo {
     private Integer teId;
     //用途说明
     private String mark;
+
+    public Integer getMoId() {
+        return moId;
+    }
+
+    public void setMoId(Integer moId) {
+        this.moId = moId;
+    }
 
     public String getItemName() {
         return itemName;

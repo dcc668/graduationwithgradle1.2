@@ -10,7 +10,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>支出明细</title>
-    <link rel="stylesheet" href="${basePath}/static/project/style_project.css"/>
+    <link rel="stylesheet" href="${basePath}/static/projectItem/style_projectItemUpdate.css"/>
     <link rel="stylesheet" href="${basePath}/static/style_common.css"/>
     <link rel="stylesheet" href="${basePath}/static/alertify/alertify.core.css"/>
     <link rel="stylesheet" href="${basePath}/static/alertify/alertify.default.css"/>
@@ -196,7 +196,7 @@
 </body>
 <script type="text/javascript" src="${basePath}/static/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="${basePath}/static/public_view_control.js"></script>
-<script type="text/javascript" src="${basePath}/static/project/project_ajax.js"></script>
+<script type="text/javascript" src="${basePath}/static/projectItem/projectItemUpdate_ajax.js"></script>
 <script type="text/javascript" src="${basePath}/static/alertify/alertify.js"></script>
 <script type="text/javascript" src="${basePath}/static/date/calendar.js"></script>
 </html>

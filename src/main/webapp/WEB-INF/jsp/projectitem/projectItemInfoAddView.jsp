@@ -44,6 +44,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 <!------------第1行---------------->
                 <tr>
                     <td class="col_1" rowspan="12">设计类</td>
+                    <input type="hidden" name="items[0].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[0].itemName" value="办公用品,水"/>办公用品,水</td>
                     <td class="col_3"><input type="tel"  name="items[0].sumMoney"  value="" onfocus="insertValue(this,1,0);"/></td>
                     <td class="col_4"><input type="text"  name="items[0].time" value="" onclick="calendar.show(this);"/></td>
@@ -51,6 +52,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <td class="col_6"><input type="text"  name="items[0].mark" value="" onfocus="insertValue(this,0,0);"/></td>
 
                     <td class="col_1" rowspan="3" >材料费</td>
+                    <input type="hidden" name="items[1].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[1].itemName" value="水电费"/>水电费</td>
                     <td class="col_3"><input type="tel"  name="items[1].sumMoney" value="" onfocus="insertValue(this,1,1);"/></td>
                     <td class="col_4"><input type="text"  name="items[1].time" value="" onclick="calendar.show(this);"/></td>
@@ -58,6 +60,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <td class="col_6"><input type="text"  name="items[1].mark" value="" onfocus="insertValue(this,0,1);"/></td>
 
                     <td class="col_1" rowspan="3" style="font-size: 12px;">固定资产</td>
+                    <input type="hidden" name="items[2].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[2].itemName" value="租赁费"/>租赁费</td>
                     <td class="col_3"><input type="tel"  name="items[2].sumMoney" value="" onfocus="insertValue(this,1,2);"/></td>
                     <td class="col_4"><input type="text"  name="items[2].time" value="" onclick="calendar.show(this);"/></td>
@@ -66,12 +69,14 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 </tr>
                 <!------------第2行---------------->
                 <tr>
+                    <input type="hidden" name="items[3].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[3].itemName" value="资料,书报,检索"/>资料,书报,检索</td>
                     <td class="col_3"><input type="tel"  name="items[3].sumMoney"  value="" onfocus="insertValue(this,1,3);"/></td>
                     <td class="col_4"><input type="text"  name="items[3].time" value="" onclick="calendar.show(this);"/></td>
                     <td class="col_5"><input type="tel"  name="items[3].teId" value="" onfocus="insertValue(this,2,3);"/></td>
                     <td class="col_6"><input type="text"  name="items[3].mark" value="" onfocus="insertValue(this,0,3);"/></td>
 
+                    <input type="hidden" name="items[4].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[4].itemName" value="材料费"/>材料费</td>
                     <td class="col_3"><input type="tel"  name="items[4].sumMoney" value="" onfocus="insertValue(this,1,4);"/></td>
                     <td class="col_4"><input type="text"  name="items[4].time" value="" onclick="calendar.show(this);"/></td>
@@ -86,6 +91,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 </tr>
                 <!------------第3行---------------->
                 <tr>
+                    <input type="hidden" name="items[5].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[5].itemName" value="印刷费，版面"/>印刷费，版面</td>
                     <td class="col_3"><input type="tel"  name="items[5].sumMoney"  value="" onfocus="insertValue(this,1,5);"/></td>
                     <td class="col_4"><input type="text"  name="items[5].time" value="" onclick="calendar.show(this);"/></td>
@@ -106,6 +112,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 </tr>
                 <!------------第4行---------------->
                 <tr>
+                    <input type="hidden" name="items[6].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[6].itemName" value="印刷费，版面"/>咨询费,评审</td>
                     <td class="col_3"><input type="tel"  name="items[6].sumMoney"  value="" onfocus="insertValue(this,1,6);"/></td>
                     <td class="col_4"><input type="text"  name="items[6].time" value="" onclick="calendar.show(this);"/></td>
@@ -113,6 +120,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <td class="col_6"><input type="text"  name="items[6].mark" value="" onfocus="insertValue(this,0,6);"/></td>
 
                     <td class="col_1" rowspan="4">外协费</td>
+                    <input type="hidden" name="items[7].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[7].itemName" value="加工费"/>加工费</td>
                     <td class="col_3"><input type="tel"  name="items[7].sumMoney" value="" onfocus="insertValue(this,1,7);"/></td>
                     <td class="col_4"><input type="text"  name="items[7].time" value="" onclick="calendar.show(this);"/></td>
@@ -120,6 +128,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <td class="col_6"><input type="text"  name="items[7].mark" value="" onfocus="insertValue(this,0,7);"/></td>
 
                     <td class="col_1" rowspan="3">管理费</td>
+                    <input type="hidden" name="items[8].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[8].itemName" value="管理费"/>管理费</td>
                     <td class="col_3"><input type="tel"  name="items[8].sumMoney" value="" onfocus="insertValue(this,1,8);"/></td>
                     <td class="col_4"><input type="text"  name="items[8].time" value="" onclick="calendar.show(this);"/></td>
@@ -129,18 +138,21 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
                 <!------------第5行---------------->
                 <tr>
+                    <input type="hidden" name="items[9].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[9].itemName" value="邮寄费，话费，网费"/>邮寄费，话费，网费</td>
                     <td class="col_3"><input type="tel"  name="items[9].sumMoney"  value="" onfocus="insertValue(this,1,9);"/></td>
                     <td class="col_4"><input type="text"  name="items[9].time" value="" onclick="calendar.show(this);"/></td>
                     <td class="col_5"><input type="tel"  name="items[9].teId" value="" onfocus="insertValue(this,2,9);"/></td>
                     <td class="col_6"><input type="text"  name="items[9].mark" value="" onfocus="insertValue(this,0,9);"/></td>
 
+                    <input type="hidden" name="items[10].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[10].itemName" value="协助费"/>协助费</td>
                     <td class="col_3"><input type="tel"  name="items[10].sumMoney" value="" onfocus="insertValue(this,1,10);"/></td>
                     <td class="col_4"><input type="text"  name="items[10].time" value="" onclick="calendar.show(this);"/></td>
                     <td class="col_5"><input type="tel"  name="items[10].teId" value="" onfocus="insertValue(this,2,10);"/></td>
                     <td class="col_6"><input type="text"  name="items[10].mark" value="" onfocus="insertValue(this,0,10);"/></td>
 
+                    <input type="hidden" name="items[11].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[11].itemName" value="招待费"/>招待费</td>
                     <td class="col_3"><input type="tel"  name="items[11].sumMoney" value="" onfocus="insertValue(this,1,11);"/></td>
                     <td class="col_4"><input type="text"  name="items[11].time" value="" onclick="calendar.show(this);"/></td>
@@ -149,12 +161,14 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 </tr>
                 <!------------第6行---------------->
                 <tr>
+                    <input type="hidden" name="items[12].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[12].itemName" value="车费，过路费，油费"/>车费，过路费，油费</td>
                     <td class="col_3"><input type="tel"  name="items[12].sumMoney"  value="" onfocus="insertValue(this,1,12);"/></td>
                     <td class="col_4"><input type="text"  name="items[12].time" value="" onclick="calendar.show(this);"/></td>
                     <td class="col_5"><input type="tel"  name="items[12].teId" value="" onfocus="insertValue(this,2,12);"/></td>
                     <td class="col_6"><input type="text"  name="items[12].mark" value="" onfocus="insertValue(this,0,12);"/></td>
 
+                    <input type="hidden" name="items[13].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[13].itemName" value="维修费"/>维修费</td>
                     <td class="col_3"><input type="tel"  name="items[13].sumMoney" value="" onfocus="insertValue(this,1,13);"/></td>
                     <td class="col_4"><input type="text"  name="items[13].time" value="" onclick="calendar.show(this);"/></td>
@@ -169,6 +183,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 </tr>
                 <!------------第7行---------------->
                 <tr>
+                    <input type="hidden" name="items[14].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[14].itemName" value="差旅费"/>差旅费</td>
                     <td class="col_3"><input type="tel"  name="items[14].sumMoney"  value="" onfocus="insertValue(this,1,14);"/></td>
                     <td class="col_4"><input type="text"  name="items[14].time" value="" onclick="calendar.show(this);"/></td>
@@ -182,6 +197,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <td class="col_6"></td>
 
                     <td class="col_1" rowspan="6" >工资</td>
+                    <input type="hidden" name="items[15].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[15].itemName" value="助研费"/>助研费</td>
                     <td class="col_3"><input type="tel"  name="items[15].sumMoney" value="" onfocus="insertValue(this,1,15);"/></td>
                     <td class="col_4"><input type="text"  name="items[15].time" value="" onclick="calendar.show(this);"/></td>
@@ -190,6 +206,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 </tr>
                 <!------------第8行---------------->
                 <tr>
+                    <input type="hidden" name="items[16].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[16].itemName" value="出国费"/>出国费</td>
                     <td class="col_3"><input type="tel"  name="items[16].sumMoney"  value="" onfocus="insertValue(this,1,16);"/></td>
                     <td class="col_4"><input type="text"  name="items[16].time" value="" onclick="calendar.show(this);"/></td>
@@ -197,12 +214,14 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <td class="col_6"><input type="text"  name="items[16].mark" value="" onfocus="insertValue(this,0,16);"/></td>
 
                     <td class="col_1" rowspan="3">专用费</td>
+                    <input type="hidden" name="items[17].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[17].itemName" value="设备费购置"/>设备费购置</td>
                     <td class="col_3"><input type="tel"  name="items[17].sumMoney" value="" onfocus="insertValue(this,1,17);"/></td>
                     <td class="col_4"><input type="text"  name="items[17].time" value="" onclick="calendar.show(this);"/></td>
                     <td class="col_5"><input type="tel"  name="items[17].teId" value="" onfocus="insertValue(this,2,17);"/></td>
                     <td class="col_6"><input type="text"  name="items[17].mark" value="" onfocus="insertValue(this,0,17);"/></td>
 
+                    <input type="hidden" name="items[18].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[18].itemName" value="科研津贴"/>科研津贴</td>
                     <td class="col_3"><input type="tel"  name="items[18].sumMoney" value="" onfocus="insertValue(this,1,18);"/></td>
                     <td class="col_4"><input type="text"  name="items[18].time" value="" onclick="calendar.show(this);"/></td>
@@ -211,18 +230,21 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 </tr>
                 <!------------第9行---------------->
                 <tr>
+                    <input type="hidden" name="items[19].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[19].itemName" value="会议费"/>会议费</td>
                     <td class="col_3"><input type="tel"  name="items[19].sumMoney"  value="" onfocus="insertValue(this,1,19);"/></td>
                     <td class="col_4"><input type="text"  name="items[19].time" value="" onclick="calendar.show(this);"/></td>
                     <td class="col_5"><input type="tel"  name="items[19].teId" value="" onfocus="insertValue(this,2,19);"/></td>
                     <td class="col_6"><input type="text"  name="items[19].mark" value="" onfocus="insertValue(this,0,19);"/></td>
 
+                    <input type="hidden" name="items[20].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[20].itemName" value="其他"/>其他</td>
                     <td class="col_3"><input type="tel"  name="items[20].sumMoney" value="" onfocus="insertValue(this,1,20);"/></td>
                     <td class="col_4"><input type="text"  name="items[20].time" value="" onclick="calendar.show(this);"/></td>
                     <td class="col_5"><input type="tel"  name="items[20].teId" value="" onfocus="insertValue(this,2,20);"/></td>
                     <td class="col_6"><input type="text"  name="items[20].mark" value="" onfocus="insertValue(this,0,20);"/></td>
 
+                    <input type="hidden" name="items[21].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[21].itemName" value="反聘费"/>反聘费</td>
                     <td class="col_3"><input type="tel"  name="items[21].sumMoney" value="" onfocus="insertValue(this,1,21);"/></td>
                     <td class="col_4"><input type="text"  name="items[21].time" value="" onclick="calendar.show(this);"/></td>
@@ -231,6 +253,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 </tr>
                 <!------------第10行---------------->
                 <tr>
+                    <input type="hidden" name="items[22].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[22].itemName" value="计算，测试，分析费"/>计算，测试，分析费</td>
                     <td class="col_3"><input type="tel"  name="items[22].sumMoney"  value="" onfocus="insertValue(this,1,22);"/></td>
                     <td class="col_4"><input type="text"  name="items[22].time" value="" onclick="calendar.show(this);"/></td>
@@ -243,6 +266,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <td class="col_5"></td>
                     <td class="col_6"></td>
 
+                    <input type="hidden" name="items[23].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[23].itemName" value="保密，保健费"/>保密，保健费</td>
                     <td class="col_3"><input type="tel"  name="items[23].sumMoney" value="" onfocus="insertValue(this,1,23);"/></td>
                     <td class="col_4"><input type="text"  name="items[23].time" value="" onclick="calendar.show(this);"/></td>
@@ -251,6 +275,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 </tr>
                 <!------------第11行---------------->
                 <tr>
+                    <input type="hidden" name="items[24].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[24].itemName" value="其他"/>其他</td>
                     <td class="col_3"><input type="tel"  name="items[24].sumMoney"  value="" onfocus="insertValue(this,1,24);"/></td>
                     <td class="col_4"><input type="text"  name="items[24].time" value="" onclick="calendar.show(this);"/></td>
@@ -258,6 +283,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <td class="col_6"><input type="text"  name="items[24].mark" value="" onfocus="insertValue(this,0,24);"/></td>
 
                     <td class="col_1" rowspan="2" style="font-size: 12px;">试验费</td>
+                    <input type="hidden" name="items[25].moId" value="-1"/>
                     <td class="col_2"><input type="hidden"  name="items[25].itemName" value="试验费"/>试验费</td>
                     <td class="col_3"><input type="tel"  name="items[25].sumMoney" value="" onfocus="insertValue(this,1,25);"/></td>
                     <td class="col_4"><input type="text"  name="items[25].time" value="" onclick="calendar.show(this);"/></td>

@@ -42,13 +42,13 @@
                 <div class="row_3">${projectInfo.prUsefulMoney}</div>
                 <%-- 预算金额--%>
                 <div class="row_4">
-                    <div class="col1"><a href="/projectItem/preMoneyItemInfoAddView">${projectInfo.prPreMoney}</a></div>
-                    <div class="col2"><a href="/projectItem/preMoneyItemInfoAddView">&nbsp&nbsp<span>明细>></span></a></div>
+                    <div class="col1"><a href="/projectItem/preMoneyItemInfoAddView/${projectInfo.prId}">${projectInfo.prPreMoney}</a></div>
+                    <div class="col2"><a href="/projectItem/preMoneyItemInfoAddView/${projectInfo.prId}">&nbsp&nbsp<span>明细>></span></a></div>
                 </div>
                 <%--经费金额--%>
                 <div class="row_5">
-                    <div class="col1"><a href="/projectItem/moneyItemInfoAddView">${projectInfo.prMoney}</a></div>
-                    <div class="col2"><a href="/projectItem/moneyItemInfoAddView">&nbsp&nbsp<span>明细>></span></a></div>
+                    <div class="col1"><a href="/projectItem/projectItemInfoUpdateView/${projectInfo.prId}">${projectInfo.prMoney}</a></div>
+                    <div class="col2"><a href="/projectItem/projectItemInfoUpdateView/${projectInfo.prId}">&nbsp&nbsp<span>明细>></span></a></div>
                 </div>
             </div>
             <%int i=1;%>
@@ -64,13 +64,13 @@
                     <div class="row_3">${projectInfo2.prUsefulMoney}</div>
                         <%-- 预算金额--%>
                     <div class="row_4">
-                        <div class="col1"><a href="/projectItem/preMoneyItemInfoAddView">${projectInfo2.prPreMoney}</a></div>
-                        <div class="col2"><a href="/projectItem/preMoneyItemInfoAddView">&nbsp&nbsp<span>明细>></span></a></div>
+                        <div class="col1"><a href="/projectItem/preMoneyItemInfoAddView/${projectInfo2.prId}">${projectInfo2.prPreMoney}</a></div>
+                        <div class="col2"><a href="/projectItem/preMoneyItemInfoAddView/${projectInfo2.prId}">&nbsp&nbsp<span>明细>></span></a></div>
                     </div>
                         <%--经费金额--%>
                     <div class="row_5">
-                        <div class="col1"><a href="/projectItem/moneyItemInfoAddView">${projectInfo2.prMoney}</a></div>
-                        <div class="col2"><a href="/projectItem/moneyItemInfoAddView">&nbsp&nbsp<span>明细>></span></a></div>
+                        <div class="col1"><a href="/projectItem/projectItemInfoUpdateView/${projectInfo2.prId}">${projectInfo2.prMoney}</a></div>
+                        <div class="col2"><a href="/projectItem/projectItemInfoUpdateView/${projectInfo2.prId}">&nbsp&nbsp<span>明细>></span></a></div>
                     </div>
                 </div>
             </c:forEach>
