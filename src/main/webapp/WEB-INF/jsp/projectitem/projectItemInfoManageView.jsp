@@ -10,7 +10,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>科研经费管理</title>
-    <link rel="stylesheet" href="${basePath}/static/projectitem/style_projectitem.css"/>
+    <link rel="stylesheet" href="${basePath}/static/projectItem/style_projectItemManage.css"/>
     <link rel="stylesheet" href="${basePath}/static/style_common.css"/>
     <link rel="stylesheet" href="${basePath}/static/alertify/alertify.core.css"/>
     <link rel="stylesheet" href="${basePath}/static/alertify/alertify.default.css"/>
@@ -96,7 +96,7 @@
 </body>
 <script type="text/javascript" src="${basePath}/static/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="${basePath}/static/public_view_control.js"></script>
-<script type="text/javascript" src="${basePath}/static/projectitem/projectitem_ajax.js"></script>
+<script type="text/javascript" src="${basePath}/static/projectItem/projectItemManage_ajax.js"></script>
 <script type="text/javascript" src="${basePath}/static/jquery.form.js"></script>
 <script type="text/javascript" src="${basePath}/static/alertify/alertify.js"></script>
 <script type="text/javascript" src="${basePath}/static/date/calendar.js"></script>
