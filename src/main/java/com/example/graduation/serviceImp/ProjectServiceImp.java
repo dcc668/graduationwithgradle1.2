@@ -11,10 +11,11 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 
 @Service
-public class ProjectServiceImp extends IServiceImp<Project> implements ProjectService{
+public class ProjectServiceImp implements ProjectService{
 	@Resource(name="projectDAOImp")
 	ProjectDAO projectDAO;
 	@Autowired
@@ -46,4 +47,43 @@ public class ProjectServiceImp extends IServiceImp<Project> implements ProjectSe
 		hibernateTemplate.delete(pro);
 	}
 
+	@Override
+	public Serializable add(Project project) {
+		return projectDAO.add( project);
+	}
+
+	@Override
+	public void deleteById(Serializable id) {
+		projectDAO.deleteById( id);
+	}
+
+	@Override
+	public void deleteByCollection(Collection<Project> collection) {
+		projectDAO.deleteByCollection( collection);
+	}
+
+	@Override
+	public Project findById(Serializable id) {
+		return projectDAO.findById( id);
+	}
+
+	@Override
+	public Collection<Project> findAllAndPage(int firstResult, int maxResults) {
+		return projectDAO.findAllAndPage( firstResult,  maxResults);
+	}
+
+	@Override
+	public Collection<Project> findAll() {
+		return projectDAO.findAll();
+	}
+
+	@Override
+	public void update(Project project) {
+		projectDAO.update(project);
+	}
+
+	@Override
+	public Integer getCount(Project project) {
+		return projectDAO.getCount(project);
+	}
 }

@@ -3,7 +3,6 @@ package com.example.graduation.vo;
 
 import com.example.graduation.model.Course;
 import com.example.graduation.model.TeacherStudent;
-import com.example.graduation.model.Title;
 
 import java.util.List;
 import java.util.Set;
@@ -18,7 +17,6 @@ public class TeacherInfo  {
 	private	String teAddr;
 	private	String teMail;
 	private	String teQQ;
-	private Set<Title> title;
 	private Set<TeacherStudent> teaStu;
 
 
@@ -103,13 +101,6 @@ public class TeacherInfo  {
 
 	public void setTeQQ(String teQQ) {
 		this.teQQ = teQQ;
-	}
-	public Set<Title> getTitle() {
-		return title;
-	}
-
-	public void setTitle(Set<Title> title) {
-		this.title = title;
 	}
 	public Set<TeacherStudent> getTeaStu() {
 		return teaStu;

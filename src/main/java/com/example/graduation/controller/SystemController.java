@@ -30,15 +30,9 @@ public class SystemController {
     @Autowired
     private StudentService studentService;
     @Autowired
-    private TitleReviewInforService titleReviewInforService;
-    @Autowired
-    private TitleService titleService;
-    @Autowired
     private MajorService majorService;
     @Autowired
     private TeacherStudentService teacherStudentService;
-    @Autowired
-    private ReviewerService reviewerService;
 
     //主页面
     @RequestMapping("/home")
@@ -176,112 +170,6 @@ public class SystemController {
         return "main/systemManage";
     }
 
-    //显示未通过的课题
-    @RequestMapping("/toReview")
-    public String toReview(Model model, @ModelAttribute TitleReviewInfo titleReviewInfo) {
-
-        List<TitleReviewInfor> tri = (List<TitleReviewInfor>) titleReviewInforService.findNotReview();
-        List<TitleReviewInfo> trInfo = new ArrayList<TitleReviewInfo>();
-        for (TitleReviewInfor triObj : tri) {
-            TitleReviewInfo tri1 = new TitleReviewInfo();
-            tri1.setTrId(triObj.getTrId());
-            tri1.setReviewState(triObj.getReviewState());
-            tri1.setReviewSuggestion(triObj.getReviewSuggestion());
-            tri1.setTerm(triObj.getTerm());
-            tri1.setTitleExamine(triObj.getTitleExamine());
-            Title ti = triObj.getTitle();
-            tri1.setTitleId(ti.getTitleId());
-            tri1.setTitleName(ti.getTitleName());
-            trInfo.add(tri1);
-        }
-        model.addAttribute("triList", trInfo);
-        return "main/toReview";
-    }
-
-    //审核 并通过
-    @RequestMapping("/permitPass/{titleId}")
-    public String permitPass(@PathVariable("titleId") int titleId) {
-        System.out.println("=====permitPass============");
-        TitleReviewInfor tri = titleReviewInforService.findById(titleId);
-        tri.setReviewState("通过");
-        titleReviewInforService.update(tri);
-        return "main/Success";
-    }
-
-    //审核 不通过
-    @RequestMapping("/main/permitFail/{titleId}")
-    public String permitFail(@PathVariable("titleId") int titleId) {
-        System.out.println("=====permitFail============");
-        TitleReviewInfor tri = titleReviewInforService.findById(titleId);
-        tri.setReviewState("通不过");
-        titleReviewInforService.update(tri);
-        return "main/Success";
-    }
-
-
-    //教师立题入口
-    @RequestMapping("/teacher/teaCreateTitleView")
-    public String teaCreateTitleView(@ModelAttribute TitleInfo titleInfo) {
-        return "teacher/teaCreateTitleView";
-    }
-
-    @RequestMapping("/teacher/teaCreateTitle")
-    public String teaCreateTitle(@ModelAttribute TitleInfo titleInfo) {
-        Title t = new Title();
-        t.setTerm(titleInfo.getTerm());
-        t.setTitleId(titleInfo.getTitleId());
-        t.setTitleName(titleInfo.getTitleName());
-        t.setTitleProperty(titleInfo.getTitleProperty());
-        t.setTitleType(titleInfo.getTitleType());
-        t.setTitleSource(titleInfo.getTitleSource());
-        t.setNeedStuNum(titleInfo.getNeedStuNum());
-        t.setNowStuNum(0);
-        Major major = majorService.findById(titleInfo.getMajorId());
-        t.setMajor(major);
-        Teacher teacher = teacherService.findById(titleInfo.gettId());
-        t.setTeacher(teacher);
-        titleService.add(t);
-        //添加题目后，对评审信息初步设置
-        TitleReviewInfor reif = new TitleReviewInfor();
-        reif.setTrId(t.getTitleId());//默认id与题目Id相同
-        reif.setTerm(titleInfo.getTerm());
-        reif.setTitleExamine("相似度");
-        reif.setReviewState("审核中");
-        reif.setReviewSuggestion("无");
-        reif.setTitle(t);
-        titleReviewInforService.add(reif);
-        return "main/Success";
-    }
-
-    //学生选题入口
-    @RequestMapping("/student/stuChooseTitleView")
-    public String stuChooseTitle(Model model, @ModelAttribute TitleInfo titleInfo) {
-
-
-        //展示已通过审核的题目
-        List<TitleReviewInfor> tri = (List<TitleReviewInfor>) titleReviewInforService.findDoneReview();
-        List<TitleReviewInfo> trInfo = new ArrayList<TitleReviewInfo>();
-        for (TitleReviewInfor triObj : tri) {
-            TitleReviewInfo tri1 = new TitleReviewInfo();
-            tri1.setTrId(triObj.getTrId());
-            tri1.setReviewState(triObj.getReviewState());
-            tri1.setReviewSuggestion(triObj.getReviewSuggestion());
-            tri1.setTerm(triObj.getTerm());
-            tri1.setTitleExamine(triObj.getTitleExamine());
-            Title ti = triObj.getTitle();
-            tri1.setTitleId(ti.getTitleId());
-            tri1.setTitleName(ti.getTitleName());
-            tri1.setNeedStuNum(ti.getNeedStuNum());
-            tri1.setNowStuNum(ti.getNowStuNum());
-            trInfo.add(tri1);
-        }
-
-        System.out.println("=======传到页面的数据=========大小：" + trInfo.size());
-        model.addAttribute("triList", trInfo);
-
-        return "main/student/stuChooseTitleView";
-    }
-
 
     //执行选择题目操作
     @RequestMapping("/student/stuChooseTitle/{titleId}")
@@ -392,78 +280,6 @@ public class SystemController {
     }
 
 
-//统计各课题的余量
-
-    @RequestMapping("/statisticsTitleMarginView")
-    public String statisticsTitleMarginView(Model model, @ModelAttribute TitleInfo titleInfo) {
-        System.out.println("statisticsTitleMarginView============");
-        int marginSum = 0;//总余量
-        List<TitleInfo> titInfs = new ArrayList<TitleInfo>();
-        List<Title> titles = (List<Title>) titleService.findAll();
-        System.out.println("statisticsTitleMarginView============2");
-
-        for (Title tit : titles) {
-            if (tit.getNowStuNum() < tit.getNeedStuNum()) {
-                marginSum += (tit.getNeedStuNum() - tit.getNowStuNum());
-                TitleInfo titInfo = new TitleInfo();
-                titInfo.setMargin(tit.getNeedStuNum() - tit.getNowStuNum());
-                titInfo.setMajorId(tit.getMajor().getMajorId());
-                titInfo.setNeedStuNum(tit.getNeedStuNum());
-                titInfo.setTerm(tit.getTerm());
-                titInfo.settId(tit.getTeacher().getTeId());
-                titInfo.setTitleId(tit.getTitleId());
-                titInfo.setTitleName(tit.getTitleName());
-                titInfo.setTitleProperty(tit.getTitleProperty());
-                titInfo.setTitleSource(tit.getTitleSource());
-                titInfo.setTitleType(tit.getTitleType());
-                titInfs.add(titInfo);
-            }
-        }
-        model.addAttribute("titInfs", titInfs);
-//			model.addAttribute("titInfs", titInfs);
-
-        return "main/statisticsTitleMarginView";
-    }
-
-    //教师评分
-    @RequestMapping("/teacher/directiveTeaGradeView")
-    public String directiveTeaGradeView(@ModelAttribute TeacherStudentInfo teacherStudentInfo) {
-        System.out.println("directiveTeaGradeView=======");
-
-        return "main/teacher/directiveTeaGradeView";
-    }
-
-    @RequestMapping("teacher/directiveTeaGrade")
-    public String directiveTeaGrade(@ModelAttribute TeacherStudentInfo teacherStudentInfo) {
-        System.out.println("directiveTeaGrade=========");
-        TeacherStudent t = new TeacherStudent();
-        t.setScore(teacherStudentInfo.getScore());
-        Student stu = new Student();
-        stu.setsId(teacherStudentInfo.getsId());
-        t.setStudent(stu);
-        Teacher tea = new Teacher();
-        tea.setTeId(teacherStudentInfo.gettId());
-        t.setTeacher(tea);
-        teacherStudentService.add(t);
-        //学生成绩更新
-        int scoreSum = 0;
-        int count = 0;
-        List<Integer> scores = teacherStudentService.queryScore(teacherStudentInfo.getsId());
-        for (int i = 0; i < scores.size(); i++) {
-//				Pattern pattern=Pattern.compile("[0-9]*");
-//				Matcher mat=pattern.matcher(scores.get(i).toString());
-//				if(mat.matches()){
-            scoreSum += scores.get(i).intValue();
-            count++;
-        }
-//			}
-        if (count != 0) {
-            Student newStu = studentService.findById(teacherStudentInfo.getsId());
-            studentService.update(newStu);
-        }
-        System.out.println("systemController=======成绩更新==scoreSum:count" + scoreSum + ":" + count);
-        return "main/Success";
-    }
 
 
     //教师管理
@@ -736,76 +552,6 @@ public class SystemController {
     public String deleteMajor(@PathVariable("tId") int tId, @ModelAttribute MajorInfo majorInfo) {
         System.out.println("deleteMajor=====tId:" + tId);
         majorService.deleteById(tId);
-        return "main/Success";
-    }
-
-    //=================================================
-//评审员管理
-    @RequestMapping("/reviewer/manageReviewerView")
-    public String manageReviewerView(@ModelAttribute ReviewerInfo reviewerInfo) {
-        System.out.println("manageReviewerView");
-        return "main/reviewer/manageReviewerView";
-    }
-
-    //添加
-    @RequestMapping("/reviewer/addReviewerView")
-    public String addReviewerView(@ModelAttribute ReviewerInfo reviewerInfo) {
-        System.out.println("addReviewerView");
-        return "main/reviewer/addReviewerView";
-    }
-
-    @RequestMapping(value = "/reviewer/addReviewer", method = RequestMethod.POST)
-    public String addReviewer(@ModelAttribute ReviewerInfo reviewerInfo) {
-        System.out.println("addReviewer");
-        Reviewer tea = new Reviewer();
-        tea.setRevId(reviewerInfo.getRevId());
-        tea.setRevName(reviewerInfo.getRevName());
-        reviewerService.add(tea);
-        return "main/Success";
-    }
-
-    //查询
-    @RequestMapping("/reviewer/queryReviewerView")
-    public String queryReviewerView(Model model, @ModelAttribute ReviewerInfo reviewerInfo) {
-        System.out.println("queryReviewerView=======");
-        List<Reviewer> teas = (List<Reviewer>) reviewerService.findAll();
-        List<ReviewerInfo> teaInfs = new ArrayList<ReviewerInfo>();
-        for (Reviewer tea : teas) {
-            ReviewerInfo teaInf = new ReviewerInfo();
-            teaInf.setRevId(tea.getRevId());
-            teaInf.setRevName(tea.getRevName());
-            teaInfs.add(teaInf);
-        }
-        model.addAttribute("teaInfs", teaInfs);
-        return "main/reviewer/queryReviewerView";
-    }
-
-    //更新
-    @RequestMapping(value = "/reviewer/updateReviewerView/{tId}", method = RequestMethod.GET)
-    public String updateReviewerView(Model model, @ModelAttribute ReviewerInfo reviewerInfo, @PathVariable("tId") int tId) {
-        System.out.println("updateReviewerView=====tId:" + tId);
-        Reviewer tea = reviewerService.findById(tId);
-        reviewerInfo.setRevId(tea.getRevId());
-        reviewerInfo.setRevName(tea.getRevName());
-        model.addAttribute("reviewerInfo", reviewerInfo);
-        return "main/reviewer/updateReviewerView";
-    }
-
-    @RequestMapping(value = "/reviewer/updateReviewer", method = RequestMethod.POST)
-    public String updateReviewer(@ModelAttribute ReviewerInfo reviewerInfo) {
-        Reviewer tea = new Reviewer();
-        tea.setRevId(reviewerInfo.getRevId());
-        tea.setRevName(reviewerInfo.getRevName());
-        reviewerService.update(tea);
-
-        return "main/Success";
-    }
-
-    //删除
-    @RequestMapping(value = "/reviewer/deleteReviewer/{tId}")
-    public String deleteReviewer(@PathVariable("tId") int tId, @ModelAttribute ReviewerInfo reviewerInfo) {
-        System.out.println("deleteReviewer=====tId:" + tId);
-        reviewerService.deleteById(tId);
         return "main/Success";
     }
 

@@ -9,10 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 
 @Service
-public class MoneyItemServiceImp extends IServiceImp<MoneyItem> implements MoneyItemService {
+public class MoneyItemServiceImp implements MoneyItemService {
 
 	@Autowired
 	private MoneyItemDAO moneyItemDAO;
@@ -35,6 +36,46 @@ public class MoneyItemServiceImp extends IServiceImp<MoneyItem> implements Money
 	@Override
 	public Integer getMoneyItemsCountByPrId(Integer prId) {
 		return moneyItemDAO.getMoneyItemsCountByPrId(prId);
+	}
+
+	@Override
+	public Double calculateSumMoneyByPrId(Integer prId) {
+		return moneyItemDAO.calculateSumMoneyByPrId(prId);
+	}
+
+	@Override
+	public Serializable add(MoneyItem moneyItem) {
+		return moneyItemDAO.add( moneyItem);
+	}
+
+	@Override
+	public void deleteById(Serializable id) {
+		moneyItemDAO.deleteById( id);
+	}
+
+	@Override
+	public void deleteByCollection(Collection<MoneyItem> collection) {
+		moneyItemDAO.deleteByCollection(collection);
+	}
+
+	@Override
+	public MoneyItem findById(Serializable id) {
+		return moneyItemDAO.findById( id);
+	}
+
+	@Override
+	public Collection<MoneyItem> findAllAndPage(int firstResult, int maxResults) {
+		return moneyItemDAO.findAllAndPage( firstResult,  maxResults);
+	}
+
+	@Override
+	public Collection<MoneyItem> findAll() {
+		return moneyItemDAO.findAll();
+	}
+
+	@Override
+	public void update(MoneyItem moneyItem) {
+		moneyItemDAO.update( moneyItem);
 	}
 
 	@Override

@@ -13,4 +13,6 @@ public interface MoneyItemDAO extends IDAO<MoneyItem>{
     public List<MoneyItem> getMoneyItemsByPrIdAndPage(Integer prId, Page page);
     public List<MoneyItem> getMoneyItemsByIds(Serializable... ids);
     public Integer getMoneyItemsCountByPrId(Integer prId);
+    public Double calculateSumMoneyByPrId(Integer prId);
+
 }

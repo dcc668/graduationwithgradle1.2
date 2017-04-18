@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Repository
-public class ProjectDAOImp extends IDAOImpl<Project> implements ProjectDAO {
+public class ProjectDAOImp extends IDAOImpl<Project> implements ProjectDAO{
     @Override
     public List<Project> getProjectsByTeId(Integer teId) {
         Session session=sessionFactory.getCurrentSession();

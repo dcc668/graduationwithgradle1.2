@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 
 
-public interface ProjectDAO extends IDAO<Project> {
+public interface ProjectDAO  extends IDAO<Project> {
     public List<Project> getProjectsByTeId(Integer teId);
     public List<Project> getProjectsByTeIdAndPage(Integer teId,Page page);
     public List<Project> getProjectsByIds(Serializable...ids);

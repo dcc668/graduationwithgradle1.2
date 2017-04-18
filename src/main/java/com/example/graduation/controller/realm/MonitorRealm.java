@@ -1,10 +1,8 @@
 package com.example.graduation.controller.realm;
 
 import com.example.graduation.vo.Manage;
-import com.example.graduation.model.Reviewer;
 import com.example.graduation.model.Student;
 import com.example.graduation.model.Teacher;
-import com.example.graduation.service.ReviewerService;
 import com.example.graduation.service.StudentService;
 import com.example.graduation.service.TeacherService;
 import com.example.graduation.util.EncryptUtils;
@@ -34,13 +32,6 @@ public class MonitorRealm extends AuthorizingRealm {
 	@Autowired
 	TeacherService teacherService;
 	
-	@Autowired
-	ReviewerService reviewerService;
-	public MonitorRealm() {
-		super();
-
-
-	}
 
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(
@@ -155,21 +146,7 @@ public class MonitorRealm extends AuthorizingRealm {
         	
         }
         
-        if(position.equals("reviewer")){
-        	Reviewer user = reviewerService.findByName(token.getUsername().trim()).get(0);
-        	if (user != null) {
-    			return new SimpleAuthenticationInfo(user.getRevId(),
-    					EncryptUtils.encryptMD5(user.getRevPassword()), getName());
-    		
-    		}else{
-    			return null;
-    		}
-        	
-        	
-        	
-        	
-        }
-        
+
         if(position.equals("manage")){
     		Manage user = new Manage();
     		user.setId("122701");

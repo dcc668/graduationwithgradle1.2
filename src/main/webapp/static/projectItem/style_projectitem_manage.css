@@ -1,6 +1,3 @@
-.table_form{
-    border-top: solid 1px black;
-}
 @media screen and (min-width: 1000px) {
     .fixWidth {
         width: 100%;
@@ -21,7 +18,9 @@
         width: 15%;
     }
 }
-
+.table_form{
+    border-top: solid 1px black;
+}
 
 .table_add_content_title tr td{
     /*border:solid 1px red;*/

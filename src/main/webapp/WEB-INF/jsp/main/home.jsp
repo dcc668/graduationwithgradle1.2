@@ -48,7 +48,14 @@ String ctx =  request.getContextPath();
      <shiro:hasPermission name="manage:all">
         <li class="current"><a href="systemManage"><img src="<c:url value="/styles/img/icons/menu/layout.png"/>"/>系统管理</a>
             <ul>
-                <li ><a href="<c:url value="/teacher/test"/>" target="contentFrame">教师管理</a></li>
+                <li ><a href="<c:url value="/teacher/test"/>" target="contentFrame">教师管理</a>
+                    <ul>
+                        <li ><a href="<c:url value="/teacher/test"/>" target="contentFrame">教师管理</a></li>
+                        <li><a href="<c:url value="student/manageStudentView"/>" target="contentFrame">学生管理</a></li>
+                        <li><a href="<c:url value="major/manageMajorView"/>" target="contentFrame">专业管理</a></li>
+                        <li><a href="<c:url value="reviewer/manageReviewerView"/>" target="contentFrame">评审委员会管理</a></li>
+                    </ul>
+                </li>
                 <li><a href="<c:url value="student/manageStudentView"/>" target="contentFrame">学生管理</a></li>
                 <li><a href="<c:url value="major/manageMajorView"/>" target="contentFrame">专业管理</a></li>
                 <li><a href="<c:url value="reviewer/manageReviewerView"/>" target="contentFrame">评审委员会管理</a></li>

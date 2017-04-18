@@ -106,6 +106,8 @@ alter table t_project modify(prendtime date);
 alter table t_project modify(prstarttime date);
 alter table t_project add(prpremoney float);
 
+drop table t_project cascade constraints
+
 insert into t_project (prid,prdate,prmoney,prname,prsource,prstarttime,prstate,prpremoney,prendtime,prresultinfo,prusefulmoney,teid)
         values(1001,6,72,'中国企业走出去跨文化大数据平台建设','国家级',to_date('2012/4/11','yyyy/mm/dd'),'已完成',3.1,to_date('2013/4/11','yyyy/mm/dd'),'在**原有基础上，探索出了一套能够有效提升**的理论，技术，模式和方法',2.1,122701); 
 insert into t_project (prid,prdate,prmoney,prname,prsource,prstarttime,prstate,prpremoney,prendtime,prresultinfo,prusefulmoney,teid)
@@ -135,7 +137,69 @@ drop table t_PreMoneyItem;
 
 select * from t_MoneyItem for update;
 drop table t_MoneyItem;
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1001,'办公用品,水','项目整个过程中使用',23000,122701,to_date('2016-2-3','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1002,'水电费','办公地点水电费',3000,122701,to_date('2016-3-3','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1003,'租赁费','办公地点房租',9000,122701,to_date('2016-3-3','yyyy-MM-dd'),1001);
+       
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1004,'资料,书报,检索','项目开发过程中资料费',2000,122701,to_date('2016-2-4','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1005,'材料费','项目开发过程中材料费',5000,122701,to_date('2016-5-3','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1006,'印刷费，版面','项目整个过程中使用',23000,122701,to_date('2016-2-5','yyyy-MM-dd'),1001);
+       
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1007,'车费，过路费，油费','项目调研中使用',7000,122701,to_date('2016-2-6','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1008,'差旅费','项目调研中使用',9000,122701,to_date('2016-6-3','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1009,'设备费购置','项目开发过程中购买设备费用',50000,122701,to_date('2016-2-7','yyyy-MM-dd'),1001);       
+       
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1010,'招待费','项目调研中使用',7000,122701,to_date('2016-2-6','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1011,'协助费','外聘专家使用',9000,122701,to_date('2016-6-3','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1012,'其他','零散费用',5000,122701,to_date('2016-2-7','yyyy-MM-dd'),1001);   
+---------------------------------------------------------------------------------------------------------------------------------------------start-----------------------------------教师。科研项目 ------中间表-------------
+select * from t_teacher_project for update;
 
+insert into t_teacher_project values(1001,1001,122701);
+insert into t_teacher_project values(1001,1002,122701);
+insert into t_teacher_project values(1001,1003,122701);
+insert into t_teacher_project values(1001,1004,122701);
+insert into t_teacher_project values(1001,1005,122701);
+insert into t_teacher_project values(1001,1006,122701);
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------end----------------------------------教师。科研项目 ------中间表-------------
+
+
+
+
+
+select * from t_teacher_course for update;
+select * from t_teacher_project for update;
+select * from t_teacher_student;
+
+
+select  'drop table  '||table_name||' cascade constraints;' 
+        from user_tables where table_name in
+             (select upper(table_name) from user_tables);
+
+drop table  T_COURSE cascade constraints;
+drop table  T_MAJOR cascade constraints;
+drop table  T_PAPER cascade constraints;
+drop table  T_PROJECT cascade constraints;
+drop table  T_STUDENT cascade constraints;
+drop table  T_TEACHER cascade constraints;
+drop table  T_TEACHER_COURSE cascade constraints;
+drop table  T_TEACHER_PROJECT cascade constraints;
+drop table  T_TEACHER_STUDENT cascade constraints;
+drop table  T_STU_COURSE cascade constraints;
 
 
 
@@ -401,33 +465,6 @@ insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicati
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-select * from t_teacher_project for update;
-
-
-
-
-select * from t_teacher_course for update;
-select * from t_teacher_project;
-select * from t_teacher_student;
-
-
-select  'drop table  '||table_name||' cascade constraints;' 
-        from user_tables where table_name in
-             (select upper(table_name) from user_tables);
-
-drop table  T_COURSE cascade constraints;
-drop table  T_MAJOR cascade constraints;
-drop table  T_PAPER cascade constraints;
-drop table  T_PROJECT cascade constraints;
-drop table  T_STUDENT cascade constraints;
-drop table  T_TEACHER cascade constraints;
-drop table  T_TEACHER_COURSE cascade constraints;
-drop table  T_TEACHER_PROJECT cascade constraints;
-drop table  T_TEACHER_STUDENT cascade constraints;
-drop table  T_STU_COURSE cascade constraints;
-
-
-
 
 
 

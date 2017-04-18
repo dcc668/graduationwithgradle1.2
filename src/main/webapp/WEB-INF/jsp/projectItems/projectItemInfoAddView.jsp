@@ -9,15 +9,16 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>--</title>
-    <link rel="stylesheet" href="${basePath}/static/project/style_project.css">
+    <title>支出明细</title>
+    <link rel="stylesheet" href="${basePath}/static/projectitem/style_projectitem_add_update.css">
     <link rel="stylesheet" href="${basePath}/static/style_common.css">
 </head>
 <body>
 <div class="tab_space_add">
-    <div class="tab_space_add_title"><h1>---</h1></div>
+    <div class="tab_space_add_title"><h1>支出明细</h1></div>
+    <span class = "error_text" >${msg}</span>
     <div class="table_form">
-        <form action="/projectItem/moneyItemInfoAdd" method="post" name="work_form">
+        <form action="/projectItem/submitProjectItemInfo" method="post" name="work_form">
             <table class="table_report">
                 <tr>
                     <td class="col_1">分类</td>
@@ -238,7 +239,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <td class="col_6"><input type="text"  name="items[19].mark" value="" onfocus="insertValue(this,0,19);"/></td>
 
                     <input type="hidden" name="items[20].moId" value="-1"/>
-                    <td class="col_2"><input type="hidden"  name="items[20].itemName" value="其他"/>其他</td>
+                    <td class="col_2"><input type="hidden"  name="items[20].itemName" value="其他专用费"/>其他专用费</td>
                     <td class="col_3"><input type="tel"  name="items[20].sumMoney" value="" onfocus="insertValue(this,1,20);"/></td>
                     <td class="col_4"><input type="text"  name="items[20].time" value="" onclick="calendar.show(this);"/></td>
                     <td class="col_5"><input type="tel"  name="items[20].teId" value="" onfocus="insertValue(this,2,20);"/></td>
@@ -276,7 +277,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 <!------------第11行---------------->
                 <tr>
                     <input type="hidden" name="items[24].moId" value="-1"/>
-                    <td class="col_2"><input type="hidden"  name="items[24].itemName" value="其他"/>其他</td>
+                    <td class="col_2"><input type="hidden"  name="items[24].itemName" value="其他设计费"/>其他设计费</td>
                     <td class="col_3"><input type="tel"  name="items[24].sumMoney"  value="" onfocus="insertValue(this,1,24);"/></td>
                     <td class="col_4"><input type="text"  name="items[24].time" value="" onclick="calendar.show(this);"/></td>
                     <td class="col_5"><input type="tel"  name="items[24].teId" value="" onfocus="insertValue(this,2,24);"/></td>
@@ -333,7 +334,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     <td class="col_read_11">合计</td>
                 </tr>
                 <tr>
-                    <td class="col_read_2"></td>
+                    <td class="col_read_2">${project.prName}</td>
                     <td class="col_read_3"></td>
                     <td class="col_read_4"></td>
                     <td class="col_read_5"></td>
@@ -346,8 +347,8 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 </tr>
                 <tr><td colspan="11"><input type="hidden" name="sum" value="0"/>总计:&nbsp&nbsp<span></span></td></tr>
             </table>
-
-            <div class="tab_foot"><span>项目负责人</span></div>
+            <input type="hidden" name="prId" value="${project.prId}"/>
+            <div class="tab_foot"><span>项目负责人(工号):&nbsp;&nbsp;</span> ${project.teId}&nbsp;&nbsp;</div>
             <div class="btn_group" onclick="subWorkData();">
                 <a>提交</a>
             </div>
@@ -381,9 +382,9 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <%--<input type="submit" value="submit"/>--%>
 <%--</form>--%>
 </body>
-<script type="text/javascript" src="${basePath}/static/project/simplemode/jquery.min.js"></script>
-<script type="text/javascript" src="${basePath}/static/project/simplemode/jquery.simplemodal.js"></script>
-<script type="text/javascript" src="${basePath}/static/project/project_ajax.js"></script>
+<script type="text/javascript" src="${basePath}/static/projectitem/simplemode/jquery.min.js"></script>
+<script type="text/javascript" src="${basePath}/static/projectitem/simplemode/jquery.simplemodal.js"></script>
+<script type="text/javascript" src="${basePath}/static/projectitem/projectitem_add_update.js"></script>
 <script type="text/javascript" src="${basePath}/static/date/calendar.js"></script>
 </html>
 

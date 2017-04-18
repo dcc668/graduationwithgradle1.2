@@ -98,13 +98,15 @@ insert into t_teacher values(122710,'上海','140@163.com','张三','123','院长'，'4
 
 update t_paper set pahostunit='计通学院' where 1=1
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------科研项目--------------------------------------------------------
 select * from t_project for update;
 --预算金额
 alter table t_project drop column pr_premoney ;
 alter table t_project modify(prendtime date);
 alter table t_project modify(prstarttime date);
 alter table t_project add(prpremoney float);
+
+drop table t_project cascade constraints
 
 insert into t_project (prid,prdate,prmoney,prname,prsource,prstarttime,prstate,prpremoney,prendtime,prresultinfo,prusefulmoney,teid)
         values(1001,6,72,'中国企业走出去跨文化大数据平台建设','国家级',to_date('2012/4/11','yyyy/mm/dd'),'已完成',3.1,to_date('2013/4/11','yyyy/mm/dd'),'在**原有基础上，探索出了一套能够有效提升**的理论，技术，模式和方法',2.1,122701); 
@@ -119,6 +121,62 @@ insert into t_project (prid,prdate,prmoney,prname,prsource,prstarttime,prstate,p
         values(1005,4,32,'网络社会国家认同形成机制及其危机预警与应对研究','国家级',to_date('2014/4/11','yyyy/mm/dd'),'已完成',3.1,to_date('2013/4/11','yyyy/mm/dd'),'在**原有基础上，探索出了一套能够有效提升**的理论，技术，模式和方法',2.1,122701); 
 insert into t_project (prid,prdate,prmoney,prname,prsource,prstarttime,prstate,prpremoney,prendtime,prresultinfo,prusefulmoney,teid)
         values(1006,5,4.2,'G20宏观经济政策国际协调的功能与中国角色研究','国家级',to_date('2012/4/11','yyyy/mm/dd'),'已完成',3.1,to_date('2013/4/11','yyyy/mm/dd'),'在**原有基础上，探索出了一套能够有效提升**的理论，技术，模式和方法',2.1,122701); 
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------科研项目 预算明细-------------------------
+
+select * from t_PreMoneyItem for update;
+drop table t_PreMoneyItem;
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------科研项目 经费使用明细-------------------------
+
+select * from t_MoneyItem for update;
+drop table t_MoneyItem;
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------start-----------------------------------教师。科研项目 ------中间表-------------
+select * from t_teacher_project for update;
+
+insert into t_teacher_project values(1001,1001,122701);
+insert into t_teacher_project values(1001,1002,122701);
+insert into t_teacher_project values(1001,1003,122701);
+insert into t_teacher_project values(1001,1004,122701);
+insert into t_teacher_project values(1001,1005,122701);
+insert into t_teacher_project values(1001,1006,122701);
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------end----------------------------------教师。科研项目 ------中间表-------------
+
+
+
+
+
+select * from t_teacher_course for update;
+select * from t_teacher_project for update;
+select * from t_teacher_student;
+
+
+select  'drop table  '||table_name||' cascade constraints;' 
+        from user_tables where table_name in
+             (select upper(table_name) from user_tables);
+
+drop table  T_COURSE cascade constraints;
+drop table  T_MAJOR cascade constraints;
+drop table  T_PAPER cascade constraints;
+drop table  T_PROJECT cascade constraints;
+drop table  T_STUDENT cascade constraints;
+drop table  T_TEACHER cascade constraints;
+drop table  T_TEACHER_COURSE cascade constraints;
+drop table  T_TEACHER_PROJECT cascade constraints;
+drop table  T_TEACHER_STUDENT cascade constraints;
+drop table  T_STU_COURSE cascade constraints;
+
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------论文表-------------------------
@@ -383,33 +441,6 @@ insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicati
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-select * from t_teacher_project;
-
-
-
-
-select * from t_teacher_course for update;
-select * from t_teacher_project;
-select * from t_teacher_student;
-
-
-select  'drop table  '||table_name||' cascade constraints;' 
-        from user_tables where table_name in
-             (select upper(table_name) from user_tables);
-
-drop table  T_COURSE cascade constraints;
-drop table  T_MAJOR cascade constraints;
-drop table  T_PAPER cascade constraints;
-drop table  T_PROJECT cascade constraints;
-drop table  T_STUDENT cascade constraints;
-drop table  T_TEACHER cascade constraints;
-drop table  T_TEACHER_COURSE cascade constraints;
-drop table  T_TEACHER_PROJECT cascade constraints;
-drop table  T_TEACHER_STUDENT cascade constraints;
-drop table  T_STU_COURSE cascade constraints;
-
-
-
 
 
 
