@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <h2 style="text-align: center;font-family: serif">专业更新</h2>
 	<form:form modelAttribute="majorInfo" action="/major/updateMajor">
-	<div style="margin: 0 auto;width: 214px">
+	<div style="margin: 0 auto;width: 214px;border-top: solid 2px black;border-bottom: solid 2px black">
 		<label>专业代号</label>
 		<form:input path="MajorId"/><br>
 		

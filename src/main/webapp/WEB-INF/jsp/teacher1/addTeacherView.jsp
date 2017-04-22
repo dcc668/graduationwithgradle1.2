@@ -15,19 +15,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	<link rel="stylesheet" type="text/css" href="../../../static/teacher1/style_teacher1.css">
   </head>
   
   <body>
   	<h2 style="text-align: center;font-family: serif">教师录入</h2>
 	<form:form modelAttribute="teacherInfo" action="/teacher/addTeacher">
-		<table style="margin: 0 auto;width: 350px">
+		<table id="tab_add">
 			<tr>
 				<td><label>工号：</label></td>
 				<td><form:input path="teId"/></td>
-				<td rowspan="8">		
+				<td rowspan="9">
 						<div style="margin-left: 60">
 							<input type="submit" value="添加"/>
 						</div>

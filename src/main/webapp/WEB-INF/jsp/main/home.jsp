@@ -62,8 +62,10 @@ String ctx =  request.getContextPath();
                 </li>
                 <li><a>专业管理</a>
                     <ul>
-                        <li><a href="<c:url value="/major/addMajorView"/>" target="contentFrame">专业录入</a></li>
-                        <li><a href="<c:url value="/major/queryMajorView"/>" target="contentFrame">查询修改</a></li>
+                        <%--<li><a href="<c:url value="/major/addMajorView"/>" target="contentFrame">专业录入</a></li>--%>
+                        <%--<li><a href="<c:url value="/major/queryMajorView"/>" target="contentFrame">查询修改</a></li>--%>
+                        <li><a href="<c:url value=""/>" target="contentFrame">专业录入</a></li>
+                        <li><a href="<c:url value=""/>" target="contentFrame">查询修改</a></li>
                     </ul>
                 </li>
             </ul>

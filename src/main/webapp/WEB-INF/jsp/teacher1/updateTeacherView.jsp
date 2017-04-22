@@ -18,13 +18,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+
   </head>
   
   <body>
   <h2 style="text-align: center;font-family: serif">教师更新</h2>
 	<form:form modelAttribute="teacherInfo" action="/teacher/updateTeacher">
 		
-		<table style="margin: 0 auto;width: 350px">
+		<table style="margin: 0 auto;width: 350px;border-top: solid 2px black;border-bottom: solid 2px black">
 			<tr>
 				<td><label>工号：</label></td>
 				<td><form:input path="teId"/></td>

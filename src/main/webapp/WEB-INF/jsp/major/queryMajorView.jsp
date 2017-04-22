@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<form id="deleteForm"action="" method="get">
 	</form>
   
-  			<table style="margin: 0 auto;width: 330px;text-align: center">
+  			<table style="margin: 0 auto;width: 330px;text-align: centerborder-top: solid 2px black;border-bottom: solid 2px black">
   			<tr>
   				<th>专业代号</th>
   				<th>专业名称</th>
