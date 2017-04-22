@@ -15,7 +15,7 @@ public class Major  {
 	@GeneratedValue(strategy = GenerationType.AUTO,generator = "MajorSequence")
 	private Integer majorId;
 	private String majorName;
-	@OneToMany(mappedBy="major",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="major",fetch = FetchType.EAGER,targetEntity=Student.class,orphanRemoval=true)
 	private Set<Student> student;
 
 	public Integer getMajorId() {

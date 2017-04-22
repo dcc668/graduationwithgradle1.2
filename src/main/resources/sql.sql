@@ -61,7 +61,8 @@ increment by 1
 minvalue 1 
 nomaxvalue ;
 
-/*------------------------------------删除所有主键序列------------------------------------------------------*/
+
+/*----------------------------------------------------------start----------------删除所有主键序列----------------*/
 select * from user_sequences;
 select  'drop sequence  '||sequence_name||' ;' 
         from user_sequences where sequence_name in
@@ -77,13 +78,104 @@ drop sequence  SEQ_TEACHER ;
 drop sequence  SEQ_TEACHERCOURSE ;
 drop sequence  SEQ_TEACHERPROJECT ;
 drop sequence  SEQ_TEACHERSTUDENT ;
+/*--------------------------------------------------------------end------------删除所有主键序列----------------*/
 
 
 
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------start----------------------------删除多张表-----------------
+select  'drop table  '||table_name||' cascade constraints;' 
+        from user_tables where table_name in
+             (select upper(table_name) from user_tables);
+
+drop table  T_COURSE cascade constraints;
+drop table  T_MAJOR cascade constraints;
+drop table  T_PAPER cascade constraints;
+drop table  T_PROJECT cascade constraints;
+drop table  T_STUDENT cascade constraints;
+drop table  T_TEACHER cascade constraints;
+drop table  T_TEACHER_COURSE cascade constraints;
+drop table  T_TEACHER_PROJECT cascade constraints;
+drop table  T_TEACHER_STUDENT cascade constraints;
+drop table  T_STU_COURSE cascade constraints;
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------start-----------------------------删除多张表-----------------
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------start----------------------------专业-----------------
 select * from t_major;
+insert into T_MAJOR (majorid, majorname)
+values (1, '软件工程');
+insert into T_MAJOR (majorid, majorname)
+values (2, '计算机科学技术');
+insert into T_MAJOR (majorid, majorname)
+values (3, '物联网');
+insert into T_MAJOR (majorid, majorname)
+values (4, '通信');
+insert into T_MAJOR (majorid, majorname)
+values (5, '给水排水');
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------end-------------------------------专业--------------
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------start---------------------------课程------------------
 select * from t_course;
+drop table t_course cascade constraints;
+insert into t_course values(1001,1,'计算机网络',1.5,45,'必修','计通学院');
+insert into t_course values(1002,0,'软件工程1',2.5,35,'必修','计通学院');
+insert into t_course values(1003,0,'UML',2,45,'必修','计通学院');
+insert into t_course values(1004,0,'Java',3,65,'必修','计通学院');
+insert into t_course values(1005,1,'C++',2,45,'必修','计通学院');
+insert into t_course values(1006,1,'编译原理',2,45,'必修','计通学院');
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------end-------------------------课程------------------
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------start-------------------------学生------------------
+
 select * from t_student;
-select * from t_stu_course;
+insert into T_STUDENT (sid, password, sclass, smail, sname, sqq, ssex, stel, majorid)
+values (1, '1990', 'class1', '110@qq.com', '李竟', '582128', '男', '18893494142', 1);
+insert into T_STUDENT (sid, password, sclass, smail, sname, sqq, ssex, stel, majorid)
+values (2, '1991', 'class2', '120@qq.com', '张三', '582128', '男', '18893494142', 2);
+insert into T_STUDENT (sid, password, sclass, smail, sname, sqq, ssex, stel, majorid)
+values (3, '1992', 'class3', '130@qq.com', '王五', '682128', '女', '18893494142', 3);
+insert into T_STUDENT (sid, password, sclass, smail, sname, sqq, ssex, stel, majorid)
+values (4, '1993', 'class1', '140@qq.com', '李四', '582128', '男', '18893494142', 4);
+insert into T_STUDENT (sid, password, sclass, smail, sname, sqq, ssex, stel, majorid)
+values (5, '1994', 'class2', '110@qq.com', '赵六', '182128', '女', '18893494142', 5);
+insert into T_STUDENT (sid, password, sclass, smail, sname, sqq, ssex, stel, majorid)
+values (6, '111', 'class1', '110@qq.com', 'dcc111', '582128', '女', '18893494142', 1);
+insert into T_STUDENT (sid, password, sclass, smail, sname, sqq, ssex, stel, majorid)
+values (7, '1990', 'class1', '110@qq.com', '郑悦2', '582128', '男', '18893494142', 2);
+insert into T_STUDENT (sid, password, sclass, smail, sname, sqq, ssex, stel, majorid)
+values (8, '1991', 'class2', '120@qq.com', '张三2', '582128', '男', '18893494142', 3);
+insert into T_STUDENT (sid, password, sclass, smail, sname, sqq, ssex, stel, majorid)
+values (9, '1992', 'class3', '130@qq.com', '李达2', '682128', '女', '18893494142', 4);
+insert into T_STUDENT (sid, password, sclass, smail, sname, sqq, ssex, stel, majorid)
+values (10, '1993', 'class1', '140@qq.com', '李四2', '582128', '男', '18893494142', 5);
+insert into T_STUDENT (sid, password, sclass, smail, sname, sqq, ssex, stel, majorid)
+values (11, '1994', 'class2', '110@qq.com', '赵六2', '182128', '女', '18893494142', 1);
+insert into T_STUDENT (sid, password, sclass, smail, sname, sqq, ssex, stel, majorid)
+values (12, '111', 'class1', '110@qq.com', 'dcc222', '582128', '女', '18893494142', 2);
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------end-------------------------学生------------------
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------start-------------------------------教师------------------
 select * from t_teacher for update;
 insert into t_teacher values(122701,'上海','140@163.com','李广','123','讲师'，'465438','男','13193494142');
 insert into t_teacher values(122702,'上海','140@163.com','郭涛','123','讲师'，'465438','女','14193494142');
@@ -96,9 +188,19 @@ insert into t_teacher values(122708,'上海','140@163.com','文丽','123','副教授'，
 insert into t_teacher values(122709,'上海','140@163.com','刘岐','123','副教授'，'465438','男','18193494142');
 insert into t_teacher values(122710,'上海','140@163.com','张三','123','院长'，'465438','男','18193494142');
 
-update t_paper set pahostunit='计通学院' where 1=1
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------科研项目--------------------------------------------------------
+drop table t_teacher cascade constraints;
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------end-------------------------------教师------------------
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------start---------------------科研项目--------------------------------------------------------
 select * from t_project for update;
 --预算金额
 alter table t_project drop column pr_premoney ;
@@ -122,18 +224,30 @@ insert into t_project (prid,prdate,prmoney,prname,prsource,prstarttime,prstate,p
 insert into t_project (prid,prdate,prmoney,prname,prsource,prstarttime,prstate,prpremoney,prendtime,prresultinfo,prusefulmoney,teid)
         values(1006,5,4.2,'G20宏观经济政策国际协调的功能与中国角色研究','国家级',to_date('2012/4/11','yyyy/mm/dd'),'已完成',3.1,to_date('2013/4/11','yyyy/mm/dd'),'在**原有基础上，探索出了一套能够有效提升**的理论，技术，模式和方法',2.1,122701); 
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------end---------------------科研项目--------------------------------------------------------
 
 
 
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------科研项目 预算明细-------------------------
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------start-----------------科研项目 预算明细-------------------------
 
 select * from t_PreMoneyItem for update;
 drop table t_PreMoneyItem;
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------end-----------------科研项目 预算明细-------------------------
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------科研项目 经费使用明细-------------------------
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------start-----------------科研项目 经费使用明细-------------------------
 
 select * from t_MoneyItem for update;
 drop table t_MoneyItem;
@@ -167,42 +281,114 @@ insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
 insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
        values(1012,'其他专用费','零散费用',5000,122701,to_date('2016-2-7','yyyy-MM-dd'),1001);   
        
+       
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------end-----------------科研项目 经费使用明细-------------------------
+
+
+
+
+
+
+
+
+
+------//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-----////////
+-----////////
+-----////////                                                                                             -------------中间表---------------
+-----////////
+-----////////
+-----//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------start---------------------学生课程---中间表--------
+select * from t_stu_course;
+insert into T_STU_COURSE (tsid, score, cono, sid)
+values (1, 96, 1, null);
+insert into T_STU_COURSE (tsid, score, cono, sid)
+values (2, 92, 2, 2);
+insert into T_STU_COURSE (tsid, score, cono, sid)
+values (3, 93, 3, 3);
+insert into T_STU_COURSE (tsid, score, cono, sid)
+values (4, 94, 4, 4);
+insert into T_STU_COURSE (tsid, score, cono, sid)
+values (5, 95, 5, 5);
+insert into T_STU_COURSE (tsid, score, cono, sid)
+values (6, 96, 6, null);
+insert into T_STU_COURSE (tsid, score, cono, sid)
+values (7, 57, 1, 6);
+insert into T_STU_COURSE (tsid, score, cono, sid)
+values (8, 98, 2, 7);
+insert into T_STU_COURSE (tsid, score, cono, sid)
+values (9, 99, 3, 8);
+insert into T_STU_COURSE (tsid, score, cono, sid)
+values (10, 79, 5, 9);
+insert into T_STU_COURSE (tsid, score, cono, sid)
+values (11, 49, 4, 10);
+insert into T_STU_COURSE (tsid, score, cono, sid)
+values (12, 9, 2, 11);
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------end---------------------学生课程---中间表-------
+
+
+
+
+
+
+
+
+       
 ---------------------------------------------------------------------------------------------------------------------------------------------start-----------------------------------教师。科研项目 ------中间表-------------
 select * from t_teacher_project for update;
 
 insert into t_teacher_project values(1001,1001,122701);
-insert into t_teacher_project values(1001,1002,122701);
-insert into t_teacher_project values(1001,1003,122701);
-insert into t_teacher_project values(1001,1004,122701);
-insert into t_teacher_project values(1001,1005,122701);
-insert into t_teacher_project values(1001,1006,122701);
+insert into t_teacher_project values(1002,1002,122701);
+insert into t_teacher_project values(1003,1003,122701);
+insert into t_teacher_project values(1004,1004,122701);
+insert into t_teacher_project values(1005,1005,122701);
+insert into t_teacher_project values(1006,1006,122701);
 
-
+drop table t_teacher_project cascade constraints;
 ----------------------------------------------------------------------------------------------------------------------------------------------end----------------------------------教师。科研项目 ------中间表-------------
 
 
 
 
 
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------start-----------------------------------教师。课程------中间表-------------
+
+
 select * from t_teacher_course for update;
-select * from t_teacher_project for update;
+drop table t_teacher_course cascade constraints;
+
+insert into T_TEACHER_COURSE (tcid, housenum, mark, notpassnum, stunum, term, type, cono, teid)
+values (1, 2, null, 0, 0, '春', '理论教学', 1003, 122701);
+insert into T_TEACHER_COURSE (tcid, housenum, mark, notpassnum, stunum, term, type, cono, teid)
+values (2, 2, null, 0, 0, '春', '理论教学', 1004, 122704);
+insert into T_TEACHER_COURSE (tcid, housenum, mark, notpassnum, stunum, term, type, cono, teid)
+values (3, 2, null, 0, 0, '春', '理论教学', 1005, 122705);
+insert into T_TEACHER_COURSE (tcid, housenum, mark, notpassnum, stunum, term, type, cono, teid)
+values (4, 2, null, 0, 0, '春', '理论教学', 1006, 122706);
+insert into T_TEACHER_COURSE (tcid, housenum, mark, notpassnum, stunum, term, type, cono, teid)
+values (5, 2, null, 0, 0, '春', '理论教学', 1001, 122701);
+insert into T_TEACHER_COURSE (tcid, housenum, mark, notpassnum, stunum, term, type, cono, teid)
+values (6, 3, null, 0, 0, '春', '理论教学', 1002, 122701);
+ 
+----------------------------------------------------------------------------------------------------------------------------------------------end----------------------------------教师。课程 ------中间表-------------
+
+
+
 select * from t_teacher_student;
+drop table t_teacher_student cascade constraints;
 
 
-select  'drop table  '||table_name||' cascade constraints;' 
-        from user_tables where table_name in
-             (select upper(table_name) from user_tables);
 
-drop table  T_COURSE cascade constraints;
-drop table  T_MAJOR cascade constraints;
-drop table  T_PAPER cascade constraints;
-drop table  T_PROJECT cascade constraints;
-drop table  T_STUDENT cascade constraints;
-drop table  T_TEACHER cascade constraints;
-drop table  T_TEACHER_COURSE cascade constraints;
-drop table  T_TEACHER_PROJECT cascade constraints;
-drop table  T_TEACHER_STUDENT cascade constraints;
-drop table  T_STU_COURSE cascade constraints;
+
+
 
 
 
@@ -210,6 +396,7 @@ drop table  T_STU_COURSE cascade constraints;
 select * from   t_paper for update; 
 alter table t_paper modify(pastarttime datetime);
 select * from t_paper where substr(to_char(pastarttime,'yyyy-mm-dd'),0,4)='2016';
+drop table t_paper cascade constraints;
 
 insert into t_paper(paId,pahostunit,paname,papagenum,papublicationno,papublicationname,pastarttime,pastate,teid)
        values(1001,'计通学院','基于Gabor特征分解的高斯混合非线性过滤波器',3,'NO122791','科技通报',to_date('2016/4/11','yyyy-mm-dd'),'SCI',122701);

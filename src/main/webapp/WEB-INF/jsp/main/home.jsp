@@ -95,32 +95,12 @@ String ctx =  request.getContextPath();
                  <li ><a href="<c:url value="/project/projectInfoAddView"/>" target="contentFrame">科研项目录入</a></li>
                  <li ><a href="<c:url value="/project/projectInfoUpdateView"/>" target="contentFrame">科研项目更改</a></li>
                  <li ><a href="<c:url value="/project/moneyItemInfoManageView"/>" target="contentFrame">科研经费管理</a></li>
-                 <li ><a href="<c:url value="/project/paperStatistcsView"/>" target="contentFrame">年度论文统计</a></li>
+                 <li ><a href="<c:url value="/paper/paperStatistcsView"/>" target="contentFrame">年度论文统计</a></li>
              </ul>
         </li>
         <li><a href="#"><img src="<c:url value="/styles/img/icons/menu/layout.png"/>"/>课题评审</a>
             <ul>
                 <li><a href="<c:url value="toReview"/>" target="contentFrame">评审入口</a></li>
-            </ul>
-        </li>
-     </shiro:hasPermission>
-      <shiro:hasPermission name="teacher:all">
-         <li><a href="#"><img src="<c:url value="/styles/img/icons/menu/layout.png"/>"/>下载课题</a>
-            <ul>
-                <li><a href="<c:url value="fileUploadDownload/downloadFileView"/>" target="contentFrame">下载学生已完成课题</a></li>
-            </ul>
-        </li>
-        
-         <li><a href="#"><img src="<c:url value="/styles/img/icons/menu/layout.png"/>"/>教师评分</a>
-            <ul>
-                <li><a href="<c:url value="teacher/directiveTeaGradeView"/>" target="contentFrame">教师评分入口</a></li>
-            </ul>
-        </li>
-        
-        <li><a href="#"><img src="<c:url value="/styles/img/icons/menu/layout.png"/>"/>统计分析</a>
-            <ul>
-                <li><a href="<c:url value="statisticsShooseView"/>" target="contentFrame">学生选题情况统计</a></li>
-                <li><a href="<c:url value="statisticsTitleMarginView"/>" target="contentFrame">选课余量统计</a></li>
             </ul>
         </li>
      </shiro:hasPermission>

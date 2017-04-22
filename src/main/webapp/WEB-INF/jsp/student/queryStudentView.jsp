@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title></title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -26,16 +26,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        if(!statu){
 	            return false;
 	        }
-		$("#deleteForm").attr("action","main/student/deleteStudent/"+id+"");
+		$("#deleteForm").attr("action","/student/deleteStudent/"+id+"");
 		document.forms[0].submit(); 
 	}
 </script>
   </head>
   <body>
+  <h2 style="text-align: center;font-family: serif">查询更新</h2>
 	<form id="deleteForm"action="" method="get">
 	</form>
   
-  			<table >
+  			<table  style="margin: 0 auto;width: 680px">
   			<tr>
   				<th>工号</th>
   				<th>姓名</th>
@@ -60,10 +61,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td><span>${titleReviewInfo.sTel }</span></td>
 							<td><span>${titleReviewInfo.sMail }</span></td>
 							<td><span>${titleReviewInfo.sQQ }</span></td>
-							<td><a href="<c:url value='main/student/updateStudentView/${titleReviewInfo.id }'/>">更新</a></td> 
-<%-- 							<td ><a href="<c:url value='main/student/deleteStudent/${titleReviewInfo.id }' />">删除</a></td> --%>
-<%-- 							<td ><a href="javascript:del1('${titleReviewInfo.tId }')">更新</a></td>--%>
-							<td ><a  href="javascript:del('${titleReviewInfo.id }')">删除</a></td> 
+							<td><a href="<c:url value='/student/updateStudentView/${titleReviewInfo.id }'/>">更新</a></td>
+							<td ><a  href="javascript:del('${titleReviewInfo.id }')">删除</a></td>
 					</tr>
 				</c:forEach>
 				

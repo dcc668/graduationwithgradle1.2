@@ -26,16 +26,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        if(!statu){
 	            return false;
 	        }
-		$("#deleteForm").attr("action","main/major/deleteMajor/"+id+"");
+		$("#deleteForm").attr("action","/major/deleteMajor/"+id+"");
 		document.forms[0].submit(); 
 	}
 </script>
   </head>
   <body>
+  <h2 style="text-align: center;font-family: serif">专业查询</h2>
 	<form id="deleteForm"action="" method="get">
 	</form>
   
-  			<table >
+  			<table style="margin: 0 auto;width: 330px;text-align: center">
   			<tr>
   				<th>专业代号</th>
   				<th>专业名称</th>
@@ -47,10 +48,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		       	 	<tr>
 							<td><span>${titleReviewInfo.majorId }</span></td>
 							<td><span>${titleReviewInfo.majorName }</span></td>
-							<td><a href="<c:url value='main/major/updateMajorView/${titleReviewInfo.majorId}'/>">更新</a></td> 
-<%-- 							<td ><a href="<c:url value='main/student/deleteStudent/${titleReviewInfo.id }' />">删除</a></td> --%>
-<%-- 							<td ><a href="javascript:del1('${titleReviewInfo.tId }')">更新</a></td>--%>
-							<td ><a  href="javascript:del('${titleReviewInfo.majorId}')">删除</a></td> 
+							<td><a href="<c:url value='/major/updateMajorView/${titleReviewInfo.majorId}'/>">更新</a></td>
+							<td ><a  href="javascript:del('${titleReviewInfo.majorId}')">删除</a></td>
 					</tr>
 				</c:forEach>
 				

@@ -476,7 +476,6 @@ public class TeacherController {
 	//更新
 	@RequestMapping(value = "/updateTeacherView/{tId}", method = RequestMethod.GET)
 	public String updateTeacherView(Model model, @ModelAttribute TeacherInfo teacherInfo, @PathVariable("tId") int tId) {
-		System.out.println("updateTeacherView=====tId:" + tId);
 		Teacher tea = teacherService.findById(tId);
 		teacherInfo.setTeId(tea.getTeId());
 		teacherInfo.setTePassword(tea.getTePassword());
@@ -488,7 +487,7 @@ public class TeacherController {
 		teacherInfo.setTeAddr(tea.getTeAddr());
 		teacherInfo.setTeTel(tea.getTeTel());
 		model.addAttribute("teacherInfo", teacherInfo);
-		return "/teacher/updateTeacherView";
+		return "/teacher1/updateTeacherView";
 	}
 
 	@RequestMapping(value = "/updateTeacher", method = RequestMethod.POST)
@@ -497,7 +496,6 @@ public class TeacherController {
 		tea.setTeId(teacherInfo.getTeId());
 		tea.setTePassword(teacherInfo.getTePassword());
 		tea.setTeAddr(teacherInfo.getTeAddr());
-//			tea.setTeitle(title);
 		tea.setTeMail(teacherInfo.getTeMail());
 		tea.setTeName(teacherInfo.getTeName());
 		tea.setTeTel(teacherInfo.getTeTel());

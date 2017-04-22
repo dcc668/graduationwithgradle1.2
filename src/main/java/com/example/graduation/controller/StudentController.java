@@ -2,6 +2,7 @@ package com.example.graduation.controller;
 
 import com.example.graduation.model.Major;
 import com.example.graduation.model.Student;
+import com.example.graduation.service.MajorService;
 import com.example.graduation.service.StudentService;
 import com.example.graduation.vo.StudentInfo;
 import org.apache.log4j.Logger;
@@ -22,6 +23,9 @@ public class StudentController {
     private Logger log = Logger.getLogger(StudentController.class);
     @Autowired
     private StudentService studentService;
+    @Autowired
+    private MajorService majorService;
+
     //学生管理
     //添加
     @RequestMapping("/addStudentView")
@@ -30,7 +34,7 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/addStudent", method = RequestMethod.POST)
-    public String addStudent(@ModelAttribute StudentInfo studentInfo) {
+    public String addStudent(@ModelAttribute StudentInfo studentInfo,Model model) {
         Student tea = new Student();
         tea.setsId(studentInfo.getId());
         tea.setPassword(studentInfo.getsPassword());
@@ -40,9 +44,19 @@ public class StudentController {
         tea.setsTel(studentInfo.getsTel());
         tea.setsSex(studentInfo.getsSex());
         tea.setsQQ(studentInfo.getsQQ());
-        Major major = new Major();
-        major.setMajorId(studentInfo.getMajorId());
-        tea.setMajor(major);
+        Integer majorId = studentInfo.getMajorId();
+        boolean isRight=false;
+        if(majorId>0){
+            Major major = majorService.findById(majorId);
+            if(major!=null){
+                tea.setMajor(major);
+                isRight=true;
+            }
+        }
+        if(!isRight){
+            model.addAttribute("msg","专业编号不合法，没找到相应的专业");
+            return "/error/Failure";
+        }
         studentService.add(tea);
 
         return "/main/Success";

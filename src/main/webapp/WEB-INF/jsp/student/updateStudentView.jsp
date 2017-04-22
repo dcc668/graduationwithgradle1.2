@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title></title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -22,19 +22,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
 
-	<form:form modelAttribute="studentInfo" action="main/student/updateStudent">
-		
-		<table >
+	<form:form modelAttribute="studentInfo" action="/student/updateStudent">
+		<h2 style="text-align: center;font-family: serif">学生更改</h2>
+		<table style="margin: 0 auto;width: 350px">
 			<tr>
 				<td><label>学号：</label></td>
 				<td><form:input path="id"/></td>
 				<td rowspan="8">		
 						<div style="margin-left: 60">
-							<input type="submit" value="添加"/>
+							<input type="submit" value="更新"/>
 						</div>
 				</td>
 			</tr>
-		
 		<tr>
 			<td><label>姓名</label></td>
 			<td><form:input path="sName"/></td>

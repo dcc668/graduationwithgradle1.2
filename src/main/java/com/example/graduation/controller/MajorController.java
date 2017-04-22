@@ -54,7 +54,7 @@ public class MajorController {
     }
 
     //更新
-    @RequestMapping(value = "/major/updateMajorView/{tId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/updateMajorView/{tId}", method = RequestMethod.GET)
     public String updateMajorView(Model model, @ModelAttribute MajorInfo majorInfo, @PathVariable("tId") int tId) {
         Major tea = majorService.findById(tId);
         majorInfo.setMajorId(tea.getMajorId());
@@ -63,7 +63,7 @@ public class MajorController {
         return "/major/updateMajorView";
     }
 
-    @RequestMapping(value = "/major/updateMajor", method = RequestMethod.POST)
+    @RequestMapping(value = "/updateMajor", method = RequestMethod.POST)
     public String updateMajor(@ModelAttribute MajorInfo majorInfo) {
         Major tea = new Major();
         tea.setMajorId(majorInfo.getMajorId());

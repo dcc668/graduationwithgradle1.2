@@ -19,11 +19,18 @@ public class Teacher  {
 	private	String teAddr;
 	private	String teMail;
 	private	String teQQ;
-	@OneToMany(mappedBy="teacher",fetch= FetchType.LAZY)
+
+	/**
+	 * 用于hibernate级联删除
+	 * @return
+	 */
+	@OneToMany(targetEntity=TeacherStudent.class,orphanRemoval=true,mappedBy = "teacher")
 	private Set<TeacherStudent> teaStu;
-	@OneToMany(mappedBy="teacher",fetch= FetchType.LAZY)
+	@OneToMany(targetEntity=TeacherProject.class,orphanRemoval=true,mappedBy = "teacher")
 	private Set<TeacherProject> teaPro;
-	@OneToMany(mappedBy="teacher",fetch= FetchType.LAZY)
+	@OneToMany(targetEntity=TeacherCourse.class,orphanRemoval=true,mappedBy = "teacher")
+	private Set<TeacherCourse> teaCou;
+	@OneToMany(targetEntity=Paper.class,orphanRemoval=true,mappedBy = "teacher")
 	private Set<Paper> papers;
 
 
@@ -121,5 +128,13 @@ public class Teacher  {
 
 	public void setPapers(Set<Paper> papers) {
 		this.papers = papers;
+	}
+
+	public Set<TeacherCourse> getTeaCou() {
+		return teaCou;
+	}
+
+	public void setTeaCou(Set<TeacherCourse> teaCou) {
+		this.teaCou = teaCou;
 	}
 }

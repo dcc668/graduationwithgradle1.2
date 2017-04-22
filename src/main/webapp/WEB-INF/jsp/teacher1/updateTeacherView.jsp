@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-	<h4 style="margin: 0 auto">教师更新</h4>
+  <h2 style="text-align: center;font-family: serif">教师更新</h2>
 	<form:form modelAttribute="teacherInfo" action="/teacher/updateTeacher">
 		
 		<table style="margin: 0 auto;width: 350px">

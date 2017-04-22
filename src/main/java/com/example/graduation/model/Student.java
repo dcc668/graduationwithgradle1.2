@@ -21,9 +21,9 @@ public class Student {
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "majorId")
     private Major major;
-    @OneToMany(mappedBy = "student" , fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "student" , fetch = FetchType.LAZY,targetEntity=TeacherStudent.class,orphanRemoval=true)
     private Set<TeacherStudent> teacherStudent;
-    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY,targetEntity=StudentCourse.class,orphanRemoval=true)
     private Set<StudentCourse> studentCourse;
 
 
