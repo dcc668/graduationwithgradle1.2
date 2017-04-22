@@ -137,6 +137,8 @@ drop table t_PreMoneyItem;
 
 select * from t_MoneyItem for update;
 drop table t_MoneyItem;
+select sum(summoney) from t_moneyitem;
+
 insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
        values(1001,'办公用品,水','项目整个过程中使用',23000,122701,to_date('2016-2-3','yyyy-MM-dd'),1001);
 insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
@@ -163,7 +165,8 @@ insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
 insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
        values(1011,'协助费','外聘专家使用',9000,122701,to_date('2016-6-3','yyyy-MM-dd'),1001);
 insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
-       values(1012,'其他','零散费用',5000,122701,to_date('2016-2-7','yyyy-MM-dd'),1001);   
+       values(1012,'其他专用费','零散费用',5000,122701,to_date('2016-2-7','yyyy-MM-dd'),1001);   
+       
 ---------------------------------------------------------------------------------------------------------------------------------------------start-----------------------------------教师。科研项目 ------中间表-------------
 select * from t_teacher_project for update;
 

@@ -137,9 +137,33 @@ drop table t_PreMoneyItem;
 
 select * from t_MoneyItem for update;
 drop table t_MoneyItem;
-
-
-
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1001,'办公用品,水','项目整个过程中使用',23000,122701,to_date('2016-2-3','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1002,'水电费','办公地点水电费',3000,122701,to_date('2016-3-3','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1003,'租赁费','办公地点房租',9000,122701,to_date('2016-3-3','yyyy-MM-dd'),1001);
+       
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1004,'资料,书报,检索','项目开发过程中资料费',2000,122701,to_date('2016-2-4','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1005,'材料费','项目开发过程中材料费',5000,122701,to_date('2016-5-3','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1006,'印刷费，版面','项目整个过程中使用',23000,122701,to_date('2016-2-5','yyyy-MM-dd'),1001);
+       
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1007,'车费，过路费，油费','项目调研中使用',7000,122701,to_date('2016-2-6','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1008,'差旅费','项目调研中使用',9000,122701,to_date('2016-6-3','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1009,'设备费购置','项目开发过程中购买设备费用',50000,122701,to_date('2016-2-7','yyyy-MM-dd'),1001);       
+       
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1010,'招待费','项目调研中使用',7000,122701,to_date('2016-2-6','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1011,'协助费','外聘专家使用',9000,122701,to_date('2016-6-3','yyyy-MM-dd'),1001);
+insert into t_moneyitem(moid,itemname,mark,summoney,teid,time,prid)
+       values(1012,'其他','零散费用',5000,122701,to_date('2016-2-7','yyyy-MM-dd'),1001);   
 ---------------------------------------------------------------------------------------------------------------------------------------------start-----------------------------------教师。科研项目 ------中间表-------------
 select * from t_teacher_project for update;
 

@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title></title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -21,13 +21,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-
-	<form:form modelAttribute="teacherInfo" action="main/teacher/addTeacher">
-		
-		<table >
+  	<h2 style="text-align: center;font-family: serif">教师录入</h2>
+	<form:form modelAttribute="teacherInfo" action="/teacher/addTeacher">
+		<table style="margin: 0 auto;width: 350px">
 			<tr>
 				<td><label>工号：</label></td>
-				<td><form:input path="tId"/></td>
+				<td><form:input path="teId"/></td>
 				<td rowspan="8">		
 						<div style="margin-left: 60">
 							<input type="submit" value="添加"/>
@@ -37,46 +36,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			<tr>
 				<td><label>姓名：</label></td>
-				<td><form:input path="tName"/></td>
+				<td><form:input path="teName"/></td>
 			</tr>	
 			
 			<tr>
 				<td><label>登录密码：</label></td>
-				<td><form:input path="tPassword"/></td>
+				<td><form:input path="tePassword"/></td>
 			</tr>	
 					
 			<tr>
 				<td><label>性别：</label></td>
-				<td><form:input path="tSex"/></td>
+				<td><form:input path="teSex"/></td>
 			</tr>	
 				
 			<tr>	
 				<td><label>职位：</label></td>
-				<td><form:input path="tPosition"/></td>
+				<td><form:input path="tePosition"/></td>
 			</tr>	
 			
 			<tr>	
 				<td><label>电话：</label></td>
-				<td><form:input path="tTel"/></td>
+				<td><form:input path="teTel"/></td>
 			</tr>	
 				
 			<tr>	
 				<td><label>地址：</label></td>
-				<td><form:input path="tAddr"/></td>
+				<td><form:input path="teAddr"/></td>
 			</tr>		
 			
 			<tr>	
 				<td><label>E-Mail：</label></td>
-				<td><form:input path="tMail"/></td>
+				<td><form:input path="teMail"/></td>
 			</tr>		
 			
 			<tr>	
 				<td><label>QQ：</label></td>
-				<td><form:input path="tQQ"/></td>
+				<td><form:input path="teQQ"/></td>
 			</tr>	
 			
 		</table>
-
 	</form:form>
 
 	

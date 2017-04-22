@@ -26,16 +26,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        if(!statu){
 	            return false;
 	        }
-		$("#deleteForm").attr("action","main/teacher/deleteTeacher/"+id+"");
+		$("#deleteForm").attr("action","/teacher/deleteTeacher/"+id+"");
 		document.forms[0].submit(); 
 	}
 </script>
   </head>
   <body>
+  <h2 style="text-align: center;font-family: serif">查询更改</h2>
 	<form id="deleteForm"action="" method="get">
 	</form>
   
-  			<table >
+  			<table style="margin: 0 auto;width: 680px">
   			<tr>
   				<th>工号</th>
   				<th>姓名</th>
@@ -49,17 +50,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	
 		        <c:forEach items="${teaInfs}" var="titleReviewInfo">
 		       	 	<tr>
-							<td><span>${titleReviewInfo.tId }</span></td>
-							<td><span>${titleReviewInfo.tName }</span></td>
-							<td><span>${titleReviewInfo.tSex }</span></td>
-							<td><span>${titleReviewInfo.tPosition }</span></td>
-							<td><span>${titleReviewInfo.tTel }</span></td>
-							<td><span>${titleReviewInfo.tMail }</span></td>
-							<td><span>${titleReviewInfo.tQQ }</span></td>
-							<td><a href="<c:url value='main/teacher/updateTeacherView/${titleReviewInfo.tId }'/>">更新</a></td> 
-<%-- 							<td ><a href="<c:url value='main/teacher/deleteTeacher/${titleReviewInfo.tId }' />">删除</a></td> --%>
-<%-- 							<td ><a href="javascript:del1('${titleReviewInfo.tId }')">更新</a></td> --%>
-							<td ><a href="javascript:del('${titleReviewInfo.tId }')">删除</a></td>
+							<td><span>${titleReviewInfo.teId }</span></td>
+							<td><span>${titleReviewInfo.teName }</span></td>
+							<td><span>${titleReviewInfo.teSex }</span></td>
+							<td><span>${titleReviewInfo.tePosition }</span></td>
+							<td><span>${titleReviewInfo.teTel }</span></td>
+							<td><span>${titleReviewInfo.teMail }</span></td>
+							<td><span>${titleReviewInfo.teQQ }</span></td>
+							<td><a href="<c:url value='/teacher/updateTeacherView/${titleReviewInfo.teId }'/>">更新</a></td>
+							<td ><a href="javascript:del('${titleReviewInfo.teId }')">删除</a></td>
 					</tr>
 				</c:forEach>
 				

@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -421,5 +422,98 @@ public class TeacherController {
 		}finally {
 			writer.close();
 		}
+	}
+
+
+	//教师管理
+	//添加
+	@RequestMapping("/addTeacherView")
+	public String addTeacherView(@ModelAttribute TeacherInfo teacherInfo) {
+		System.out.println("addTeacherView");
+		return "/teacher1/addTeacherView";
+	}
+
+	@RequestMapping(value = "/addTeacher", method = RequestMethod.POST)
+	public String addTeacher(@ModelAttribute TeacherInfo teacherInfo) {
+		System.out.println("addTeacher");
+		Teacher tea = new Teacher();
+		tea.setTeId(teacherInfo.getTeId());
+		tea.setTePassword(teacherInfo.getTePassword());
+		tea.setTeAddr(teacherInfo.getTeAddr());
+//			tea.setTitle(title);
+		tea.setTeMail(teacherInfo.getTeMail());
+		tea.setTeName(teacherInfo.getTeName());
+		tea.setTeTel(teacherInfo.getTeTel());
+		tea.setTeSex(teacherInfo.getTeSex());
+		tea.setTeQQ(teacherInfo.getTeQQ());
+		tea.setTePosition(teacherInfo.getTePosition());
+		teacherService.add(tea);
+
+		return "/main/Success";
+	}
+
+	//查询
+	@RequestMapping("/queryTeacherView")
+	public String queryTeacherView(Model model, @ModelAttribute TeacherInfo teacherInfo) {
+		System.out.println("queryTeacherView=======");
+		List<Teacher> teas = (List<Teacher>) teacherService.findAll();
+		List<TeacherInfo> teaInfs = new ArrayList<TeacherInfo>();
+		for (Teacher tea : teas) {
+			TeacherInfo teaInf = new TeacherInfo();
+			teaInf.setTeId(tea.getTeId());
+			teaInf.setTeMail(tea.getTeMail());
+			teaInf.setTeName(tea.getTeName());
+			teaInf.setTePosition(tea.getTePosition());
+			teaInf.setTeQQ(tea.getTeQQ());
+			teaInf.setTeSex(tea.getTeSex());
+			teaInf.setTeTel(tea.getTeTel());
+			teaInfs.add(teaInf);
+		}
+		model.addAttribute("teaInfs", teaInfs);
+		return "/teacher1/queryTeacherView";
+	}
+
+	//更新
+	@RequestMapping(value = "/updateTeacherView/{tId}", method = RequestMethod.GET)
+	public String updateTeacherView(Model model, @ModelAttribute TeacherInfo teacherInfo, @PathVariable("tId") int tId) {
+		System.out.println("updateTeacherView=====tId:" + tId);
+		Teacher tea = teacherService.findById(tId);
+		teacherInfo.setTeId(tea.getTeId());
+		teacherInfo.setTePassword(tea.getTePassword());
+		teacherInfo.setTeMail(tea.getTeMail());
+		teacherInfo.setTeName(tea.getTeName());
+		teacherInfo.setTePosition(tea.getTePosition());
+		teacherInfo.setTeQQ(tea.getTeQQ());
+		teacherInfo.setTeSex(tea.getTeSex());
+		teacherInfo.setTeAddr(tea.getTeAddr());
+		teacherInfo.setTeTel(tea.getTeTel());
+		model.addAttribute("teacherInfo", teacherInfo);
+		return "/teacher/updateTeacherView";
+	}
+
+	@RequestMapping(value = "/updateTeacher", method = RequestMethod.POST)
+	public String updateTeacher(@ModelAttribute TeacherInfo teacherInfo) {
+		Teacher tea = new Teacher();
+		tea.setTeId(teacherInfo.getTeId());
+		tea.setTePassword(teacherInfo.getTePassword());
+		tea.setTeAddr(teacherInfo.getTeAddr());
+//			tea.setTeitle(title);
+		tea.setTeMail(teacherInfo.getTeMail());
+		tea.setTeName(teacherInfo.getTeName());
+		tea.setTeTel(teacherInfo.getTeTel());
+		tea.setTeSex(teacherInfo.getTeSex());
+		tea.setTeQQ(teacherInfo.getTeQQ());
+		tea.setTePosition(teacherInfo.getTePosition());
+		teacherService.update(tea);
+
+		return "/main/Success";
+	}
+
+	//删除
+	@RequestMapping(value = "/deleteTeacher/{tId}")
+	public String deleteTeacher(@PathVariable("tId") int tId, @ModelAttribute TeacherInfo teacherInfo) {
+		System.out.println("deleteTeacher=====tId:" + tId);
+		teacherService.deleteById(tId);
+		return "/main/Success";
 	}
 }
